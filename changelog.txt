@@ -1,0 +1,42 @@
+===================================
+Momentous Lite Changelog
+===================================
+
+Version 1.0.6
+-----------------------------------
+[updated] Featured Content class to new version with many code improvements
+[added] new setting to display featured posts in latest blog post listing
+
+Version 1.0.5
+-----------------------------------
+[added] language files for German, Dutch, Italian and Spanish translation
+[changed] implementation of title tag to add_theme_support method
+[removed] old unnecessary wp_title filter function
+
+Version 1.0.4
+-----------------------------------
+[added] setting for deactivating google fonts in case they are not compatible with user language
+[changed] implementation of credit link
+[removed] unnecessary CSS markup
+
+Version 1.0.3
+-----------------------------------
+[added] Masonry JS layout for two column post layout
+[added] unminified version of html5shiv.min.js
+[added] action hooks before footer and for site title
+[moved] credit link and footer text functions to /inc/template-tags.php
+
+Version 1.0.2
+-----------------------------------
+[improved] styling of blockquotes
+[fixed] wrong translation textdomain in some files
+[fixed] ampersand escape bug in pagination links (https://core.trac.wordpress.org/ticket/30831)
+
+Version 1.0.1
+-----------------------------------
+[added] setting to choose between one and two column post layout
+[updated] to the latest Genericon Font 3.3 and added new social icons
+
+Version 1.0
+-----------------------------------
+Final Version

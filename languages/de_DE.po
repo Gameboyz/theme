@@ -1,0 +1,430 @@
+# Translation of Momentous in German
+# This file is distributed under the same license as the Momentous package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2015-03-17 11:07+0100\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Poedit 1.5.7\n"
+"Project-Id-Version: Momentous\n"
+"POT-Creation-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+
+#: 404.php:9
+msgid "404 Error: Not found"
+msgstr "Fehler 404: Nicht gefunden"
+
+#: 404.php:12
+msgid ""
+"The page you trying to reach does not exist, or has been moved. Please use "
+"the menus or the search box to find what you are looking for"
+msgstr ""
+"Die Seite, die Sie versuchen zu erreichen, existiert nicht oder wurde "
+"verschoben. Bitte verwenden Sie die Menüs oder das Suchfeld zu finden, was "
+"Sie suchen"
+
+#: 404.php:14
+msgid "Search"
+msgstr "Suche"
+
+#: 404.php:17
+msgid "Recent Posts"
+msgstr "Aktuelle Beiträge"
+
+#: 404.php:27
+msgid "Pages"
+msgstr "Seiten"
+
+#: archive.php:14
+msgid "Monthly Archives: %s"
+msgstr "Monatliches Archiv: %s"
+
+#: archive.php:14
+msgid "F Y"
+msgstr "F Y"
+
+#: archive.php:16
+msgid "Archives"
+msgstr "Archive"
+
+#: author.php:16
+msgid "Author Archives: %s"
+msgstr "Autor Archive: %s"
+
+#: category.php:12
+msgid "Category Archives: %s"
+msgstr "Kategorie Archive: %s"
+
+#: comments.php:13
+msgid "Enter password to view comments."
+msgstr "Sie müssen angemeldet sein um Kommentare zu sehen."
+
+#: comments.php:23
+msgid "One comment"
+msgstr "ein Kommentar"
+
+#: comments.php:23
+msgid "% comments"
+msgstr "% comments"
+
+#: comments.php:41
+msgid "Leave a Reply"
+msgstr "Hinterlasse einen Kommentar"
+
+#: comments.php:42
+msgid "Leave a Reply to %s"
+msgstr "Hinterlasse einen Kommentar zu %s"
+
+#: content-one-column.php:12 content.php:14 featured-content.php:44
+msgid "Continue reading &raquo;"
+msgstr "Weiterlesen &raquo;"
+
+#: functions.php:87
+msgid "Main Navigation"
+msgstr "Hauptnavigation"
+
+#: functions.php:88
+msgid "Top Navigation"
+msgstr "Obere Navigation"
+
+#: functions.php:89
+msgid "Social Icons"
+msgstr "Social-Media-Symbole"
+
+#: functions.php:121
+msgid "Sidebar"
+msgstr "Seitenleiste"
+
+#: functions.php:123
+msgid "Appears on posts and pages except front page and fullwidth template."
+msgstr ""
+"Erscheint in Beiträgen und Seiten außer Startseite und Vollbild-Vorlage"
+
+#: functions.php:155
+msgid "Page %s"
+msgstr "Seite %s"
+
+#: functions.php:182
+msgid "Powered by %1$s and %2$s."
+msgstr "Präsentiert von %1$s und %2$s."
+
+#: functions.php:183
+msgid "WordPress"
+msgstr "WordPress"
+
+#: functions.php:184
+msgid "Momentous"
+msgstr "Momentous"
+
+#: functions.php:226
+msgid "Pingback:"
+msgstr "Pingback:"
+
+#: functions.php:227 functions.php:245
+msgid "(Edit)"
+msgstr "﻿(Bearbeiten)"
+
+#: functions.php:240
+msgid "<span class=\"fn\">%s</span>"
+msgstr "<span class=\"fn\">%s</span>"
+
+#: functions.php:244
+msgid "%1$s at %2$s"
+msgstr "%1$s auf %2$s"
+
+#: functions.php:255
+msgid "Your comment is awaiting moderation."
+msgstr "Ihr Kommentar wurde noch nicht genehmigt."
+
+#: image.php:19
+msgid "Previous"
+msgstr "vorherige"
+
+#: image.php:20
+msgid "Next"
+msgstr "nächste"
+
+#: image.php:26
+msgid "Return to Gallery"
+msgstr "Zurück zur Galerie"
+
+#: image.php:27
+msgid "Return to"
+msgstr "Zurück zu"
+
+#: search.php:13 search.php:32
+msgid "Search Results for: %s"
+msgstr "Suchergebnisse für %s"
+
+#: search.php:38
+msgid ""
+"No matches. Please try again, or use the navigation menus to find what you "
+"search for."
+msgstr ""
+"Keine Übereinstimmungen gefunden: Bitte versuchen Sie es erneut oder nutzen "
+"Sie die Navigation um zu finden, wonach Sie suchen."
+
+#: searchform.php:4
+msgid "Search for:"
+msgstr "Suche"
+
+#: sidebar.php:24
+msgid "Widget Area"
+msgstr "Widget-Bereich"
+
+#: sidebar.php:26
+msgid ""
+"There are no active widgets to be displayed. Please go to Appearance -> "
+"Widgets to setup your sidebar."
+msgstr ""
+"Es gibt keine aktiven Widgets die angzeigt werden können. Bitte Gehen zum "
+"Menüpunkt Design ->Widgets auf dem Dashboard um die Seitenleiste "
+"einzurichten."
+
+#: tag.php:12
+msgid "Tag Archives: %s"
+msgstr "﻿Tag Archive: %s"
+
+#: inc/featured-content.php:419
+msgid "Featured Content"
+msgstr "Empfohlener Inhalt"
+
+#: inc/featured-content.php:420
+msgid ""
+"Use a <a href=\"%1$s\">tag</a> to feature your posts. If no posts match the "
+"tag, <a href=\"%2$s\">sticky posts</a> will be displayed instead."
+msgstr ""
+"Verwenden Sie einen <a href=\"%1$s\">Schlagwort</a> um ihre Berichte zu "
+"empfehlen. Wenn keine Berichte dem Schlagwort entsprechen, werden "
+"stattdessen <a href=\"%2$s\">Berichte auf der Startseite halten</a> "
+"angezeigt."
+
+#: inc/featured-content.php:421 inc/featured-content.php:430
+#: inc/featured-content.php:490
+msgid "featured"
+msgstr "empfohlen"
+
+#: inc/featured-content.php:442
+msgid "Tag Name"
+msgstr "Schlagwort"
+
+#: inc/featured-content.php:447
+msgid "Don&rsquo;t display tag on front end."
+msgstr "Schlagwort nicht auf Seite anzeigen."
+
+#: inc/template-tags.php:43
+msgid ""
+"Posted on <a href=\"%1$s\" title=\"%2$s\" rel=\"bookmark\"><time datetime="
+"\"%3$s\">%4$s</time></a>"
+msgstr ""
+"Veröffentlicht am <a href=\"%1$s\" title=\"%2$s\" rel=\"bookmark\"><time "
+"datetime=\"%3$s\">%4$s</time></a>"
+
+#: inc/template-tags.php:53
+msgid "by <a href=\"%1$s\" title=\"%2$s\" rel=\"author\">%3$s</a>"
+msgstr "von <a href=\"%1$s\" title=\"%2$s\" rel=\"author\">%3$s</a>"
+
+#: inc/template-tags.php:55
+msgid "View all posts by %s"
+msgstr "Zeige alle Beiträge von %s"
+
+#: inc/template-tags.php:218
+msgid ""
+"Please go to WP-Admin-> Appearance-> Menus and create a new custom menu with "
+"custom links to all your social networks. Then click on \"Manage Locations\" "
+"tab and assign your created menu to the \"Social Icons\" theme location."
+msgstr ""
+"Bitte gehen Sie im Dashboard auf Design-> Menüs und erstellen Sie ein "
+"benutzerdefiniertes Menü mit Links zu ihren Seiten in sozialen Netzwerken. "
+"Dann klicken Sie unter \"Position im Theme\" auf \"Social Icons\" um ihr "
+"gerade erstelltes Menü diesem Bereich zuzuweisen."
+
+#: inc/theme-info.php:15
+msgid "Welcome to Momentous"
+msgstr "Willkommen beim Design Momentous"
+
+#: inc/theme-info.php:16
+msgid "Theme Info"
+msgstr "Design-Info"
+
+#: inc/theme-info.php:35
+msgid "Welcome to %1s %2s"
+msgstr "Willkommen bei %1s %2s"
+
+#: inc/theme-info.php:41
+msgid "Important Links:"
+msgstr "wichtige Links:"
+
+#: inc/theme-info.php:42
+msgid "Theme Info Page"
+msgstr "Design-Infoseite"
+
+#: inc/theme-info.php:43
+msgid "Changelog"
+msgstr "Änderungsprotokoll"
+
+#: inc/theme-info.php:44
+msgid "Theme Demo"
+msgstr "Design-Demo"
+
+#: inc/theme-info.php:45 inc/theme-info.php:66
+msgid "Theme Documentation"
+msgstr "Designdokumentation"
+
+#: inc/theme-info.php:46
+msgid "Rate this theme"
+msgstr ""
+
+#: inc/theme-info.php:59
+msgid "Getting Started with %s"
+msgstr "Erste Schritte mit %s"
+
+#: inc/theme-info.php:68
+msgid ""
+"Need any help to setup and configure this theme? We got you covered with an "
+"extensive theme documentation on our website."
+msgstr ""
+"Benötigen Sie Hilfe zur Einrichtung und Konfiguration dieser Vorlage? Eine "
+"ausführliche Vorlagendokumentation finden Sie auf unserer Internetseite."
+
+#: inc/theme-info.php:70
+msgid "Visit Momentous Documentation"
+msgstr "Momentous Dokumentation ansehen"
+
+#: inc/theme-info.php:75 inc/customizer/customizer.php:27
+msgid "Theme Options"
+msgstr "Designoptionen"
+
+#: inc/theme-info.php:77
+msgid ""
+"Momentous supports the awesome Theme Customizer for all theme settings. "
+"Click \"Customize Theme\" to open the Customizer now."
+msgstr ""
+"Momentous bietet umfangreiche Anpassungsmöglichkeiten. Klicken Sie auf "
+"\"Anpassen\" um die Vorlage einzurichten."
+
+#: inc/theme-info.php:79
+msgid "Customize Theme"
+msgstr "Design anpassen"
+
+#: inc/theme-info.php:84 inc/customizer/sections/customizer-upgrade.php:14
+msgid "PRO Version"
+msgstr ""
+
+#: inc/theme-info.php:86
+msgid ""
+"Need more features? Check out the PRO version which comes with additional "
+"features and advanced customization options."
+msgstr ""
+
+#: inc/theme-info.php:88
+msgid "Learn more about the PRO Version of Momentous"
+msgstr ""
+
+#: inc/theme-info.php:108
+msgid ""
+"Momentous is proudly brought to you by %1s. If you like this theme, %2s :) "
+msgstr ""
+
+#: inc/theme-info.php:110
+msgid "rate it"
+msgstr ""
+
+#: inc/customizer/customizer.php:52
+msgid "Display Tagline below site title."
+msgstr "Zeige Untertitel unterhalb Seitentitel."
+
+#: inc/customizer/default-options.php:34
+#: inc/customizer/sections/customizer-general.php:43
+msgid "Latest Posts"
+msgstr "Letzte Beiträge"
+
+#: inc/customizer/sections/customizer-general.php:14
+msgid "General Settings"
+msgstr "Grundeinstellungen"
+
+#: inc/customizer/sections/customizer-general.php:29
+msgid "Theme Layout"
+msgstr "Design Layout"
+
+#: inc/customizer/sections/customizer-general.php:35
+msgid "Left Sidebar"
+msgstr "Seitenleiste Links"
+
+#: inc/customizer/sections/customizer-general.php:36
+msgid "Right Sidebar"
+msgstr "Seitenleiste rechts"
+
+#: inc/customizer/sections/customizer-general.php:50
+msgid "Title above Latest Posts"
+msgstr "Überschrift über neueste Beiträge"
+
+#: inc/customizer/sections/customizer-general.php:67
+msgid "Footer Text"
+msgstr "Fußzeilentext"
+
+#: inc/customizer/sections/customizer-header.php:14
+#: inc/customizer/sections/customizer-header.php:30
+msgid "Header Content"
+msgstr "Kopfzeileninhalt"
+
+#: inc/customizer/sections/customizer-header.php:47
+msgid "Activate dropdown search field on header area"
+msgstr "Dropdown-Suchfeld im Kopfzeilenbereich aktivieren"
+
+#: inc/customizer/sections/customizer-header.php:63
+msgid "Display Social Icons on main navigation"
+msgstr "Social-Media-Symbole in Hauptnavigation anzeigen"
+
+#: inc/customizer/sections/customizer-post.php:14
+msgid "Post Settings"
+msgstr "Einstellungen für Beiträge"
+
+#: inc/customizer/sections/customizer-post.php:29
+msgid "Post Layout"
+msgstr ""
+
+#: inc/customizer/sections/customizer-post.php:35
+msgid "One Column"
+msgstr ""
+
+#: inc/customizer/sections/customizer-post.php:36
+msgid "Two Columns"
+msgstr ""
+
+#: inc/customizer/sections/customizer-post.php:51
+msgid "Post Images"
+msgstr "Beitragsbilder"
+
+#: inc/customizer/sections/customizer-post.php:66
+msgid "Display featured images on archive pages"
+msgstr "Zeige empfohlene Bilder auf Archiv-Seiten"
+
+#: inc/customizer/sections/customizer-post.php:82
+msgid "Display featured images on single posts"
+msgstr "Zeige empfohlene Bilder auf einzelnen Beiträgen"
+
+#: inc/customizer/sections/customizer-post.php:100
+msgid "Excerpt More Text"
+msgstr "Auszug mehr Text"
+
+#: inc/customizer/sections/customizer-post.php:115
+msgid "Display [...] after text excerpts."
+msgstr "Zeige [...] nach Auszug."
+
+#: inc/customizer/sections/customizer-upgrade.php:30
+msgid "Need more features?"
+msgstr ""
+
+#: inc/customizer/sections/customizer-upgrade.php:46
+msgid ""
+"Check out the PRO version which comes with additional features and advanced "
+"customization options."
+msgstr ""
+
+#: inc/customizer/sections/customizer-upgrade.php:62
+msgid "Learn more about the PRO Version"
+msgstr ""

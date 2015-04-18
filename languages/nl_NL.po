@@ -1,0 +1,424 @@
+# Translation of Momentous in Dutch
+# This file is distributed under the same license as the Momentous package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2015-03-17 11:07+0100\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Poedit 1.5.7\n"
+"Project-Id-Version: Momentous\n"
+"POT-Creation-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+
+#: 404.php:9
+msgid "404 Error: Not found"
+msgstr "404 Fout: niet gevonden"
+
+#: 404.php:12
+msgid ""
+"The page you trying to reach does not exist, or has been moved. Please use "
+"the menus or the search box to find what you are looking for"
+msgstr ""
+"De pagina die je probeert te openen bestaat niet, of is verwijderd. Gebruik "
+"het menu of het zoekveld om te vinden waar je naar op zoek bent"
+
+#: 404.php:14
+msgid "Search"
+msgstr "Zoeken"
+
+#: 404.php:17
+msgid "Recent Posts"
+msgstr "Recente berichten"
+
+#: 404.php:27
+msgid "Pages"
+msgstr "Pagina's"
+
+#: archive.php:14
+msgid "Monthly Archives: %s"
+msgstr "Maandelijks archief: %s"
+
+#: archive.php:14
+msgid "F Y"
+msgstr "F Y"
+
+#: archive.php:16
+msgid "Archives"
+msgstr "Archief"
+
+#: author.php:16
+msgid "Author Archives: %s"
+msgstr "Auteur archief: %s"
+
+#: category.php:12
+msgid "Category Archives: %s"
+msgstr "Categorie archief: %s"
+
+#: comments.php:13
+msgid "Enter password to view comments."
+msgstr "Voer uw wachtwoord in om de reacties te zien."
+
+#: comments.php:23
+msgid "One comment"
+msgstr "Een reactie"
+
+#: comments.php:23
+msgid "% comments"
+msgstr "% opmerkingen"
+
+#: comments.php:41
+msgid "Leave a Reply"
+msgstr ""
+
+#: comments.php:42
+msgid "Leave a Reply to %s"
+msgstr ""
+
+#: content-one-column.php:12 content.php:14 featured-content.php:44
+msgid "Continue reading &raquo;"
+msgstr ""
+
+#: functions.php:87
+msgid "Main Navigation"
+msgstr "Hoofdnavigatie"
+
+#: functions.php:88
+msgid "Top Navigation"
+msgstr ""
+
+#: functions.php:89
+msgid "Social Icons"
+msgstr "Social media iconen"
+
+#: functions.php:121
+msgid "Sidebar"
+msgstr "Zijbalk"
+
+#: functions.php:123
+msgid "Appears on posts and pages except front page and fullwidth template."
+msgstr ""
+"Verschijnt bij berichten en pagina's behalve de voorpagina en de volledige "
+"breedte template."
+
+#: functions.php:155
+msgid "Page %s"
+msgstr "Pagina %s"
+
+#: functions.php:182
+msgid "Powered by %1$s and %2$s."
+msgstr "Ondersteund door %1$s en %2$s."
+
+#: functions.php:183
+msgid "WordPress"
+msgstr "WordPress"
+
+#: functions.php:184
+msgid "Momentous"
+msgstr ""
+
+#: functions.php:226
+msgid "Pingback:"
+msgstr "Pingback:"
+
+#: functions.php:227 functions.php:245
+msgid "(Edit)"
+msgstr "(Bewerken)"
+
+#: functions.php:240
+msgid "<span class=\"fn\">%s</span>"
+msgstr ""
+
+#: functions.php:244
+msgid "%1$s at %2$s"
+msgstr ""
+
+#: functions.php:255
+msgid "Your comment is awaiting moderation."
+msgstr "Je reactie wacht op moderatie."
+
+#: image.php:19
+msgid "Previous"
+msgstr "Vorige"
+
+#: image.php:20
+msgid "Next"
+msgstr "Volgende"
+
+#: image.php:26
+msgid "Return to Gallery"
+msgstr "Terug naar de galerij"
+
+#: image.php:27
+msgid "Return to"
+msgstr "Terug naar"
+
+#: search.php:13 search.php:32
+msgid "Search Results for: %s"
+msgstr "Zoekresultaten voor: %s"
+
+#: search.php:38
+msgid ""
+"No matches. Please try again, or use the navigation menus to find what you "
+"search for."
+msgstr ""
+"Geen resultaten gevonden. Probeer het opnieuw of gebruik het menu om te "
+"vinden waar je naar op zoek bent."
+
+#: searchform.php:4
+msgid "Search for:"
+msgstr "Zoeken naar:"
+
+#: sidebar.php:24
+msgid "Widget Area"
+msgstr "Widget gebied"
+
+#: sidebar.php:26
+msgid ""
+"There are no active widgets to be displayed. Please go to Appearance -> "
+"Widgets to setup your sidebar."
+msgstr ""
+"Er zijn geen actieve widgets om weer te geven. Ga naar Weergave → Widgets om "
+"de zijbalk in te richten."
+
+#: tag.php:12
+msgid "Tag Archives: %s"
+msgstr "Tag archief: %s"
+
+#: inc/featured-content.php:419
+msgid "Featured Content"
+msgstr "Uitgelichte content"
+
+#: inc/featured-content.php:420
+msgid ""
+"Use a <a href=\"%1$s\">tag</a> to feature your posts. If no posts match the "
+"tag, <a href=\"%2$s\">sticky posts</a> will be displayed instead."
+msgstr ""
+"Gebruik een <a href=\"%1$s\">tag</a> om berichten uit te lichten. Als er "
+"geen berichten zijn met deze tag, worden er <a href=\"%2$s\">sticky "
+"berichten</a> getoond."
+
+#: inc/featured-content.php:421 inc/featured-content.php:430
+#: inc/featured-content.php:490
+msgid "featured"
+msgstr "uitgelicht"
+
+#: inc/featured-content.php:442
+msgid "Tag Name"
+msgstr "Tag naam"
+
+#: inc/featured-content.php:447
+msgid "Don&rsquo;t display tag on front end."
+msgstr "Tag niet weergeven op de website."
+
+#: inc/template-tags.php:43
+msgid ""
+"Posted on <a href=\"%1$s\" title=\"%2$s\" rel=\"bookmark\"><time datetime="
+"\"%3$s\">%4$s</time></a>"
+msgstr ""
+
+#: inc/template-tags.php:53
+msgid "by <a href=\"%1$s\" title=\"%2$s\" rel=\"author\">%3$s</a>"
+msgstr ""
+
+#: inc/template-tags.php:55
+msgid "View all posts by %s"
+msgstr "Toon alle berichten van %s"
+
+#: inc/template-tags.php:218
+msgid ""
+"Please go to WP-Admin-> Appearance-> Menus and create a new custom menu with "
+"custom links to all your social networks. Then click on \"Manage Locations\" "
+"tab and assign your created menu to the \"Social Icons\" theme location."
+msgstr ""
+"Ga naar WP-Admin -> Weergave -> Menu's en maak een nieuw menu aan met links "
+"naar al je social media netwerken.\n"
+"Klik daarna op de \"Locaties beheren\" tab en wijs het menu toe aan de "
+"\"Social media iconen\" themalocatie."
+
+#: inc/theme-info.php:15
+msgid "Welcome to Momentous"
+msgstr ""
+
+#: inc/theme-info.php:16
+msgid "Theme Info"
+msgstr "Thema info"
+
+#: inc/theme-info.php:35
+msgid "Welcome to %1s %2s"
+msgstr "Welkom bij %1s %2s"
+
+#: inc/theme-info.php:41
+msgid "Important Links:"
+msgstr "Belangrijke links:"
+
+#: inc/theme-info.php:42
+msgid "Theme Info Page"
+msgstr "Thema informatie pagina"
+
+#: inc/theme-info.php:43
+msgid "Changelog"
+msgstr "Verandering log"
+
+#: inc/theme-info.php:44
+msgid "Theme Demo"
+msgstr "Thema demo"
+
+#: inc/theme-info.php:45 inc/theme-info.php:66
+msgid "Theme Documentation"
+msgstr "Thema documentatie"
+
+#: inc/theme-info.php:46
+msgid "Rate this theme"
+msgstr ""
+
+#: inc/theme-info.php:59
+msgid "Getting Started with %s"
+msgstr "Aan de slag met %s"
+
+#: inc/theme-info.php:68
+msgid ""
+"Need any help to setup and configure this theme? We got you covered with an "
+"extensive theme documentation on our website."
+msgstr ""
+"Heb je hulp nodig bij het configureren van dit thema? We hebben uitgebreide "
+"thema documentatie op onze website."
+
+#: inc/theme-info.php:70
+msgid "Visit Momentous Documentation"
+msgstr ""
+
+#: inc/theme-info.php:75 inc/customizer/customizer.php:27
+msgid "Theme Options"
+msgstr "Thema opties"
+
+#: inc/theme-info.php:77
+msgid ""
+"Momentous supports the awesome Theme Customizer for all theme settings. "
+"Click \"Customize Theme\" to open the Customizer now."
+msgstr ""
+
+#: inc/theme-info.php:79
+msgid "Customize Theme"
+msgstr "Thema aanpassen"
+
+#: inc/theme-info.php:84 inc/customizer/sections/customizer-upgrade.php:14
+msgid "PRO Version"
+msgstr ""
+
+#: inc/theme-info.php:86
+msgid ""
+"Need more features? Check out the PRO version which comes with additional "
+"features and advanced customization options."
+msgstr ""
+
+#: inc/theme-info.php:88
+msgid "Learn more about the PRO Version of Momentous"
+msgstr ""
+
+#: inc/theme-info.php:108
+msgid ""
+"Momentous is proudly brought to you by %1s. If you like this theme, %2s :) "
+msgstr ""
+
+#: inc/theme-info.php:110
+msgid "rate it"
+msgstr ""
+
+#: inc/customizer/customizer.php:52
+msgid "Display Tagline below site title."
+msgstr "Toon tag regel onder de site titel."
+
+#: inc/customizer/default-options.php:34
+#: inc/customizer/sections/customizer-general.php:43
+msgid "Latest Posts"
+msgstr ""
+
+#: inc/customizer/sections/customizer-general.php:14
+msgid "General Settings"
+msgstr "Algemene instellingen"
+
+#: inc/customizer/sections/customizer-general.php:29
+msgid "Theme Layout"
+msgstr ""
+
+#: inc/customizer/sections/customizer-general.php:35
+msgid "Left Sidebar"
+msgstr "Zijbalk links"
+
+#: inc/customizer/sections/customizer-general.php:36
+msgid "Right Sidebar"
+msgstr "Zijbalk rechts"
+
+#: inc/customizer/sections/customizer-general.php:50
+msgid "Title above Latest Posts"
+msgstr ""
+
+#: inc/customizer/sections/customizer-general.php:67
+msgid "Footer Text"
+msgstr "Voet tekst"
+
+#: inc/customizer/sections/customizer-header.php:14
+#: inc/customizer/sections/customizer-header.php:30
+msgid "Header Content"
+msgstr "Header content"
+
+#: inc/customizer/sections/customizer-header.php:47
+msgid "Activate dropdown search field on header area"
+msgstr ""
+
+#: inc/customizer/sections/customizer-header.php:63
+msgid "Display Social Icons on main navigation"
+msgstr ""
+
+#: inc/customizer/sections/customizer-post.php:14
+msgid "Post Settings"
+msgstr "Bericht instellingen"
+
+#: inc/customizer/sections/customizer-post.php:29
+msgid "Post Layout"
+msgstr ""
+
+#: inc/customizer/sections/customizer-post.php:35
+msgid "One Column"
+msgstr ""
+
+#: inc/customizer/sections/customizer-post.php:36
+msgid "Two Columns"
+msgstr ""
+
+#: inc/customizer/sections/customizer-post.php:51
+msgid "Post Images"
+msgstr "Bericht afbeeldingen"
+
+#: inc/customizer/sections/customizer-post.php:66
+msgid "Display featured images on archive pages"
+msgstr "Toon uitgelichte afbeeldingen op archief pagina's"
+
+#: inc/customizer/sections/customizer-post.php:82
+msgid "Display featured images on single posts"
+msgstr "Toon uitgelichte afbeeldingen op alleenstaande berichten"
+
+#: inc/customizer/sections/customizer-post.php:100
+msgid "Excerpt More Text"
+msgstr "Samenvatting meer tekst"
+
+#: inc/customizer/sections/customizer-post.php:115
+msgid "Display [...] after text excerpts."
+msgstr "Toon [...] na samenvatting"
+
+#: inc/customizer/sections/customizer-upgrade.php:30
+msgid "Need more features?"
+msgstr ""
+
+#: inc/customizer/sections/customizer-upgrade.php:46
+msgid ""
+"Check out the PRO version which comes with additional features and advanced "
+"customization options."
+msgstr ""
+
+#: inc/customizer/sections/customizer-upgrade.php:62
+msgid "Learn more about the PRO Version"
+msgstr ""
