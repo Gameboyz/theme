@@ -55,22 +55,17 @@ That means you can use this theme on all of your websites - for personal or comm
 
 ## Licenses of bundled resources
 
-1. Genericons, Copyright 2014 Automattic, Inc.
+Genericons, Copyright 2014 Automattic, Inc.
 The theme uses the Genericons icon font for postmeta, menu and social icons licensed under GNU GPL.
+
 Source URL: http://genericons.com
+
 License of Genericon Icon font: http://www.gnu.org/licenses/gpl.html
 
-2. Default Fonts (Average Sans, Fjalla One)
-Default Fonts used in the theme are from the Google Font API and are GPL-compatible licensed (SIL Open Font License (OFL))
-https://www.google.com/fonts/specimen/Average+Sans
-http://www.google.com/fonts/specimen/Fjalla+One
 
-3. Screenshot Photography (used on screenshot.png)
-We only use verified images from Pixabay for the screenshot.png, which are licensed under CC0 (GPL compatible).
-Source URL: http://pixabay.com
-Image 1: http://pixabay.com/en/keyboard-apple-input-keys-hardware-338502/
-Image 2: http://pixabay.com/en/headphones-keyboard-apple-input-338492/
-Image 3: http://pixabay.com/en/keyboard-apple-input-keys-hardware-338507/
-Image 4: http://pixabay.com/en/keyboard-apple-input-keys-hardware-338505/
-Image 5: http://pixabay.com/en/iphone-smartphone-desk-mobile-518101/
-License URL: http://creativecommons.org/publicdomain/zero/1.0/deed.de
+Default Fonts (Average Sans, Fjalla One)
+Default Fonts used in the theme are from the Google Font API and are GPL-compatible licensed (SIL Open Font License (OFL))
+
+https://www.google.com/fonts/specimen/Average+Sans
+
+http://www.google.com/fonts/specimen/Fjalla+One
