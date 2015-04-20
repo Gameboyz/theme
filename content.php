@@ -11,9 +11,8 @@
 			
 			<div class="entry clearfix">
 				<?php the_excerpt(); ?>
-				<a href="<?php esc_url(the_permalink()) ?>" class="more-link"><?php _e('Continue reading &raquo;', 'momentous-lite'); ?></a>
 			</div>
-			
+
 			<div class="postinfo clearfix"><?php momentous_display_postinfo_index(); ?></div>
 
 		</article>

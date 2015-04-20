@@ -127,10 +127,12 @@ if ( ! function_exists( 'momentous_display_postinfo_index' ) ) :
 	<?php 
 		endif;
 	?>
-	
+		<?php /* Will deal with this later, use for reference
 		<span class="meta-category">
 			<?php printf('%1$s', get_the_category_list(', ')); ?>
 		</span>
+        */ ?>
+
 <?php
 
 	}

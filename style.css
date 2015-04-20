@@ -130,8 +130,8 @@ input, textarea, select {
 }
 #content {
 	float: left;
-	width: 70%;
-	padding-right: 1.5em;
+	width: 100%;
+	padding-right: 1em;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
@@ -439,8 +439,9 @@ input, textarea, select {
 #post-wrapper .post-wrap {
 	float: left;
 	margin-left: -0.001%;
-	padding-right: 1.5em;
-	width: 50.001%;
+	padding-right: 1em;
+	width: 33.3%;
+	height: 20.625em;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
@@ -449,7 +450,6 @@ input, textarea, select {
 	clear: left;
 }
 .type-post, .type-page, .type-attachment  {
-	margin: 0 0 1.5em 0;
 	padding: 1.2em;
 	background: #fff;
 }
@@ -500,7 +500,6 @@ input, textarea, select {
 	margin: 1.2em -1.2em -1.2em;
 	padding: 0.8em 1em;
 	line-height: 1.4em;
-	border-top: 1px solid #ddd;
 }
 .postinfo .meta-tags {
 	margin-left: 1em;

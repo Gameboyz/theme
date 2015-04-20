@@ -41,10 +41,10 @@ http://themezee.com/docs/momentous-documentation/
 We have included a few, nice page templates for advanced content presentation.
 
 1. Fullwidth Template 
-This template shows a static page without the blog sidebar.
+	- This template shows a static page without the blog sidebar.
 
 2. Magazine Frontpage Template
-coming soon with the next updates
+	- coming soon with the next updates
 
 
 # Theme License
@@ -59,7 +59,6 @@ Genericons, Copyright 2014 Automattic, Inc.
 The theme uses the Genericons icon font for postmeta, menu and social icons licensed under GNU GPL.
 
 Source URL: http://genericons.com
-
 License of Genericon Icon font: http://www.gnu.org/licenses/gpl.html
 
 
@@ -67,5 +66,4 @@ Default Fonts (Average Sans, Fjalla One)
 Default Fonts used in the theme are from the Google Font API and are GPL-compatible licensed (SIL Open Font License (OFL))
 
 https://www.google.com/fonts/specimen/Average+Sans
-
 http://www.google.com/fonts/specimen/Fjalla+One
