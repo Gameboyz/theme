@@ -258,7 +258,7 @@ input, textarea, select {
 /* Navigation Menu
 -------------------------------------------------------------- */
 #navigation-wrap {
-	border-top: 4px solid #ddd;
+	border-top: 2px solid #4b4b4b;
 	background: #fff;
 }
 #navigation-wrap #navi-social-icons {
@@ -440,8 +440,9 @@ input, textarea, select {
 	float: left;
 	margin-left: -0.001%;
 	padding-right: 1em;
+	padding-bottom: 1em;
 	width: 33.3%;
-	height: 20.625em;
+	height: 19.625em;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
@@ -450,7 +451,8 @@ input, textarea, select {
 	clear: left;
 }
 .type-post, .type-page, .type-attachment  {
-	padding: 1.2em;
+	padding: 1em;
+	height: 88.5%;
 	background: #fff;
 }
 #post-wrapper .one-column-post {
@@ -1679,6 +1681,7 @@ embed, iframe, object, video {
 	/* ensure #nav is visible on desktop version */
 	#mainnav, #topnav-menu {
 		display: block !important;
+		float: left;
 	}
 }
 @media only screen and (min-width: 30em) {

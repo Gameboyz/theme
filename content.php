@@ -7,13 +7,9 @@
 
 			<h2 class="post-title"><a href="<?php esc_url(the_permalink()) ?>" rel="bookmark"><?php the_title(); ?></a></h2>
 			
-			<div class="postmeta clearfix"><?php momentous_display_postmeta(); ?></div>
-			
 			<div class="entry clearfix">
 				<?php the_excerpt(); ?>
 			</div>
-
-			<div class="postinfo clearfix"><?php momentous_display_postinfo_index(); ?></div>
 
 		</article>
 		
