@@ -34,7 +34,6 @@
 			endif; ?>
 			
 		</section>
-		
 
 	</div>
 	

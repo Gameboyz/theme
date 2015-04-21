@@ -8,22 +8,22 @@
 
 
 // Add Theme Info page to admin menu
-add_action('admin_menu', 'momentous_add_theme_info_page');
-function momentous_add_theme_info_page() {
+add_action('admin_menu', 'mommod_add_theme_info_page');
+function mommod_add_theme_info_page() {
 	
 	add_theme_page( 
-		__('Welcome to Momentous', 'momentous-lite'), 
-		__('Theme Info', 'momentous-lite'), 
+		__('Mommod', 'mommod'),
+		__('Theme Info', 'mommod'),
 		'edit_theme_options', 
-		'momentous', 
-		'momentous_display_theme_info_page'
+		'mommod',
+		'mommod_display_theme_info_page'
 	);
 	
 }
 
 
 // Display Theme Info page
-function momentous_display_theme_info_page() { 
+function mommod_display_theme_info_page() {
 	
 	// Get Theme Details from style.css
 	$theme_data = wp_get_theme(); 
@@ -32,7 +32,7 @@ function momentous_display_theme_info_page() {
 			
 	<div class="wrap theme-info-wrap">
 
-		<h1><?php printf( __( 'Welcome to %1s %2s', 'momentous-lite' ), $theme_data->Name, $theme_data->Version ); ?></h1>
+		<h1><?php printf( __( 'Welcome to %1s %2s', 'mommod' ), $theme_data->Name, $theme_data->Version ); ?></h1>
 
 		<div class="theme-description"><?php echo $theme_data->Description; ?></div>
 		
@@ -56,7 +56,7 @@ function momentous_display_theme_info_page() {
 				
 		<div id="getting-started">
 		
-			<h3><?php printf( __( 'Getting Started with %s', 'momentous-lite' ), $theme_data->Name ); ?></h3>
+			<h3><?php printf( __( 'Getting Started with %s', 'mommod' ), $theme_data->Name ); ?></h3>
 			
 			<div class="columns-wrapper clearfix">
 
