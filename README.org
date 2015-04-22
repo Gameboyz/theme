@@ -2,7 +2,9 @@
 Based on Momentous Lite
 
 Momentous Lite WordPress Theme
+
 Copyright 2014 ThemeZee.com
+
 Momentous Lite is distributed under the terms of the GNU GPL v2
 
 * TODO:
@@ -53,14 +55,12 @@ That means you can use this theme on all of your websites - for personal or comm
 Genericons, Copyright 2014 Automattic, Inc.
 The theme uses the Genericons icon font for postmeta, menu and social icons licensed under GNU GPL.
 
-Source URL: http://genericons.com
-
-License of Genericon Icon font: http://www.gnu.org/licenses/gpl.html
++ Source URL: http://genericons.com
++ License of Genericon Icon font: http://www.gnu.org/licenses/gpl.html
 
 
 Default Fonts (Average Sans, Fjalla One)
 Default Fonts used in the theme are from the Google Font API and are GPL-compatible licensed (SIL Open Font License (OFL))
 
-https://www.google.com/fonts/specimen/Average+Sans
-
-http://www.google.com/fonts/specimen/Fjalla+One
++ https://www.google.com/fonts/specimen/Average+Sans
++ http://www.google.com/fonts/specimen/Fjalla+One
