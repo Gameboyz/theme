@@ -5,7 +5,7 @@ Momentous Lite WordPress Theme, Copyright 2014 ThemeZee.com
 Momentous Lite is distributed under the terms of the GNU GPL v2
 
 # TODO:
-
+test for setup readme
 
 
 # Requirements
@@ -34,17 +34,6 @@ Go to WP-Admin > Appearance > Customize to open the Customizer.
 
 Need any help to setup and configure this theme? We got you covered with an extensive theme documentation on our website.
 http://themezee.com/docs/momentous-documentation/
-
-
-# Page Templates
-
-We have included a few, nice page templates for advanced content presentation.
-
-1. Fullwidth Template 
-	- This template shows a static page without the blog sidebar.
-
-2. Magazine Frontpage Template
-	- coming soon with the next updates
 
 
 # Theme License
