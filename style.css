@@ -430,11 +430,46 @@ input, textarea, select {
 	padding-right: 0.8em;
 	text-align: right;
 }
-
+/* Front Page style
+-------------------------------------------------------------- */
+.gb-post {
+	position: relative;
+	float: left;
+	width: 33.3%;
+	height: 19.625em;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.gb-post > .gb-post-info {
+	position: absolute;
+	z-index: 10;
+}
+.gb-post > a {
+	position: absolute;
+	padding-right: 1em;
+	padding-bottom: 1em;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	z-index: 1;
+}
+.gb-post > a > img {
+	width: 100%;
+	height: 100%;
+}
+.gb-post > .gb-post-info > .entry > p {
+	color: #fff;
+}
+.gb-post-info {
+	margin: 2em;
+}
+.gb-tile-img {
+	height: 100%;
+}
 /* Posts and Pages
 -------------------------------------------------------------- */
 #post-wrapper {
-	margin-right: -1.5em;
 }
 #post-wrapper .post-wrap {
 	float: left;
@@ -450,29 +485,33 @@ input, textarea, select {
 #post-wrapper .post-wrap:nth-child(2n + 1) {
 	clear: left;
 }
+/* Let see what breaks */
+/*
 .type-post, .type-page, .type-attachment  {
 	padding: 1em;
 	height: 88.5%;
 	background: #fff;
 }
+*/
 #post-wrapper .one-column-post {
 	margin-right: 1.5em;
 }
 .page-title, .post-title {
 	font-family: 'Fjalla One', Tahoma, Verdana, Arial;
-	color: #282828;
+	color: #fff;
 	line-height: 1.4em;
 	-ms-word-wrap: break-word;
 	word-wrap: break-word;
+	text-shadow: 2px 2px 8px #000;
 }
 .post-title {
-    font-size: 1.5em;
+    font-size: 1.75em;
 }
 .single .post-title, .page-title {
     font-size: 2.0em;
 }
 .post-title a:link, .post-title a:visited {
-	color: #282828;
+	color: #fff;
 	text-decoration: none;
 }
 .post-title a:hover, .post-title a:active{
