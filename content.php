@@ -15,7 +15,7 @@
 
 	</article>
 
-	<a href="<?php esc_url(the_permalink()) ?>" >
+	<a href="<?php esc_url(the_permalink()) ?>" class="gb-img-link" >
 		<?php
 		$thumbnail = '';
 		$post_image_id = get_post_thumbnail_id($post->ID);

@@ -435,8 +435,10 @@ input, textarea, select {
 .gb-post {
 	position: relative;
 	float: left;
+	margin-bottom: 1em;
+	padding-right: 1em;
 	width: 33.3%;
-	height: 19.625em;
+	height: 18.75em;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
@@ -447,9 +449,7 @@ input, textarea, select {
 }
 .gb-post > a {
 	position: absolute;
-	padding-right: 1em;
-	padding-bottom: 1em;
-	width: 100%;
+	width: 96%;
 	height: 100%;
 	top: 0;
 	z-index: 1;
@@ -460,12 +460,15 @@ input, textarea, select {
 }
 .gb-post > .gb-post-info > .entry > p {
 	color: #fff;
+	background-color: rgba(51, 51, 51, 0.5);
 }
 .gb-post-info {
 	margin: 2em;
 }
 .gb-tile-img {
 	height: 100%;
+	background-clip: content-box;
+	background-repeat: no-repeat;
 }
 /* Posts and Pages
 -------------------------------------------------------------- */
@@ -510,7 +513,7 @@ input, textarea, select {
 .single .post-title, .page-title {
     font-size: 2.0em;
 }
-.post-title a:link, .post-title a:visited {
+.post-title a:link, .post-title a:visited, .gb-img-link {
 	color: #fff;
 	text-decoration: none;
 }
@@ -1271,18 +1274,20 @@ embed, iframe, object, video {
 	.container {
 		width: 94%;
 	}
-	#post-wrapper .post-wrap {
-		float: none;
-		width: 100%;
+	#post-wrapper .gb-post {
+		width: 50%;
 	}
 	#featured-content .featured-content-left .post-title, .single .post-title, .page-title {
 		font-size: 1.9em;
 	}
 }
 /* Smaller screens | <1120px */
-@media only screen and (max-width: 65em) {
+@media only screen and (max-width: 55em) {
 	.container {
 		width: 96%;
+	}
+	#post-wrapper .gb-post {
+		width: 100%;
 	}
 }
 /* Tablets (landscape) | <960px */
@@ -1631,7 +1636,7 @@ embed, iframe, object, video {
 	#wrap, .header-image {
 		padding: 1em 1em 0;
 	}
-	.type-post, .type-page, .type-attachment  {
+	.type-post, .type-page, .type-attachment, .gb-post  {
 		margin: 0 0 1em 0;
 		padding: 0.75em;
 	}
@@ -1648,7 +1653,7 @@ embed, iframe, object, video {
 	#featured-content .featured-content-left .post-title, .post-title, .single .post-title, .page-title {
 		font-size: 1.4em;
 	}
-	.postinfo {
+	.postinfo, .gb-post-info {
 		margin: 0.75em -0.75em -0.75em;
 		padding: 0.5em 0.7em;
 	}
