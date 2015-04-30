@@ -435,38 +435,45 @@ input, textarea, select {
 .gb-post {
 	position: relative;
 	float: left;
-	margin-bottom: 1em;
-	padding-right: 1em;
 	width: 33.3%;
-	height: 18.75em;
+	height: 20em;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 }
-.gb-post > .gb-post-info {
+.gb-post-info {
 	position: absolute;
-	z-index: 10;
+	width: 100%;
+	height: 100%;
 }
-.gb-post > a {
+.gb-post-info > * {
 	position: absolute;
-	width: 96%;
+}
+.gb-post-info .gb-post-text {
+	z-index: 10;
+	max-height: 50%;
+}
+.gb-post-info .post-title {
+	top: 0;
+	padding: 1em;
+}
+.gb-post-info .entry {
+	bottom: 0;
+	width: 100%;
+	min-height: 6em;
+	background-color: rgba(51, 51, 51, 0.5);
+}
+.gb-post-info .entry p {
+	padding: 1em;
+	color: #fff;
+}
+.gb-post-info .gb-tile-img {
+	width: 100%;
 	height: 100%;
 	top: 0;
 	z-index: 1;
 }
-.gb-post > a > img {
-	width: 100%;
-	height: 100%;
-}
-.gb-post > .gb-post-info > .entry > p {
-	color: #fff;
-	background-color: rgba(51, 51, 51, 0.5);
-}
-.gb-post-info {
-	margin: 2em;
-}
 .gb-tile-img {
-	height: 100%;
 	background-clip: content-box;
 	background-repeat: no-repeat;
 }
@@ -653,11 +660,10 @@ input, textarea, select {
 -------------------------------------------------------------- */
 .entry {
 	line-height: 1.6em;
-	margin: 0.2em 0 0;
 	-ms-word-wrap: break-word;
 	word-wrap: break-word;
 }
-.entry p, .comment p {
+.comment p {
 	margin: 0.75em 0;
 }
 .entry h1, .comment h1,
