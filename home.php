@@ -5,14 +5,6 @@
 <?php 
 	// Get Theme Options from Database
 	$theme_options = momentous_theme_options();
-
-	// Display Featured Posts on homepage
-	if ( is_front_page() && momentous_has_featured_content() ) :
-		
-		// Include the featured content template.
-		get_template_part( 'featured-content' );
-		
-	endif;
 ?>
 		<section id="content" class="primary" role="main">
 			
@@ -37,9 +29,7 @@
 			endif; ?>
 			
 		</section>
-		
 
-		
 	</div>
 	
 <?php get_footer(); ?>	

@@ -131,7 +131,6 @@ input, textarea, select {
 #content {
 	float: left;
 	width: 100%;
-	padding-right: 1em;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
@@ -430,11 +429,57 @@ input, textarea, select {
 	padding-right: 0.8em;
 	text-align: right;
 }
-
+/* Front Page style
+-------------------------------------------------------------- */
+.gb-post {
+	position: relative;
+	float: left;
+	width: 33.3%;
+	height: 20em;
+	border: 0.4em solid rgba(0,0,0,0);
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.gb-post-info {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+.gb-post-info > * {
+	position: absolute;
+}
+.gb-post-info .gb-post-text {
+	z-index: 10;
+	max-height: 50%;
+}
+.gb-post-info .post-title {
+	top: 0;
+	padding: 1em;
+}
+.gb-post-info .entry {
+	bottom: 0;
+	width: 100%;
+	min-height: 6em;
+	background-color: rgba(51, 51, 51, 0.5);
+}
+.gb-post-info .entry p {
+	padding: 1em;
+	color: #fff;
+}
+.gb-post-info .gb-tile-img {
+	width: 100%;
+	height: 100%;
+	top: 0;
+	z-index: 1;
+}
+.gb-tile-img {
+	background-clip: content-box;
+	background-repeat: no-repeat;
+}
 /* Posts and Pages
 -------------------------------------------------------------- */
 #post-wrapper {
-	margin-right: -1.5em;
 }
 #post-wrapper .post-wrap {
 	float: left;
@@ -450,29 +495,33 @@ input, textarea, select {
 #post-wrapper .post-wrap:nth-child(2n + 1) {
 	clear: left;
 }
+/* Let see what breaks */
+/*
 .type-post, .type-page, .type-attachment  {
 	padding: 1em;
 	height: 88.5%;
 	background: #fff;
 }
+*/
 #post-wrapper .one-column-post {
 	margin-right: 1.5em;
 }
 .page-title, .post-title {
 	font-family: 'Fjalla One', Tahoma, Verdana, Arial;
-	color: #282828;
+	color: #fff;
 	line-height: 1.4em;
 	-ms-word-wrap: break-word;
 	word-wrap: break-word;
+	text-shadow: 2px 2px 8px #000;
 }
 .post-title {
-    font-size: 1.5em;
+    font-size: 1.75em;
 }
 .single .post-title, .page-title {
     font-size: 2.0em;
 }
-.post-title a:link, .post-title a:visited {
-	color: #282828;
+.post-title a:link, .post-title a:visited, .gb-img-link {
+	color: #fff;
 	text-decoration: none;
 }
 .post-title a:hover, .post-title a:active{
@@ -611,11 +660,10 @@ input, textarea, select {
 -------------------------------------------------------------- */
 .entry {
 	line-height: 1.6em;
-	margin: 0.2em 0 0;
 	-ms-word-wrap: break-word;
 	word-wrap: break-word;
 }
-.entry p, .comment p {
+.comment p {
 	margin: 0.75em 0;
 }
 .entry h1, .comment h1,
@@ -1232,18 +1280,20 @@ embed, iframe, object, video {
 	.container {
 		width: 94%;
 	}
-	#post-wrapper .post-wrap {
-		float: none;
-		width: 100%;
+	#post-wrapper .gb-post {
+		width: 50%;
 	}
 	#featured-content .featured-content-left .post-title, .single .post-title, .page-title {
 		font-size: 1.9em;
 	}
 }
 /* Smaller screens | <1120px */
-@media only screen and (max-width: 65em) {
+@media only screen and (max-width: 55em) {
 	.container {
 		width: 96%;
+	}
+	#post-wrapper .gb-post {
+		width: 100%;
 	}
 }
 /* Tablets (landscape) | <960px */
@@ -1592,7 +1642,7 @@ embed, iframe, object, video {
 	#wrap, .header-image {
 		padding: 1em 1em 0;
 	}
-	.type-post, .type-page, .type-attachment  {
+	.type-post, .type-page, .type-attachment, .gb-post  {
 		margin: 0 0 1em 0;
 		padding: 0.75em;
 	}
@@ -1609,7 +1659,7 @@ embed, iframe, object, video {
 	#featured-content .featured-content-left .post-title, .post-title, .single .post-title, .page-title {
 		font-size: 1.4em;
 	}
-	.postinfo {
+	.postinfo, .gb-post-info {
 		margin: 0.75em -0.75em -0.75em;
 		padding: 0.5em 0.7em;
 	}
