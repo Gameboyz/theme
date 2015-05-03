@@ -123,12 +123,12 @@ input, textarea, select {
 }
 #wrap {
 	clear: both;
-	padding: 1.5em 0 0;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 }
 #content {
+	display: inline-block;
 	width: 100%;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
@@ -430,40 +430,43 @@ input, textarea, select {
 }
 /* Front Page style
 -------------------------------------------------------------- */
-#gb-new-wrapper, #gb-wrapper {
+#gb-new-wrapper {
 	position: relative;
 	width: 100%;
+	height: 28em;
+	float: left;
 }
 /********** Newest Post Style ***********/
-#gb-new-wrapper {
-	height: 36em;
+#gb-wrapper {
+	position: relative;
+	width: 100%;
+	float: left;
 }
 .gb-new-post {
 	position: absolute;
+}
+.gb-newest {
+	height: 14em;
 }
 #gb-new-1 {
 	top: 0;
 	left: 0;
 	width: 60%;
-	height: 18em;
 }
 #gb-new-2 {
 	top: 0;
 	right: 0;
 	width: 40%;
-	height: 18em;
 }
 #gb-new-3 {
-	top: 18em;
+	top: 14em;
 	left: 0;
 	width: 40%;
-	height: 18em;
 }
 #gb-new-4 {
-	top: 18em;
+	top: 14em;
 	right: 0;
 	width: 60%;
-	height: 18em;
 }
 /******* Regular Post Style **********/
 .gb-post {

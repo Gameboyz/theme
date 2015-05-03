@@ -1,5 +1,5 @@
 
-<article id="gb-wrapper" class="clearfix">
+<div id="gb-wrapper" class="clearfix">
 
 <?php
 
@@ -21,4 +21,4 @@
 
 	endif; ?>
 	
-</article>
+</div>

@@ -1,5 +1,5 @@
 
-<article id="gb-new-wrapper" class="clearfix">
+<div id="gb-new-wrapper" class="clearfix">
 
 <?php
 
@@ -11,7 +11,7 @@
 
 			the_post(); ?>
 
-	<div id="<?php echo "gb-new-$newest_post" ?>" class="gb-new-post clearfix">
+	<div id="<?php echo "gb-new-$newest_post" ?>" class="gb-new-post gb-newest clearfix">
 
 		<?php get_template_part( 'gallery', 'tile' ); ?>
 
@@ -25,4 +25,4 @@
 
 	endif; ?>
 
-</article>
+</div>
