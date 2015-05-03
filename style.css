@@ -129,7 +129,6 @@ input, textarea, select {
 	box-sizing: border-box;
 }
 #content {
-	float: left;
 	width: 100%;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
@@ -435,7 +434,39 @@ input, textarea, select {
 	position: relative;
 	width: 100%;
 }
-.gb-post, .gb-new-post {
+/********** Newest Post Style ***********/
+#gb-new-wrapper {
+	height: 36em;
+}
+.gb-new-post {
+	position: absolute;
+}
+#gb-new-1 {
+	top: 0;
+	left: 0;
+	width: 60%;
+	height: 18em;
+}
+#gb-new-2 {
+	top: 0;
+	right: 0;
+	width: 40%;
+	height: 18em;
+}
+#gb-new-3 {
+	top: 18em;
+	left: 0;
+	width: 40%;
+	height: 18em;
+}
+#gb-new-4 {
+	top: 18em;
+	right: 0;
+	width: 60%;
+	height: 18em;
+}
+/******* Regular Post Style **********/
+.gb-post {
 	position: relative;
 	float: left;
 	width: 33.3%;

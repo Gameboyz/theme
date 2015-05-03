@@ -3,15 +3,15 @@
 
 <?php
 
-	$newest_post = 0; // used for taking the 4 newest posts to display specially
+	$newest_post = 1; // used for taking the 4 newest posts to display specially
 
 	if ( have_posts() ) : 
 
-		while ( have_posts() && ($newest_post < 4) ) : 
+		while ( have_posts() && ($newest_post <= 4) ) : 
 
 			the_post(); ?>
 
-	<div class="gb-new-post clearfix">
+	<div id="<?php echo "gb-new-$newest_post" ?>" class="gb-new-post clearfix">
 
 		<?php get_template_part( 'gallery', 'tile' ); ?>
 
