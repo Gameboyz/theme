@@ -4,38 +4,12 @@
 	
 <?php $theme_options = momentous_theme_options(); ?>
 		<section id="content" class="primary" role="main">
-			
-			<div id="post-wrapper" class="clearfix">
-		 
-	 	<?php $newest_post = 0  // used for taking the 4 newest posts to display specially ?>
 	
-		<?php 
-
-		if (have_posts()) : while (have_posts()) : the_post();
-				
-				if ($newest_post < 4) : ?>
-
-				<div><p>hello</p></div>
-				
-				<?php 
-
-					$newest_post++;
-
-				else : 
-
-					get_template_part( 'content', $theme_options['post_layout'] );
+			<?php get_template_part( 'gallery', 'newest-posts' ); ?>
 			
-				endif;
-
-			endwhile; ?>
+			<?php get_template_part( 'gallery', 'posts'); ?>
 			
-			</div>
-			
-			<?php // Display Pagination	
-				
-			momentous_display_pagination();
-
-		endif; ?>
+			<?php momentous_display_pagination(); // Display Pagination ?>
 			
 		</section>
 
