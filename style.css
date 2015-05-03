@@ -123,13 +123,12 @@ input, textarea, select {
 }
 #wrap {
 	clear: both;
-	padding: 1.5em 0 0;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 }
 #content {
-	float: left;
+	display: inline-block;
 	width: 100%;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
@@ -431,6 +430,45 @@ input, textarea, select {
 }
 /* Front Page style
 -------------------------------------------------------------- */
+#gb-new-wrapper {
+	position: relative;
+	width: 100%;
+	height: 28em;
+	float: left;
+}
+/********** Newest Post Style ***********/
+#gb-wrapper {
+	position: relative;
+	width: 100%;
+	float: left;
+}
+.gb-new-post {
+	position: absolute;
+}
+.gb-newest {
+	height: 14em;
+}
+#gb-new-1 {
+	top: 0;
+	left: 0;
+	width: 60%;
+}
+#gb-new-2 {
+	top: 0;
+	right: 0;
+	width: 40%;
+}
+#gb-new-3 {
+	top: 14em;
+	left: 0;
+	width: 40%;
+}
+#gb-new-4 {
+	top: 14em;
+	right: 0;
+	width: 60%;
+}
+/******* Regular Post Style **********/
 .gb-post {
 	position: relative;
 	float: left;
@@ -495,14 +533,11 @@ input, textarea, select {
 #post-wrapper .post-wrap:nth-child(2n + 1) {
 	clear: left;
 }
-/* Let see what breaks */
-/*
-.type-post, .type-page, .type-attachment  {
+.type-page, .type-attachment  {
 	padding: 1em;
 	height: 88.5%;
 	background: #fff;
 }
-*/
 #post-wrapper .one-column-post {
 	margin-right: 1.5em;
 }
@@ -1280,7 +1315,7 @@ embed, iframe, object, video {
 	.container {
 		width: 94%;
 	}
-	#post-wrapper .gb-post {
+	#gb-wrapper .gb-post {
 		width: 50%;
 	}
 	#featured-content .featured-content-left .post-title, .single .post-title, .page-title {
@@ -1292,7 +1327,7 @@ embed, iframe, object, video {
 	.container {
 		width: 96%;
 	}
-	#post-wrapper .gb-post {
+	#gb-wrapper .gb-post {
 		width: 100%;
 	}
 }
@@ -1321,7 +1356,7 @@ embed, iframe, object, video {
 		margin: 2em 0 0;
 		width: 100%;
 	}
-	#post-wrapper .post-wrap {
+	#gb-wrapper .post-wrap {
 		float: left;
 		width: 50%;
 	}
@@ -1592,15 +1627,15 @@ embed, iframe, object, video {
 
 }
 @media only screen and (max-width: 45em) {
-	#post-wrapper {
+	#gb-wrapper {
 		margin: 0;
 	}
-	#post-wrapper .post-wrap {
+	#gb-wrapper .post-wrap {
 		float: none;
 		width: 100%;
 		padding-right: 0;
 	}
-	#post-wrapper .one-column-post {
+	#gb-wrapper .one-column-post {
 		margin-right: 0;
 	}
 }
@@ -1640,9 +1675,9 @@ embed, iframe, object, video {
 		font-size: 0.95em;
 	}
 	#wrap, .header-image {
-		padding: 1em 1em 0;
+		padding: 0.5em 0.5em 0;
 	}
-	.type-post, .type-page, .type-attachment, .gb-post  {
+	.type-page, .type-attachment {
 		margin: 0 0 1em 0;
 		padding: 0.75em;
 	}
@@ -1659,7 +1694,7 @@ embed, iframe, object, video {
 	#featured-content .featured-content-left .post-title, .post-title, .single .post-title, .page-title {
 		font-size: 1.4em;
 	}
-	.postinfo, .gb-post-info {
+	.postinfo {
 		margin: 0.75em -0.75em -0.75em;
 		padding: 0.5em 0.7em;
 	}

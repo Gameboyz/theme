@@ -1,32 +1,16 @@
 <?php get_header(); ?>
 
+	<?php $theme_options = momentous_theme_options(); ?>
+
+	<?php get_template_part( 'gallery', 'newest-posts' ); ?>
+
 	<div id="wrap" class="container clearfix">
 	
-<?php 
-	// Get Theme Options from Database
-	$theme_options = momentous_theme_options();
-?>
 		<section id="content" class="primary" role="main">
-			
-		<?php // Display Latest Posts Title
-		if ( isset( $theme_options['latest_posts_title'] ) and $theme_options['latest_posts_title'] <> '' ) : ?>
 	
-		<?php endif; ?>
+			<?php get_template_part( 'gallery', 'posts'); ?>
 			
-			<div id="post-wrapper" class="clearfix">
-		 
-			<?php if (have_posts()) : while (have_posts()) : the_post();
-		
-				get_template_part( 'content', $theme_options['post_layout'] );
-		
-				endwhile; ?>
-			
-			</div>
-			
-			<?php // Display Pagination	
-				momentous_display_pagination();
-
-			endif; ?>
+			<?php momentous_display_pagination(); // Display Pagination ?>
 			
 		</section>
 
