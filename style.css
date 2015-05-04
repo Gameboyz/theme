@@ -15,7 +15,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 -------------------------------------------------------------- */
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, 
+small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, 
 menu, nav, output, ruby, section, summary, time, mark, audio, video {
@@ -482,6 +482,22 @@ input, textarea, select {
 	border-left: 5px solid #22a8d8;
 }
 
+/* for reviews */
+.review-title {
+    font-size: 1.5em;
+}
+.single .review-title {
+    font-size: 3.0em;
+    color:#fff;
+    position:relative;
+}
+
+.review-inner-title {
+    position:absolute;
+    z-index:99;
+    width:40%;
+}
+
 /* Page Links | wp_link_pages() */
 .page-links {
 	margin: 0;
@@ -494,6 +510,7 @@ input, textarea, select {
 	font-size: 0.95em;
 	margin: 0.2em 0 0;
 	line-height: 1.5em;
+	position:relative;
 }
 
 /* Postinfo */
@@ -774,11 +791,19 @@ blockquote cite {
 
 /* Images | Gallery | Videos
 -------------------------------------------------------------- */
-article .wp-post-image {
-	max-width: 100%;
-	margin: 0 0 1.2em 0;
-	height: auto;
+.wp-post-image {
+	width: 100%;
+	margin:0 0 1.2em 0;
 	vertical-align: top;
+	position:relative;
+}
+
+.review-header .wp-post-image {
+	width: 100%;
+	margin:0 0 1.2em 0;
+	max-height:10%;
+	vertical-align: top;
+	position:relative;
 }
 .entry img {
 	max-width: 100%;
