@@ -27,7 +27,7 @@ menu, nav, output, ruby, section, summary, time, mark, audio, video {
 	vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
+article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
@@ -54,7 +54,7 @@ table {
 -------------------------------------------------------------- */
 html {
 	font-size: 100.01%;
-}
+}                                                                                                                                                                                
 body {
 	font-family: 'Average Sans', Tahoma, Verdana, Arial;
 	font-size: 1.0em;
@@ -483,8 +483,15 @@ input, textarea, select {
 }
 
 /* for reviews */
+
 .review-title {
     font-size: 1.5em;
+}
+
+.review-content-title {
+    font-size:3.0em;
+    color:#000;
+
 }
 .single .review-title {
     font-size: 3.0em;
@@ -495,7 +502,39 @@ input, textarea, select {
 .review-inner-title {
     position:absolute;
     z-index:99;
-    width:40%;
+    width:300px;
+    background-color:rgba(128,128,128,0.5);
+    vertical-align:center;
+
+
+}
+
+.game-info {
+     max-width:84%;
+     width:84%;
+     height:150px;
+     border: 1px solid;
+     position:relative;
+     text-align:center;
+     float:left;
+     margin-bottom:1%;
+}
+
+.game-info-text {
+     font-size:24px;
+}
+
+.temp-ad-div {
+     border: 1px solid;
+     width:14%;
+     position:relative;
+     float:right;
+
+}
+
+.ad {
+     width: 100%;
+     max-width:100%;
 }
 
 /* Page Links | wp_link_pages() */
@@ -510,8 +549,11 @@ input, textarea, select {
 	font-size: 0.95em;
 	margin: 0.2em 0 0;
 	line-height: 1.5em;
-	position:relative;
+	position:static;
+	top:40%;
+	z-index:99;
 }
+
 
 /* Postinfo */
 .postinfo {
@@ -631,6 +673,10 @@ input, textarea, select {
 	margin: 0.2em 0 0;
 	-ms-word-wrap: break-word;
 	word-wrap: break-word;
+/*	max-width:80%;
+	margin-left:10%;
+	margin-right:10%;   */
+
 }
 .entry p, .comment p {
 	margin: 0.75em 0;
@@ -798,12 +844,15 @@ blockquote cite {
 	position:relative;
 }
 
+.review-header {
+    width: 100%;
+    max-height:30%;
+    position:relative;
+    margin-bottom: 275px;
+    }
+
 .review-header .wp-post-image {
-	width: 100%;
-	margin:0 0 1.2em 0;
-	max-height:10%;
-	vertical-align: top;
-	position:relative;
+	position:absolute;
 }
 .entry img {
 	max-width: 100%;

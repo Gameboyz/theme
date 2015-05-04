@@ -1,10 +1,14 @@
-        <div class="review-inner-title">
-            <h2 class="review-title"><?php the_title(); ?></h2>
-            <div class="postmeta"><?php momentous_display_postmeta(); ?></div>
-        </div>
 
-           <div class="review-header"><?php momentous_display_thumbnail_single(); ?></div>
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+                <div class="game-info">
+                  <?php the_title(); ?><br>
+                  <b class="game-info-text">(dev,pub,plat)</b>
+                  <br>&nbsp;
+
+                </div>
+                  <div class="temp-ad-div">
+                     Buy League of Legends today 30% off! <img class="ad" src="http://localhost/wp-content/uploads/2015/05/1cc.png">
+                  </div>   
 
 		<div class="entry clearfix">
 			<?php the_content(); ?>
