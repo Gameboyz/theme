@@ -1,25 +1,37 @@
 * Gameboyz Theme
-Based on Momentous Lite
+** Codename "mommod"
+Heavily modified, based on Momentous Lite
 
 Momentous Lite WordPress Theme
 
 Copyright 2014 ThemeZee.com
 
-Momentous Lite is distributed under the terms of the GNU GPL v2
+Momentous Lite is distributed under the terms of the GNU GPL
 
-* TODO:
-testing branching, this should only be for front-page branch
+* Schedule Outline
+** Sprint 2: <2015-04-27 Mon> to <2015-05-10 Sun>
+- Front Page
+  - Newest Posts
+    - Update: skeleton structure is mostly there, along with css rules
+    - Feature?: have layout change randomly
+  - mobile/touch screen
+    - summary text won't work the same as it will on machine with a mouse
+    - need to come up with a way to display text without mouse hover
+  - Category Pages
+    - Need to find the best way, wp has several ways this can be done
+    - Note: in testing implimentation, the way newest posts and regular posts, if newest posts template runs out of posts, The Loop (wp term) restarts from the beginning once it gets to the regular post template, causing duplication on the displayed page
+      - Shouldn't really be a problem in production, but it's a side note for the future
+  - Navbar
+    - Needs to be more fancy, layout is not optimal
+- Posts
+  - Need to be able to set a page layout (review, news)
 
-** April 13 to April 27
-1. Purge features not need
-2. Finish frontpage layout
-3. Templates
+** Sprint 1: <2015-04-13 Mon> to <2015-04-27 Mon>
+1. +Purge features not need+ -> Features are still there in code, but out of the way
+2. +Finish frontpage layout+ -> Continuing for sprint 2
+3. +Templates+ -> Wp not obvious about post types, need to do more research
    1. News articles
    2. Review articles
-
-** April 27 to May 11
-
-
 
 * Requirements
 
@@ -47,9 +59,11 @@ To find out more about installing WordPress themes please also see http://themez
 
 * License
 
+Gameboyz Theme, codename "mommod", is released under the GNU general public license GPLv2
+
+
 Momentous Lite is released under the GNU general public license. 
 That means you can use this theme on all of your websites - for personal or commercial purposes!
-
 
 ** Licenses of bundled resources
 
