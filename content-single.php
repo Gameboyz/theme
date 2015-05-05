@@ -5,6 +5,8 @@
 		
 		<h2 class="post-title"><?php the_title(); ?></h2>
 		
+		<h2 class="post-title" style="color:#0f0;">Sup, where does this pop up? If it does, see content-single.php</h2>
+
 		<div class="postmeta"><?php momentous_display_postmeta(); ?></div>
 
 		<div class="entry clearfix">

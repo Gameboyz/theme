@@ -8,6 +8,7 @@ Copyright 2014 ThemeZee.com
 Momentous Lite is distributed under the terms of the GNU GPL v2
 
 * TODO:
+testing branching, this should only be for front-page branch
 
 ** April 13 to April 27
 1. Purge features not need
