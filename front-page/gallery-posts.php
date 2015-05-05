@@ -11,7 +11,7 @@
 
 	<div class="gb-post clearfix">
 
-		<?php get_template_part( 'gallery', 'tile' ); ?>
+		<?php get_template_part( 'front-page/gallery', 'tile' ); ?>
 
 	</div>
 
