@@ -566,61 +566,6 @@ input, textarea, select {
 	border-left: 5px solid #22a8d8;
 }
 
-/* for reviews */
-
-.review-title {
-    font-size: 1.5em;
-}
-
-.review-content-title {
-    font-size:3.0em;
-    color:#000;
-
-}
-.single .review-title {
-    font-size: 3.0em;
-    color:#fff;
-    position:relative;
-}
-
-.review-inner-title {
-    position:absolute;
-    z-index:99;
-    width:300px;
-    background-color:rgba(128,128,128,0.5);
-    vertical-align:center;
-
-
-}
-
-.game-info {
-     max-width:84%;
-     width:84%;
-     height:150px;
-     border: 1px solid;
-     position:relative;
-     text-align:center;
-     float:left;
-     margin-bottom:1%;
-}
-
-.game-info-text {
-     font-size:24px;
-}
-
-.temp-ad-div {
-     border: 1px solid;
-     width:14%;
-     position:relative;
-     float:right;
-
-}
-
-.ad {
-     width: 100%;
-     max-width:100%;
-}
-
 /* Page Links | wp_link_pages() */
 .page-links {
 	margin: 0;
@@ -918,25 +863,53 @@ blockquote cite {
 	background: #f5f5f5;
 }
 
-/* Images | Gallery | Videos
+/* Reviews
 -------------------------------------------------------------- */
-.wp-post-image {
-	width: 100%;
-	margin:0 0 1.2em 0;
-	vertical-align: top;
-	position:relative;
-}
-
-.review-header {
-    width: 100%;
-    max-height:30%;
+#gb-review-wrap {
+    height:38em;
     position:relative;
-    margin-bottom: 275px;
-    }
-
-.review-header .wp-post-image {
-	position:absolute;
 }
+.gb-review-img {
+    width:100%;
+    height:100%;
+    background-repeat: no-repeat;
+}
+.gb-review-header {
+    height:8em;
+    position:absolute;
+    background-color:rgba(96,96,96,0.5);
+}
+.gb-review-title {
+    font-size:3em;
+    font-family: 'Fjalla One', Tahoma, Verdana, Arial;
+    color: #fff;
+    line-height: 1.4em;
+    -ms-word-wrap: break-word;
+    word-wrap: break-word;
+    text-shadow: 2px 2px 8px #000;
+}
+.gb-game-info-wrap {
+     max-width:84%;
+     width:84%;
+     height:150px;
+     text-align:center;
+}
+.gb-game-info {
+     font-size:24px;
+}
+.temp-ad-div {
+     border: 1px solid;
+     width:14%;
+     position:relative;
+     float:right;
+}
+.ad {
+     width: 100%;
+     max-width:100%;
+}
+
+/* other stuff
+---------------------------------------------------------------*/
 .entry img {
 	max-width: 100%;
 	height: auto;
