@@ -283,6 +283,52 @@ function momentous_list_comments($comment, $args, $depth) {
 }
 endif;
 
+/* Posting Articles Meta Box 
+*******************************************/
+add_action("add_meta_boxes", "gb_meta_boxes");
+
+/*
+	Article Info Box
+
+*/
+if ( !function_exists('gb_article_info_box') ) :
+function gb_article_info_box($current_post)
+{ ?>
+	<script>
+	function articleChooser(articleInput) {
+		var optionsNode = articleInput.parentNode.parentNode.lastElementChild;
+
+		if (articleInput.value == 'news') {
+
+		} else {
+
+		}
+	}
+	</script>
+
+	<section id="article-chooser">
+	
+		<label><input id="review" type="radio" name="article-type" value="review" onclick="articleChooser(this);" />
+		Review</label>
+	
+		<label><input id="news" type="radio" name="article-type" value="news" onclick="articleChooser(this);" />
+		News</label>
+	
+		<div id="options"></div>
+	
+	</section>
+
+<?php	
+} 
+endif;
+ 
+
+if ( !function_exists('gb_meta_boxes') ) :
+function gb_meta_boxes()
+{
+    add_meta_box("gb_article_info", "Article Info", "gb_article_info_box", "post", "normal", "high", null);
+}
+endif;
 
 /*==================================== INCLUDE FILES ====================================*/
 
