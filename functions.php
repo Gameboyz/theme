@@ -295,19 +295,66 @@ if ( !function_exists('gb_article_info_box') ) :
 function gb_article_info_box($current_post)
 { ?>
 	<script>
+	var readyStateCheckInterval = setInterval(function() {
+    	if (document.readyState === "complete") {
+        	clearInterval(readyStateCheckInterval);
+        	initTest();
+    	}
+	}, 10);
+
+	function initTest() {
+		document.getElementById("review").checked = false;
+		document.getElementById("news").checked = false;
+	}
+	</script>
+
+	<script>
 	function articleChooser(articleInput) {
-		var optionsNode = articleInput.parentNode.parentNode.lastElementChild;
-
+		var wrapNode = articleInput.parentNode.parentNode.lastElementChild;
+		var articleType = articleInput.value;
+		
+		function removeOptions() {
+			if (wrapNode.firstChild != undefined) {
+				wrapNode.firstChild.remove();
+			}	
+		}
+		
 		if (articleInput.value == 'news') {
+			removeOptions();
+			
+			var div = document.createElement('div');
+			div.textContent = "news stuff meta";
+			div.setAttribute('class', 'stuff');
+			wrapNode.appendChild(div);
+		}
+		else if (articleInput.value == 'review') {
+			removeOptions();
 
-		} else {
+			var input = document.createElement('input');
+			var label = document.createElement('lable');
 
+			label.textContent = "test";
+
+			input.setAttribute('type', 'text');
+			input.setAttribute('class', 'form-input-tip');
+			input.setAttribute('name', 'something');
+			input.setAttribute('size', '16');
+			input.setAttribute('autocomplete', 'off');
+			
+			label.appendChild(input);
+			wrapNode.appendChild(label);
+		}
+		else {
+			alert('something went wrong.');
 		}
 	}
 	</script>
 
-	<section id="article-chooser">
+	<section id="article-chooser" onload="article-type.clear();">
 	
+		<span>TODO: have the correct radio button be checked when revisiting a post (published or draft)</span>
+		<span>currently, both radio buttons are unchecked when document is ready</span><br />
+
 		<label><input id="review" type="radio" name="article-type" value="review" onclick="articleChooser(this);" />
 		Review</label>
 	
