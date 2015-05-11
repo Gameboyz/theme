@@ -294,12 +294,19 @@ add_action("add_meta_boxes", "gb_meta_boxes");
 if ( !function_exists('gb_article_info_box') ) :
 function gb_article_info_box($current_post)
 { ?>
+
+	<style>
+	#article-meta-wrap input, #article-meta-wrap label {
+		display: block;
+	}
+	</style>
+	
 	<script>
 	var readyStateCheckInterval = setInterval(function() {
-    	if (document.readyState === "complete") {
-        	clearInterval(readyStateCheckInterval);
-        	initTest();
-    	}
+		if (document.readyState === "complete") {
+			clearInterval(readyStateCheckInterval);
+			initTest();
+		}
 	}, 10);
 
 	function initTest() {
@@ -307,61 +314,65 @@ function gb_article_info_box($current_post)
 		document.getElementById("news").checked = false;
 	}
 	</script>
-
+	
 	<script>
-	function articleChooser(articleInput) {
-		var wrapNode = articleInput.parentNode.parentNode.lastElementChild;
-		var articleType = articleInput.value;
+	function articleChooser(state) {
+		var wrapNode = document.getElementById("article-meta-wrap");
 		
-		function removeOptions() {
-			if (wrapNode.firstChild != undefined) {
-				wrapNode.firstChild.remove();
-			}	
+		for ( var i = 0; i < wrapNode.childElementCount; i++) {
+				if (wrapNode.children[i].tagName == "INPUT")
+					wrapNode.children[i].disabled = !(state); 
+					// invert state to match boolean logic when calling function eg. on click of review input will not be disabled on true
 		}
-		
-		if (articleInput.value == 'news') {
-			removeOptions();
-			
-			var div = document.createElement('div');
-			div.textContent = "news stuff meta";
-			div.setAttribute('class', 'stuff');
-			wrapNode.appendChild(div);
-		}
-		else if (articleInput.value == 'review') {
-			removeOptions();
+	}
 
-			var input = document.createElement('input');
-			var label = document.createElement('lable');
+	function traitBox(temp) {
 
-			label.textContent = "test";
-
-			input.setAttribute('type', 'text');
-			input.setAttribute('class', 'form-input-tip');
-			input.setAttribute('name', 'something');
-			input.setAttribute('size', '16');
-			input.setAttribute('autocomplete', 'off');
-			
-			label.appendChild(input);
-			wrapNode.appendChild(label);
-		}
-		else {
-			alert('something went wrong.');
-		}
 	}
 	</script>
 
 	<section id="article-chooser" onload="article-type.clear();">
-	
-		<span>TODO: have the correct radio button be checked when revisiting a post (published or draft)</span>
-		<span>currently, both radio buttons are unchecked when document is ready</span><br />
 
-		<label><input id="review" type="radio" name="article-type" value="review" onclick="articleChooser(this);" />
-		Review</label>
+		<input id="review" type="radio" name="article-type" value="review" onclick="articleChooser(true);" />
+		<label for="review">Review</label>
 	
-		<label><input id="news" type="radio" name="article-type" value="news" onclick="articleChooser(this);" />
-		News</label>
+		<input id="news" type="radio" name="article-type" value="news" onclick="articleChooser(false);" />
+		<label for="news">News</label>
 	
-		<div id="options"></div>
+		<div id="article-meta-wrap">
+
+			<label for="developer">Developer</label>
+			<input id="developer" class="form-input-tip" type="text" name="developer" size="16" required />
+
+			<label for="publisher">Publisher</label>
+			<input id="publisher" class="form-input-tip" type="text" name="publisher" size="16" required />
+
+			<label for="platform">Platform</label>
+			<input id="platform" class="form-input-tip" type="text" name="platform" size="16" required />
+
+			<label for="release-date">Release Date</label>
+			<input id="release-date" class="form-input-tip" type="text" name="release-date" pattern="" requried />
+
+			<section id="">
+
+				<label for="score">Score</label>
+				<input id="score" class="form-input-tip" type="text" name="score" pattern="[0-5]" requried />
+
+				<div id="">
+					<label for="pro">Pros</label>
+					<input id="pro" class="form-input-tip" type="text" name="pro" required />
+					<button onclick="addTraitBox(this);">+</button>
+				</div>
+
+				<div id="">
+					<label for="con">Con</label>
+					<input id="con" class="form-input-tip" type"text" name="con" required />
+					<button onclick="addTraitBox(this);">+</button>
+				</div>
+
+			</section>
+
+		</div>
 	
 	</section>
 
