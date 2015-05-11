@@ -296,11 +296,30 @@ function gb_article_info_box($current_post)
 { ?>
 
 	<style>
-	#article-meta-wrap input, #article-meta-wrap label {
+	#article-meta-wrap .one-liner, #gb-review-bottomline {
+		display: inline-block;
+		width: 100%;
+	}
+	#gb-review-bottomline {
+		padding-top: 12px;
+	}
+	#gb-review-bottomline span{
+		display: inline-block;
+		float: left;
+		margin-top: 12px;
+		width: 50%;
+	}
+	#pros-wrap, #cons-wrap {
+		display: inline-block;
+		float: left;
+		margin-top: 4px;
+		width: 50%;
+	}
+	#score {
 		display: block;
 	}
 	</style>
-	
+
 	<script>
 	var readyStateCheckInterval = setInterval(function() {
 		if (document.readyState === "complete") {
@@ -317,13 +336,7 @@ function gb_article_info_box($current_post)
 	
 	<script>
 	function articleChooser(state) {
-		var wrapNode = document.getElementById("article-meta-wrap");
-		
-		for ( var i = 0; i < wrapNode.childElementCount; i++) {
-				if (wrapNode.children[i].tagName == "INPUT")
-					wrapNode.children[i].disabled = !(state); 
-					// invert state to match boolean logic when calling function eg. on click of review input will not be disabled on true
-		}
+		jQuery("#article-meta-wrap :input").prop("disabled", !state);
 	}
 
 	function traitBox(temp) {
@@ -333,41 +346,43 @@ function gb_article_info_box($current_post)
 
 	<section id="article-chooser" onload="article-type.clear();">
 
-		<input id="review" type="radio" name="article-type" value="review" onclick="articleChooser(true);" />
+		<input id="review" type="radio" name="article-type" value="review" onclick="articleChooser(true);" required />
 		<label for="review">Review</label>
 	
-		<input id="news" type="radio" name="article-type" value="news" onclick="articleChooser(false);" />
+		<input id="news" type="radio" name="article-type" value="news" onclick="articleChooser(false);" required />
 		<label for="news">News</label>
 	
 		<div id="article-meta-wrap">
 
-			<label for="developer">Developer</label>
-			<input id="developer" class="form-input-tip" type="text" name="developer" size="16" required />
+			<label for="developer">Developer:</label>
+			<input id="developer" class="form-input-tip one-liner" type="text" name="developer" size="16" required />
 
-			<label for="publisher">Publisher</label>
-			<input id="publisher" class="form-input-tip" type="text" name="publisher" size="16" required />
+			<label for="publisher">Publisher:</label>
+			<input id="publisher" class="form-input-tip one-liner" type="text" name="publisher" size="16" required />
 
-			<label for="platform">Platform</label>
-			<input id="platform" class="form-input-tip" type="text" name="platform" size="16" required />
+			<label for="platform">Platforms:</label>
+			<!--<input id="platform" class="form-input-tip one-liner" type="text" name="platform" size="16" required />-->
 
-			<label for="release-date">Release Date</label>
-			<input id="release-date" class="form-input-tip" type="text" name="release-date" pattern="" requried />
 
-			<section id="">
+			<label for="release-date">Release Date:</label>
+			<input id="release-date" class="form-input-tip one-liner" type="text" name="release-date" pattern="" requried />
 
-				<label for="score">Score</label>
+			<section id="gb-review-bottomline">
+
+				<label for="score">Score:</label>
 				<input id="score" class="form-input-tip" type="text" name="score" pattern="[0-5]" requried />
 
-				<div id="">
-					<label for="pro">Pros</label>
-					<input id="pro" class="form-input-tip" type="text" name="pro" required />
-					<button onclick="addTraitBox(this);">+</button>
+				<span>Pros:</span>
+				<span>Cons:</span>
+
+				<div id="pros-wrap">					
+					<input id="pro-1" class="form-input-tip" type="text" name="pro" />
+					<button class="button" onclick="addTraitBox(this);">+</button>
 				</div>
 
-				<div id="">
-					<label for="con">Con</label>
-					<input id="con" class="form-input-tip" type"text" name="con" required />
-					<button onclick="addTraitBox(this);">+</button>
+				<div id="cons-wrap">
+					<input id="con-1" class="form-input-tip" type="text" name="con" />
+					<button class="button" onclick="addTraitBox(this);">+</button>
 				</div>
 
 			</section>
