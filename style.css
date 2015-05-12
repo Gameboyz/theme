@@ -512,7 +512,7 @@ input, textarea, select {
 	z-index: 1;
 }
 .gb-tile-img {
-    background-size: contain;
+    background-size: 100% auto;
 	background-position: center;
 	background-repeat: no-repeat;
 }
@@ -548,7 +548,7 @@ input, textarea, select {
 	line-height: 1.4em;
 	-ms-word-wrap: break-word;
 	word-wrap: break-word;
-	text-shadow: 2px 2px 8px #000;
+	text-shadow: 2px 2px 2px #000;
 }
 .post-title {
     font-size: 1.75em;
@@ -596,7 +596,7 @@ input, textarea, select {
     max-width: 18em;
     -ms-word-wrap: break-word;
     word-wrap: break-word;
-    text-shadow: 2px 2px 12px #000;
+    text-shadow: 2px 2px 4px #000;
 }
 .gb-game-info-wrap {
      width: 100%;
