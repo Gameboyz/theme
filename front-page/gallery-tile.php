@@ -16,7 +16,7 @@ $image = '';
 $post_image_id = get_post_thumbnail_id($post->ID);
 
 if ($post_image_id) {
-	$image = wp_get_attachment_image_src($post_image_id, 'post-thumbnail', false);
+	$image = wp_get_attachment_image_src($post_image_id, null, false);
 	if ($image) (string)$image = $image[0];
 }
 

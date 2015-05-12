@@ -512,7 +512,8 @@ input, textarea, select {
 	z-index: 1;
 }
 .gb-tile-img {
-	background-clip: content-box;
+    background-size: contain;
+	background-position: center;
 	background-repeat: no-repeat;
 }
 /* Posts and Pages
@@ -565,25 +566,112 @@ input, textarea, select {
 .sticky {
 	border-left: 5px solid #22a8d8;
 }
-
+/* Reviews
+-------------------------------------------------------------- */
+#gb-review-wrap {
+    height:38em;
+    position:relative;
+}
+.gb-review {
+	padding: 1em;
+	background: #fff;
+}
+.gb-review-img {
+    width:100%;
+    height:100%;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.gb-review-header {
+	top: 4em;
+	left: 4em;
+    position:absolute;
+}
+.gb-review-title {
+    font-size:3em;
+    font-family: 'Fjalla One', Tahoma, Verdana, Arial;
+    color: #fff;
+    line-height: 1.4em;
+    max-width: 18em;
+    -ms-word-wrap: break-word;
+    word-wrap: break-word;
+    text-shadow: 2px 2px 12px #000;
+}
+.gb-game-info-wrap {
+     width: 100%;
+     display: inline-block;
+}
+.gb-game-info {
+     font-size: 1em;
+     margin: 0.5em 0 1em 0;
+     width: 25%;
+     float: left;
+     display: inline-block;
+}
+.gb-game-info > * {
+	float: left;
+	width: 100%;
+	text-align: center;
+}
+.gb-game-info > span {
+	margin-bottom: 0.5em;
+	font-size: 0.86em;
+}
+.temp-ad-div {
+     border: 1px solid;
+     width: 14%;
+     position: relative;
+     float: right;
+}
+.ad {
+     width: 100%;
+     max-width:100%;
+}
+#gb-bottomline {
+	padding: 2em 0;
+	width: 100%;
+	display: inline-block;
+}
+#gb-bottomline > div {
+	float: left;
+}
+#score-wrap {
+	width: 40%;
+}
+#pros-wrap {
+	width: 30%;
+}
+#cons-wrap {
+	width: 30%;
+}
+.gb-bottomline-list span {
+	font-size: 1.5em;
+	font-weight: 600;
+}
+.gb-bottomline-list ul {
+	margin-top: 0.5em;
+}
+.gb-bottomline-list li {
+	padding: 0.5em 0.875em 0.5em 0.5em;
+}
 /* Page Links | wp_link_pages() */
 .page-links {
 	margin: 0;
 	word-spacing: 1em;
 }
-
 /* Postmeta */
 .postmeta {
-	color: #aaa;
-	font-size: 0.95em;
-	margin: 0.2em 0 0;
-	line-height: 1.5em;
-	position:static;
-	top:40%;
-	z-index:99;
+	color: #fff;
+	font-size: 1.25em;
+	margin-top: 0.5em;
+	margin-left: 0.25em;
+	line-height: 1em;
+	text-shadow: 1px 1px 6px #000;
 }
-
-
+.postmeta >span > a {
+	color: #4BF2FF;
+}
 /* Postinfo */
 .postinfo {
 	clear: both;
@@ -863,50 +951,6 @@ blockquote cite {
 	background: #f5f5f5;
 }
 
-/* Reviews
--------------------------------------------------------------- */
-#gb-review-wrap {
-    height:38em;
-    position:relative;
-}
-.gb-review-img {
-    width:100%;
-    height:100%;
-    background-repeat: no-repeat;
-}
-.gb-review-header {
-    height:8em;
-    position:absolute;
-    background-color:rgba(96,96,96,0.5);
-}
-.gb-review-title {
-    font-size:3em;
-    font-family: 'Fjalla One', Tahoma, Verdana, Arial;
-    color: #fff;
-    line-height: 1.4em;
-    -ms-word-wrap: break-word;
-    word-wrap: break-word;
-    text-shadow: 2px 2px 8px #000;
-}
-.gb-game-info-wrap {
-     max-width:84%;
-     width:84%;
-     height:150px;
-     text-align:center;
-}
-.gb-game-info {
-     font-size:24px;
-}
-.temp-ad-div {
-     border: 1px solid;
-     width:14%;
-     position:relative;
-     float:right;
-}
-.ad {
-     width: 100%;
-     max-width:100%;
-}
 
 /* other stuff
 ---------------------------------------------------------------*/
@@ -964,12 +1008,10 @@ blockquote cite {
 .gallery-caption {
 	margin-left: 0.3em !important;
 }
-
 /* Make Vidoes responsive */
 embed, iframe, object, video {
 	max-width: 100%;
 }
-
 /* Image.php Navigation */
 #image-nav {
 	margin: 1em 0 2em;

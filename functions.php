@@ -141,7 +141,7 @@ function momentous_add_image_sizes() {
 	add_image_size( 'custom_header_image', 1300, 240, true);
 	
 	// Add Featured Image Size
-	add_image_size( 'post-thumbnail', 900, 300, true);
+	add_image_size( 'post-thumbnail', 500, 500, true);
 
 }
 endif;
