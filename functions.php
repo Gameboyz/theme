@@ -283,6 +283,176 @@ function momentous_list_comments($comment, $args, $depth) {
 }
 endif;
 
+/* Posting Articles Meta Box 
+*******************************************/
+add_action("add_meta_boxes", "gb_meta_boxes");
+
+/*
+	Article Info Box
+
+*/
+if ( !function_exists('gb_article_info_box') ) :
+function gb_article_info_box($current_post)
+{ 
+	wp_nonce_field(basename(__FILE__), "gb-review-meta");
+
+	?>
+
+	<style>
+	#article-meta-wrap .one-liner, #gb-review-bottomline {
+		display: inline-block;
+		width: 100%;
+	}
+	#gb-review-bottomline {
+		padding-top: 12px;
+	}
+	#gb-review-bottomline span{
+		display: inline-block;
+		float: left;
+		margin-top: 12px;
+		width: 50%;
+	}
+	#pros-wrap, #cons-wrap {
+		display: inline-block;
+		float: left;
+		margin-top: 4px;
+		width: 50%;
+	}
+	#score {
+		display: block;
+	}
+	</style>
+
+	<script>
+	var readyStateCheckInterval = setInterval(function() {
+		if (document.readyState === "complete") {
+			clearInterval(readyStateCheckInterval);
+			initTest();
+		}
+	}, 10);
+
+	function initTest() {
+		document.getElementById("review").checked = false;
+		document.getElementById("news").checked = false;
+	}
+	</script>
+	
+	<script>
+	function articleChooser(state) {
+		jQuery("#article-meta-wrap :input").prop("disabled", !state);
+	}
+
+	function traitBox(temp) {
+
+	}
+	</script>
+
+	<section id="article-chooser" onload="article-type.clear();">
+
+		<input id="review" type="radio" name="article_type" value="review" onclick="articleChooser(true);" required />
+		<label for="review">Review</label>
+	
+		<input id="news" type="radio" name="article_type" value="news" onclick="articleChooser(false);" required />
+		<label for="news">News</label>
+	
+		<div id="article-meta-wrap">
+
+			<label for="developer">Developer:</label>
+			<input id="developer" class="form-input-tip one-liner" type="text" name="developer" size="16" required />
+
+			<label for="publisher">Publisher:</label>
+			<input id="publisher" class="form-input-tip one-liner" type="text" name="publisher" size="16" required />
+
+			<label for="platform">Platforms:</label>
+			<!--<input id="platform" class="form-input-tip one-liner" type="text" name="platform" size="16" required />-->
+
+
+			<label for="release-date">Release Date:</label>
+			<input id="release-date" class="form-input-tip one-liner" type="text" name="release_date" pattern=""  />
+
+			<section id="gb-review-bottomline">
+
+				<label for="score">Score:</label>
+				<input id="score" class="form-input-tip" type="text" name="score" pattern="[0-5]" required />
+
+				<span>Pros:</span>
+				<span>Cons:</span>
+
+				<div id="pros-wrap">					
+					<input id="pro-1" class="form-input-tip" type="text" name="pro" required />
+					<button class="button" onclick="addTraitBox(this);">+</button>
+				</div>
+
+				<div id="cons-wrap">
+					<input id="con-1" class="form-input-tip" type="text" name="con" required />
+					<button class="button" onclick="addTraitBox(this);">+</button>
+				</div>
+
+			</section>
+
+		</div>
+	
+	</section>
+
+<?php	
+} 
+endif;
+ 
+if( !function_exists('save_gb_review_meta')) :
+function save_gb_review_meta($postID, $post, $update) 
+{
+	if ( !isset($_POST["gb-review-meta"]) || !wp_verify_nonce($_POST["gb-review-meta"], basename(__FILE__)) ) {
+		return $postID;
+	}
+
+	if ( !current_user_can("edit_post", $postID) ) {
+		return $postID;
+	}
+
+	if ( defined("DOING_AUTOSAVE") && DOING_AUTOSAVE ) {
+		return $postID;
+	}
+
+	$slug = "post";
+
+	if ( $slug != $post->post_type ) {
+		return $postID;
+	}
+
+	$inputTypes = ['article_type', 'developer', 'publisher', 'platforms', 'release_date', 'score', 'pro', 'con'];
+
+	$reviewMeta = [];
+
+	foreach ($inputTypes as $value) {
+		if (isset($_POST[$value])) {
+			$reviewMeta[$value] = sanitize_text_field($_POST[$value]);
+		}
+	}
+
+	$jsonReviewMeta = json_encode($reviewMeta);
+
+	update_post_meta($postID, 'article_meta', $jsonReviewMeta);
+	
+}
+endif;
+
+if (!function_exists('delete_article_meta')) :
+function delete_article_meta($postID) 
+{
+	delete_post_meta($postID, 'article_meta');
+}
+endif;
+
+add_action("delete_post", "delete_article_meta");
+
+add_action("save_post", "save_gb_review_meta", 10, 3);
+
+if ( !function_exists('gb_meta_boxes') ) :
+function gb_meta_boxes()
+{
+    add_meta_box("gb_article_info", "Article Info", "gb_article_info_box", "post", "normal", "high", null);
+}
+endif;
 
 /*==================================== INCLUDE FILES ====================================*/
 
