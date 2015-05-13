@@ -293,7 +293,10 @@ add_action("add_meta_boxes", "gb_meta_boxes");
 */
 if ( !function_exists('gb_article_info_box') ) :
 function gb_article_info_box($current_post)
-{ ?>
+{ 
+	wp_nonce_field(basename(__FILE__), "gb-review-meta");
+
+	?>
 
 	<style>
 	#article-meta-wrap .one-liner, #gb-review-bottomline {
@@ -365,23 +368,23 @@ function gb_article_info_box($current_post)
 
 
 			<label for="release-date">Release Date:</label>
-			<input id="release-date" class="form-input-tip one-liner" type="text" name="release-date" pattern="" requried />
+			<input id="release-date" class="form-input-tip one-liner" type="text" name="release-date" pattern=""  />
 
 			<section id="gb-review-bottomline">
 
 				<label for="score">Score:</label>
-				<input id="score" class="form-input-tip" type="text" name="score" pattern="[0-5]" requried />
+				<input id="score" class="form-input-tip" type="text" name="score" pattern="[0-5]" required />
 
 				<span>Pros:</span>
 				<span>Cons:</span>
 
 				<div id="pros-wrap">					
-					<input id="pro-1" class="form-input-tip" type="text" name="pro" />
+					<input id="pro-1" class="form-input-tip" type="text" name="pro" required />
 					<button class="button" onclick="addTraitBox(this);">+</button>
 				</div>
 
 				<div id="cons-wrap">
-					<input id="con-1" class="form-input-tip" type="text" name="con" />
+					<input id="con-1" class="form-input-tip" type="text" name="con" required />
 					<button class="button" onclick="addTraitBox(this);">+</button>
 				</div>
 
@@ -395,6 +398,54 @@ function gb_article_info_box($current_post)
 } 
 endif;
  
+if( !function_exists('save_gb_review_meta')) :
+function save_gb_review_meta($postID, $post, $update) 
+{
+	if ( !isset($_POST["gb-review-meta"]) || !wp_verify_nonce($_POST["gb-review-meta"], basename(__FILE__)) ) {
+		return $postID;
+	}
+
+	if ( !current_user_can("edit_post", $postID) ) {
+		return $postID;
+	}
+
+	if ( defined("DOING_AUTOSAVE") && DOING_AUTOSAVE ) {
+		return $postID;
+	}
+
+	$slug = "post";
+
+	if ( $slug != $post->post_type ) {
+		return $postID;
+	}
+
+	$inputTypes = ['article-type', 'developer', 'publisher', 'platforms', 'release-date', 'score', 'pro', 'con'];
+
+	$reviewMeta = [];
+
+	foreach ($inputTypes as $value) {
+		if (isset($_POST[$value])) {
+			$reviewMeta[$value] = sanitize_text_field($_POST[$value]);
+		}
+	}
+
+	$jsonReviewMeta = json_encode($reviewMeta);
+
+	update_post_meta($postID, 'article_meta', $jsonReviewMeta);
+	
+}
+endif;
+
+if (!function_exists('delete_article_meta')) :
+function delete_article_meta($postID) 
+{
+	delete_post_meta($postID, 'article_meta');
+}
+endif;
+
+add_action("delete_post", "delete_article_meta");
+
+add_action("save_post", "save_gb_review_meta", 10, 3);
 
 if ( !function_exists('gb_meta_boxes') ) :
 function gb_meta_boxes()
