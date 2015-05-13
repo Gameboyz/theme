@@ -6,13 +6,19 @@
 
         while( have_posts() ) :
 
-          the_post();
+      		the_post(); 
 
-          get_template_part('articles/review');
+      		$articleMeta = json_decode(get_post_meta($post->ID, 'article_meta', true));
 
-    ?>
-
-    <?php
+      		if ( $articleMeta->article_type == 'news' ) {
+      			get_template_part('articles/news');
+      		}
+      		elseif ( $articleMeta->article_type == 'review' ) {
+	            get_template_part('articles/review');      			
+      		}
+      		else {
+      			echo 'failed';
+      		}
 
          endwhile;
 

@@ -349,10 +349,10 @@ function gb_article_info_box($current_post)
 
 	<section id="article-chooser" onload="article-type.clear();">
 
-		<input id="review" type="radio" name="article-type" value="review" onclick="articleChooser(true);" required />
+		<input id="review" type="radio" name="article_type" value="review" onclick="articleChooser(true);" required />
 		<label for="review">Review</label>
 	
-		<input id="news" type="radio" name="article-type" value="news" onclick="articleChooser(false);" required />
+		<input id="news" type="radio" name="article_type" value="news" onclick="articleChooser(false);" required />
 		<label for="news">News</label>
 	
 		<div id="article-meta-wrap">
@@ -368,7 +368,7 @@ function gb_article_info_box($current_post)
 
 
 			<label for="release-date">Release Date:</label>
-			<input id="release-date" class="form-input-tip one-liner" type="text" name="release-date" pattern=""  />
+			<input id="release-date" class="form-input-tip one-liner" type="text" name="release_date" pattern=""  />
 
 			<section id="gb-review-bottomline">
 
@@ -419,7 +419,7 @@ function save_gb_review_meta($postID, $post, $update)
 		return $postID;
 	}
 
-	$inputTypes = ['article-type', 'developer', 'publisher', 'platforms', 'release-date', 'score', 'pro', 'con'];
+	$inputTypes = ['article_type', 'developer', 'publisher', 'platforms', 'release_date', 'score', 'pro', 'con'];
 
 	$reviewMeta = [];
 
