@@ -634,11 +634,9 @@ input, textarea, select {
     margin-bottom: 0.5em;
     font-size: 0.86em;
 }
-.temp-ad-div {
+.gb-ad-review {
     border: 1px solid;
-    width: 14%;
-    position: relative;
-    float: right;
+    width:160px;
 }
 .ad {
     width: 100%;

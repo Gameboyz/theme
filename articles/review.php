@@ -18,7 +18,7 @@
 		<div class="entry clearfix">
 
 			<?php the_content(); ?>
-
+      <h4></h4>
 			<div class="page-links"><?php wp_link_pages(); ?></div>
 
 		</div>

@@ -24,5 +24,7 @@
 		endwhile;
 
 	endif; ?>
+	
+	<?php the_ad(116); ?>
 
 <?php get_footer(); ?>
