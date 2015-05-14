@@ -11,25 +11,7 @@
 		<?php the_excerpt(); ?>
 	</div>
 
-<?php
-$image = '';
-$post_image_id = get_post_thumbnail_id($post->ID);
-
-if ($post_image_id) {
-	$image = wp_get_attachment_image_src($post_image_id, null, false);
-	if ($image) (string)$image = $image[0];
-}
-
-if (!empty($image)) : ?>
-	<div class="gb-tile-img" style="background-image: url('<?php echo $image; ?>');" >
-
-<?php 
-else: ?>
-	<div class="no-thumbnail">
-
-<?php 
-endif; ?>
+	<?php gb_get_article_image($post->ID, 'tile'); ?>
 	
-	</div>
 
 </article>

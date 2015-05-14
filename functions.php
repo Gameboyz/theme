@@ -283,19 +283,52 @@ function momentous_list_comments($comment, $args, $depth) {
 }
 endif;
 
-/* Posting Articles Meta Box 
-*******************************************/
+/**
+ * Get post meta info
+ * 
+ * Meta info is attatched to the post object
+ * This happens for every post in the database after it's queried
+ * 
+ * @param object $post The post object, it's needed to create a new member for the meta object
+ * 
+ */
+if ( !function_exists('gb_article_meta') ) :
+function gb_article_meta($post) 
+{
+	$post->meta = json_decode(get_post_meta($post->ID, 'article_meta', true));
+}
+endif;
+
+add_action("the_post", "gb_article_meta");
+
+
+/* Posting Articles Meta Box | Wordpress Post Interface
+*******************************************************************************************/
+
+/**
+ * Gameboyz Article Meta Info
+ *  
+ * Create meta boxes on post page
+ */
+if ( !function_exists('gb_meta_boxes') ) :
+function gb_meta_boxes()
+{
+    add_meta_box("gb_article_info", "Article Info", "gb_article_info_box", "post", "normal", "high", null);
+}
+endif;
+
 add_action("add_meta_boxes", "gb_meta_boxes");
 
-/*
-	Article Info Box
-
-*/
+/**
+ * Gameboyz Meta Markup
+ * 
+ * Markup for meta box on post page
+ * 
+ */
 if ( !function_exists('gb_article_info_box') ) :
 function gb_article_info_box($current_post)
 { 
 	wp_nonce_field(basename(__FILE__), "gb-review-meta");
-
 	?>
 
 	<style>
@@ -322,20 +355,6 @@ function gb_article_info_box($current_post)
 		display: block;
 	}
 	</style>
-
-	<script>
-	var readyStateCheckInterval = setInterval(function() {
-		if (document.readyState === "complete") {
-			clearInterval(readyStateCheckInterval);
-			initTest();
-		}
-	}, 10);
-
-	function initTest() {
-		document.getElementById("review").checked = false;
-		document.getElementById("news").checked = false;
-	}
-	</script>
 	
 	<script>
 	function articleChooser(state) {
@@ -364,7 +383,7 @@ function gb_article_info_box($current_post)
 			<input id="publisher" class="form-input-tip one-liner" type="text" name="publisher" size="16" required />
 
 			<label for="platform">Platforms:</label>
-			<!--<input id="platform" class="form-input-tip one-liner" type="text" name="platform" size="16" required />-->
+			
 
 
 			<label for="release-date">Release Date:</label>
@@ -398,6 +417,16 @@ function gb_article_info_box($current_post)
 } 
 endif;
  
+/**
+ * 
+ * Gameboyz Save Meta Info
+ * 
+ * Save meta data on post publish/save draft action
+ * 
+ * @param int $postID Post's id number,
+ * @param object $post The Post object
+ * @param datatype $update I don't know what this was used for
+ */
 if( !function_exists('save_gb_review_meta')) :
 function save_gb_review_meta($postID, $post, $update) 
 {
@@ -436,6 +465,15 @@ function save_gb_review_meta($postID, $post, $update)
 }
 endif;
 
+add_action("save_post", "save_gb_review_meta", 10, 3);
+
+/**
+ * Gameboyz Delete Meta Info
+ * 
+ * Delete meta data when original post is deleted
+ * 
+ * @param int $postID The Post's id nubmer
+ */
 if (!function_exists('delete_article_meta')) :
 function delete_article_meta($postID) 
 {
@@ -445,14 +483,7 @@ endif;
 
 add_action("delete_post", "delete_article_meta");
 
-add_action("save_post", "save_gb_review_meta", 10, 3);
 
-if ( !function_exists('gb_meta_boxes') ) :
-function gb_meta_boxes()
-{
-    add_meta_box("gb_article_info", "Article Info", "gb_article_info_box", "post", "normal", "high", null);
-}
-endif;
 
 /*==================================== INCLUDE FILES ====================================*/
 

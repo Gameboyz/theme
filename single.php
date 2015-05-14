@@ -1,28 +1,28 @@
 <?php get_header(); ?>
 
-    <?php
+<?php
 
-      if(have_posts() ) :
+	if( have_posts() ) :
 
-        while( have_posts() ) :
+		while( have_posts() ) :
 
-      		the_post(); 
+			the_post(); 
 
-      		$articleMeta = json_decode(get_post_meta($post->ID, 'article_meta', true));
+			if ( !$post->meta ) {
+				get_template_part('503');
+				continue;
+			}
 
-      		if ( $articleMeta->article_type == 'news' ) {
-      			get_template_part('articles/news');
-      		}
-      		elseif ( $articleMeta->article_type == 'review' ) {
-	            get_template_part('articles/review');      			
-      		}
-      		else {
-      			echo 'failed';
-      		}
+			if ( $post->meta->article_type == 'news') {
+				get_template_part('articles/news');
+			}
 
-         endwhile;
+			if ( $post->meta->article_type == 'review' ) {
+				get_template_part('articles/review');
+			}
 
-      endif; ?>
+		endwhile;
+
+	endif; ?>
 
 <?php get_footer(); ?>
-
