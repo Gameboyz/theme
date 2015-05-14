@@ -326,18 +326,41 @@ add_action("add_meta_boxes", "gb_meta_boxes");
  * 
  */
 if ( !function_exists('gb_article_info_box') ) :
-function gb_article_info_box($current_post)
+function gb_article_info_box($currentPost)
 { 
 	wp_nonce_field(basename(__FILE__), "gb-review-meta");
 	?>
 
 	<style>
-	#article-meta-wrap .one-liner, #gb-review-bottomline {
-		display: inline-block;
-		width: 100%;
-	}
 	#gb-review-bottomline {
-		padding-top: 12px;
+		display: inline-block;
+		width: 98%;
+	}
+	fieldset {
+		padding: 1em 0.5em;
+	}
+	fieldset * {
+		margin-left: 1em;
+	}
+	legend {
+		margin-top: 1em;
+		margin-left: -0.5em;
+	}
+	#game-info .one-liner {
+		width: 95%;
+	}
+	#article-type label {
+		margin-left: -0.25em;
+	}
+	#platforms {
+		display: inline-block;
+	}
+	#platforms div {
+		width: 80px;
+		float: left;
+	}
+	#review, #news {
+		margin-left: 1em;
 	}
 	#gb-review-bottomline span{
 		display: inline-block;
@@ -351,43 +374,89 @@ function gb_article_info_box($current_post)
 		margin-top: 4px;
 		width: 50%;
 	}
+	#pros-wrap input, #cons-wrap input {
+		width: 85%;
+	}
 	#score {
 		display: block;
+	}
+	.add {
+		width: 100%;
 	}
 	</style>
 	
 	<script>
 	function articleChooser(state) {
-		jQuery("#article-meta-wrap :input").prop("disabled", !state);
+		jQuery("#article-meta-wrap :input").prop( { disabled: !state } );
+		var articleWrap = jQuery("#article-meta-wrap");
+		if (state) 
+			articleWrap.css( { "visibility": "visible", "height": "" } );
+		else
+			articleWrap.css( { "visibility": "hidden", "height": "0" } );
 	}
 
-	function traitBox(temp) {
-
+	function addTraitBox(button, type) {
+		if (button.parentNode.childElementCount <= 5) {
+			var inputDiv = '<div><input class="form-input-tip" type="text" /><button type="button" class="button" onclick="removeTraitBox(this);">-</button></div>';
+			jQuery(button).parent().append(inputDiv).children().last().children().first().attr("name", type + "[]");
+		}
+	}
+	function removeTraitBox(button) {
+		jQuery(button).parent().remove();
 	}
 	</script>
 
-	<section id="article-chooser" onload="article-type.clear();">
+	<?php $articleMeta = json_decode(get_post_meta($currentPost->ID, "article_meta", true)); ?>
 
-		<input id="review" type="radio" name="article_type" value="review" onclick="articleChooser(true);" required />
-		<label for="review">Review</label>
-	
-		<input id="news" type="radio" name="article_type" value="news" onclick="articleChooser(false);" required />
-		<label for="news">News</label>
+	<section id="article-chooser" >
+
+		<fieldset id="article-type">
+		<legend>Article Type</legend>
+			<input id="review" type="radio" name="article_type" value="review" onclick="articleChooser(true);" required />
+			<label for="review">Review</label>
+		
+			<input id="news" type="radio" name="article_type" value="news" onclick="articleChooser(false);" required />
+			<label for="news">News</label>
+
+		</fieldset>
 	
 		<div id="article-meta-wrap">
 
-			<label for="developer">Developer:</label>
-			<input id="developer" class="form-input-tip one-liner" type="text" name="developer" size="16" required />
+			<fieldset id="game-info">
+			<legend>Game Info:</legend>
+				<label for="developer">Developer:</label>
+				<input id="developer" class="form-input-tip one-liner" type="text" name="developer" size="16" required />
 
-			<label for="publisher">Publisher:</label>
-			<input id="publisher" class="form-input-tip one-liner" type="text" name="publisher" size="16" required />
+				<label for="publisher">Publisher:</label>
+				<input id="publisher" class="form-input-tip one-liner" type="text" name="publisher" size="16" required />
 
-			<label for="platform">Platforms:</label>
-			
+				<label for="release-date">Release Date:</label>
+				<input id="release-date" class="form-input-tip one-liner" type="text" name="release_date" pattern=""  />
 
+				<fieldset id="platforms">
+					<legend>Platforms:</legend>
+					<?php
+					$platforms = [
+						"PS4" => "Playstation 4", 
+						"XBONE" => "Xbox One", 
+						"WIIU" => "Nintendo Wii U", 
+						"WIN" => "Windows", 
+						"OSX" => "Apple OS X",
+						"NIX" => "Linux",
+						"AND" => "Android",
+						"IOS" => "iOS"
+					];
 
-			<label for="release-date">Release Date:</label>
-			<input id="release-date" class="form-input-tip one-liner" type="text" name="release_date" pattern=""  />
+					foreach ($platforms as $key => $value) {
+						?>	
+						<div><input class="" type="checkbox" name="platforms[]" value="<?php echo $value ?>" /><?php echo $key ?></div>
+						<?php
+					}
+
+					?>
+				</fieldset>
+
+			</fieldset>
 
 			<section id="gb-review-bottomline">
 
@@ -398,13 +467,19 @@ function gb_article_info_box($current_post)
 				<span>Cons:</span>
 
 				<div id="pros-wrap">					
-					<input id="pro-1" class="form-input-tip" type="text" name="pro" required />
-					<button class="button" onclick="addTraitBox(this);">+</button>
+					<button type="button" class="button add" onclick="addTraitBox(this, 'pro');">+</button>
+					<div>
+						<input class="form-input-tip" type="text" name="pro[]" required />
+						<button type="button" class="button" onclick="removeTraitBox(this);">-</button>
+					</div>
 				</div>
 
 				<div id="cons-wrap">
-					<input id="con-1" class="form-input-tip" type="text" name="con" required />
-					<button class="button" onclick="addTraitBox(this);">+</button>
+					<button type="button" class="button add" onclick="addTraitBox(this, 'con');">+</button>
+					<div>
+						<input class="form-input-tip" type="text" name="con[]" required />
+						<button type="button" class="button" onclick="removeTraitBox(this);">-</button>
+					</div>
 				</div>
 
 			</section>
@@ -428,7 +503,7 @@ endif;
  * @param datatype $update I don't know what this was used for
  */
 if( !function_exists('save_gb_review_meta')) :
-function save_gb_review_meta($postID, $post, $update) 
+function save_gb_review_meta($postID, $post) 
 {
 	if ( !isset($_POST["gb-review-meta"]) || !wp_verify_nonce($_POST["gb-review-meta"], basename(__FILE__)) ) {
 		return $postID;
@@ -454,7 +529,13 @@ function save_gb_review_meta($postID, $post, $update)
 
 	foreach ($inputTypes as $value) {
 		if (isset($_POST[$value])) {
-			$reviewMeta[$value] = sanitize_text_field($_POST[$value]);
+			if ( is_array($_POST[$value]) ) {
+				for ( $i = 0; $i < sizeof($_POST[$value]); $i++ ) {
+					$reviewMeta[$value][$i] = sanitize_text_field($_POST[$value][$i]); 
+				} 
+			} else {
+				$reviewMeta[$value] = sanitize_text_field($_POST[$value]);
+			}
 		}
 	}
 
