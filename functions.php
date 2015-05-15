@@ -333,9 +333,7 @@ function gb_article_info_box($currentPost)
 	//// any strings with a quote marked that's escaped will break the json_decode
 	//// need to consult with someone on if stripcslashes will cause any problems down the road
 	$articleMeta = stripcslashes(get_post_meta($currentPost->ID, "article_meta", true));
-	echo var_dump($articleMeta);
 	$articleMeta = json_decode($articleMeta);
-	echo var_dump($articleMeta);
 	?>
 
 	<style>
@@ -418,26 +416,39 @@ function gb_article_info_box($currentPost)
 
 		<fieldset id="article-type">
 		<legend>Article Type</legend>
-			<input id="review" type="radio" name="article_type" value="review" onclick="articleChooser(true);" required />
+
+			<input id="review" type="radio" name="article_type" value="review" onclick="articleChooser(true);" 
+			<?php if ($articleMeta->article_type == 'review') echo 'checked=""' ?> required />
 			<label for="review">Review</label>
 		
-			<input id="news" type="radio" name="article_type" value="news" onclick="articleChooser(false);" required />
+			<input id="news" type="radio" name="article_type" value="news" onclick="articleChooser(false);" 
+			<?php if ($articleMeta->article_type == 'news') echo 'checked=""' ?> required />
 			<label for="news">News</label>
 
 		</fieldset>
 	
-		<div id="article-meta-wrap">
+		<div id="article-meta-wrap"
+		style="<?php if($articleMeta->article_type == 'news') echo 'visibility:hidden; height:0;' ?>">
 
 			<fieldset id="game-info">
 			<legend>Game Info:</legend>
 				<label for="developer">Developer:</label>
-				<input id="developer" class="form-input-tip one-liner" type="text" name="developer" size="16" value="<?php if (isset($articleMeta->developer)) echo $articleMeta->developer ?>" required />
+				<input id="developer" class="form-input-tip one-liner" type="text" name="developer" size="16" 
+				value="<?php if (isset($articleMeta->developer)) echo $articleMeta->developer ?>" 
+				<?php if($articleMeta->article_type == 'news') echo 'disabled=""' ?>
+				required />
 
 				<label for="publisher">Publisher:</label>
-				<input id="publisher" class="form-input-tip one-liner" type="text" name="publisher" size="16" required />
+				<input id="publisher" class="form-input-tip one-liner" type="text" name="publisher" size="16" 
+				value="<?php if (isset($articleMeta->publisher)) echo $articleMeta->publisher ?>" 
+				<?php if($articleMeta->article_type == 'news') echo 'disabled=""' ?>
+				required />
 
 				<label for="release-date">Release Date:</label>
-				<input id="release-date" class="form-input-tip one-liner" type="text" name="release_date" pattern=""  />
+				<input id="release-date" class="form-input-tip one-liner" type="text" name="release_date" pattern="" 
+				value="<?php if (isset($articleMeta->release_date)) echo $articleMeta->release_date ?>" 
+				<?php if($articleMeta->article_type == 'news') echo 'disabled=""' ?>
+				/>
 
 				<fieldset id="platforms">
 					<legend>Platforms:</legend>
@@ -445,17 +456,22 @@ function gb_article_info_box($currentPost)
 					$platforms = [
 						"PS4" => "Playstation 4", 
 						"XBONE" => "Xbox One", 
-						"WIIU" => "Nintendo Wii U", 
+						"WIIU" => "Nintendo Wii U",
+						"3DS" => "Nintendo 3DS",
+						"PSVITA" => "Playstation Vita",
 						"WIN" => "Windows", 
 						"OSX" => "Apple OS X",
-						"NIX" => "Linux",
-						"AND" => "Android",
+						"LINUX" => "Linux",
+						"ANDR" => "Android",
 						"IOS" => "iOS"
 					];
 
 					foreach ($platforms as $key => $value) {
 						?>	
-						<div><input class="" type="checkbox" name="platforms[]" value="<?php echo $value ?>" /><?php echo $key ?></div>
+						<div><input class="" type="checkbox" name="platforms[]" 
+						value="<?php echo $value ?>" 
+						<?php if($articleMeta->article_type == 'news') echo 'disabled=""' ?>
+						/><?php echo $key ?></div>
 						<?php
 					}
 
@@ -467,23 +483,25 @@ function gb_article_info_box($currentPost)
 			<section id="gb-review-bottomline">
 
 				<label for="score">Score:</label>
-				<input id="score" class="form-input-tip" type="text" name="score" pattern="[0-5]" required />
+				<input id="score" class="form-input-tip" type="text" name="score" pattern="[0-5]" 
+				<?php if($articleMeta->article_type == 'news') echo 'disabled=""' ?>
+				required />
 
 				<span>Pros:</span>
 				<span>Cons:</span>
 
 				<div id="pros-wrap">					
-					<button type="button" class="button add" onclick="addTraitBox(this, 'pro');">+</button>
+					<button type="button" class="button add" onclick="addTraitBox(this, 'pros');">+</button>
 					<div>
-						<input class="form-input-tip" type="text" name="pro[]" required />
+						<input class="form-input-tip" type="text" name="pros[]" required />
 						<button type="button" class="button" onclick="removeTraitBox(this);">-</button>
 					</div>
 				</div>
 
 				<div id="cons-wrap">
-					<button type="button" class="button add" onclick="addTraitBox(this, 'con');">+</button>
+					<button type="button" class="button add" onclick="addTraitBox(this, 'cons');">+</button>
 					<div>
-						<input class="form-input-tip" type="text" name="con[]" required />
+						<input class="form-input-tip" type="text" name="cons[]" required />
 						<button type="button" class="button" onclick="removeTraitBox(this);">-</button>
 					</div>
 				</div>
@@ -529,20 +547,22 @@ function save_gb_review_meta($postID, $post)
 		return $postID;
 	}
 
-	$inputTypes = ['article_type', 'developer', 'publisher', 'platforms', 'release_date', 'score', 'pro', 'con'];
+	$inputTypes = ['article_type', 'developer', 'publisher', 'platforms', 'release_date', 'score', 'pros', 'cons'];
 
 	$reviewMeta = [];
 
-	foreach ($inputTypes as $value) {
-		if (isset($_POST[$value])) {
-			if ( is_array($_POST[$value]) ) {
-				for ( $i = 0; $i < sizeof($_POST[$value]); $i++ ) {
-					$reviewMeta[$value][$i] = sanitize_text_field($_POST[$value][$i]); 
-				} 
-			} else {
-				$reviewMeta[$value] = sanitize_text_field($_POST[$value]);
-			}
+	foreach ( $inputTypes as $value ) {
+		if ( !isset($_POST[$value]) ) {
+			break;
 		}
+
+		if ( is_array($_POST[$value]) ) {
+			for ( $i = 0; $i < sizeof($_POST[$value]); $i++ ) {
+				$reviewMeta[$value][$i] = sanitize_text_field($_POST[$value][$i]); 
+			} 
+		} else {
+			$reviewMeta[$value] = sanitize_text_field($_POST[$value]);
+		}		
 	}
 
 	$jsonReviewMeta = json_encode($reviewMeta);
