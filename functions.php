@@ -335,7 +335,15 @@ function gb_article_info_box($currentPost)
 	$articleMeta = stripcslashes(get_post_meta($currentPost->ID, "article_meta", true));
 	$articleMeta = json_decode($articleMeta, true);
 
-	echo var_dump($articleMeta);
+	function gb_pros_cons_input($type, $value = '') 
+	{
+		?>
+		<div>
+			<input class="form-input-tip" type="text" name="<?php echo $type . '[]' ?>" value="<?php echo $value ?>" />
+			<button type="button" class="button" onclick="removeTraitBox(this);"><b>-</b></button>
+		</div>
+		<?php
+	}
 	?>
 
 	<style>
@@ -416,7 +424,7 @@ function gb_article_info_box($currentPost)
 
 	function addTraitBox(button, type) {
 		if (button.parentNode.childElementCount <= 5) {
-			var inputDiv = '<div><input class="form-input-tip" type="text" /><button type="button" class="button" onclick="removeTraitBox(this);">-</button></div>';
+			var inputDiv = '<div><input class="form-input-tip" type="text" /><button type="button" class="button" onclick="removeTraitBox(this);"><b>-</b></button></div>';
 			jQuery(button).parent().append(inputDiv).children().last().children().first().attr("name", type + "[]");
 		}
 	}
@@ -430,7 +438,6 @@ function gb_article_info_box($currentPost)
 
 		<fieldset id="article-type">
 		<legend>Article Type</legend>
-
 
 			<input id="review" type="radio" name="article_type" value="review" onclick="articleChooser(true);" 
 			<?php if ($articleMeta['article_type'] == 'review') echo 'checked=""' ?> required />
@@ -495,9 +502,7 @@ function gb_article_info_box($currentPost)
 						}
 						
 						echo ' />' . $key . '</div>';
-					}
-
-					?>
+					} ?>
 
 				</fieldset>
 
@@ -507,27 +512,39 @@ function gb_article_info_box($currentPost)
 
 				<label for="score">Score:</label>
 				<input id="score" class="form-input-tip" type="text" name="score" pattern="[0-5]" placeholder="Number from 1 to 5"
-				<?php if($articleMeta['article_type'] == 'news') echo 'disabled=""' ?>
+				value="<?php if(isset($articleMeta['score'])) echo $articleMeta['score']; ?>" 
+				<?php if($articleMeta['article_type'] == 'news') echo ' disabled=""' ?>
 				required />
 
 				<span>Pros:</span>
 				<span>Cons:</span>
 
 				<div id="pros-wrap">					
-					<button type="button" class="button add" onclick="addTraitBox(this, 'pros');">+</button>
+					<button type="button" class="button add" onclick="addTraitBox(this, 'pros');"><b>+</b></button>
 
-					<div>
-						<input class="form-input-tip" type="text" name="pros[]" />
-						<button type="button" class="button" onclick="removeTraitBox(this);">-</button>
-					</div>
+					<?php
+					if (isset($articleMeta['pros'])) {
+						foreach ($articleMeta['pros'] as $value) {
+							gb_pros_cons_input('pros', $value);
+						} 
+					} else {
+						gb_pros_cons_input('pros');
+					} ?>
+
 				</div>
 
 				<div id="cons-wrap">
-					<button type="button" class="button add" onclick="addTraitBox(this, 'cons');">+</button>
-					<div>
-						<input class="form-input-tip" type="text" name="cons[]" />
-						<button type="button" class="button" onclick="removeTraitBox(this);">-</button>
-					</div>
+					<button type="button" class="button add" onclick="addTraitBox(this, 'cons');"><b>+</b></button>
+
+					<?php
+					if (isset($articleMeta['cons'])) {
+						foreach ($articleMeta['cons'] as $value) {
+							gb_pros_cons_input('cons', $value);
+						} 
+					} else {
+						gb_pros_cons_input('cons');
+					} ?>
+					
 				</div>
 
 			</section>
