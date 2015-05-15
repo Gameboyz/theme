@@ -141,7 +141,7 @@ function momentous_add_image_sizes() {
 	add_image_size( 'custom_header_image', 1300, 240, true);
 	
 	// Add Featured Image Size
-	add_image_size( 'post-thumbnail', 900, 300, true);
+	add_image_size( 'post-thumbnail', 500, 500, true);
 
 }
 endif;
@@ -282,6 +282,359 @@ function momentous_list_comments($comment, $args, $depth) {
 	
 }
 endif;
+
+/**
+ * Get post meta info
+ * 
+ * Meta info is attatched to the post object
+ * This happens for every post in the database after it's queried
+ * 
+ * @param object $post The post object, it's needed to create a new member for the meta object
+ * 
+ */
+if ( !function_exists('gb_article_meta') ) :
+function gb_article_meta($post) 
+{
+	$post->meta = json_decode(get_post_meta($post->ID, 'article_meta', true));
+}
+endif;
+
+add_action("the_post", "gb_article_meta");
+
+
+/* Posting Articles Meta Box | Wordpress Post Interface
+*******************************************************************************************/
+
+/**
+ * Gameboyz Article Meta Info
+ *  
+ * Create meta boxes on post page
+ */
+if ( !function_exists('gb_meta_boxes') ) :
+function gb_meta_boxes()
+{
+    add_meta_box("gb_article_info", "Article Info", "gb_article_info_box", "post", "normal", "high", null);
+}
+endif;
+
+add_action("add_meta_boxes", "gb_meta_boxes");
+
+/**
+ * Gameboyz Meta Markup
+ * 
+ * Markup for meta box on post page
+ * 
+ */
+if ( !function_exists('gb_article_info_box') ) :
+function gb_article_info_box($currentPost)
+{ 
+	wp_nonce_field(basename(__FILE__), "gb-review-meta");
+	
+	//// any strings with a quote marked that's escaped will break the json_decode
+	//// need to consult with someone on if stripcslashes will cause any problems down the road
+	$articleMeta = stripcslashes(get_post_meta($currentPost->ID, "article_meta", true));
+	$articleMeta = json_decode($articleMeta, true);
+
+	function gb_pros_cons_input($type, $value = '') 
+	{
+		?>
+		<div>
+			<input class="form-input-tip" type="text" name="<?php echo $type . '[]' ?>" value="<?php echo $value ?>" />
+			<button type="button" class="button" onclick="removeTraitBox(this);"><b>-</b></button>
+		</div>
+		<?php
+	}
+	?>
+
+	<style>
+	#gb-review-bottomline {
+		display: inline-block;
+		width: 98%;
+	}
+	fieldset {
+		padding: 1em 0.5em;
+	}
+	fieldset * {
+		margin-left: 1em;
+	}
+	legend {
+		margin-top: 1em;
+		margin-left: -0.5em;
+	}
+	#game-info .one-liner {
+		width: 95%;
+	}
+	#article-type label {
+		margin-left: -0.25em;
+	}
+	#platforms {
+		display: inline-block;
+	}
+	#platforms div {
+		width: 80px;
+		float: left;
+	}
+	#review, #news {
+		margin-left: 1em;
+	}
+	#gb-review-bottomline span{
+		display: inline-block;
+		float: left;
+		margin-top: 12px;
+		width: 50%;
+	}
+	#pros-wrap, #cons-wrap {
+		display: inline-block;
+		float: left;
+		margin-top: 4px;
+		margin: 4px 4px 0 4px;
+		width: 48%;
+	}
+	#pros-wrap div, #cons-wrap div {
+		display: inline-block;
+		padding-top: 0.5em;
+		width: 100%;
+	}
+	#pros-wrap > div input, #cons-wrap > div input {
+		float: left;
+		width: 88%;
+	}
+	#pros-wrap > div button, #cons-wrap > div button {
+		float: right;
+		margin-top: 2px;
+		width: 9%;
+	}
+	#score {
+		display: block;
+	}
+	.add {
+		width: 100%;
+	}
+	</style>
+	
+	<script>
+	function articleChooser(state) {
+		jQuery("#article-meta-wrap :input").prop( { disabled: !state } );
+		var articleWrap = jQuery("#article-meta-wrap");
+		if (state) 
+			articleWrap.css( { "visibility": "visible", "height": "" } );
+		else
+			articleWrap.css( { "visibility": "hidden", "height": "0" } );
+	}
+
+	function addTraitBox(button, type) {
+		if (button.parentNode.childElementCount <= 5) {
+			var inputDiv = '<div><input class="form-input-tip" type="text" /><button type="button" class="button" onclick="removeTraitBox(this);"><b>-</b></button></div>';
+			jQuery(button).parent().append(inputDiv).children().last().children().first().attr("name", type + "[]");
+		}
+	}
+	function removeTraitBox(button) {
+		jQuery(button).parent().remove();
+	}
+	</script>
+
+
+	<section id="article-chooser" >
+
+		<fieldset id="article-type">
+		<legend>Article Type</legend>
+
+			<input id="review" type="radio" name="article_type" value="review" onclick="articleChooser(true);" 
+			<?php if ($articleMeta['article_type'] == 'review') echo 'checked=""' ?> required />
+			<label for="review">Review</label>
+		
+			<input id="news" type="radio" name="article_type" value="news" onclick="articleChooser(false);" 
+			<?php if ($articleMeta['article_type'] == 'news') echo 'checked=""' ?> required />
+			<label for="news">News</label>
+
+		</fieldset>
+	
+		<div id="article-meta-wrap"
+		style="<?php if($articleMeta['article_type'] == 'news') echo 'visibility:hidden; height:0;' ?>">
+
+			<fieldset id="game-info">
+			<legend>Game Info:</legend>
+
+				<label for="developer">Developer:</label>
+				<input id="developer" class="form-input-tip one-liner" type="text" name="developer" size="16" 
+				value="<?php if (isset($articleMeta['developer'])) echo $articleMeta['developer'] ?>" 
+				<?php if($articleMeta['article_type'] == 'news') echo 'disabled=""' ?>
+				required />
+
+				<label for="publisher">Publisher:</label>
+				<input id="publisher" class="form-input-tip one-liner" type="text" name="publisher" size="16" 
+				value="<?php if (isset($articleMeta['publisher'])) echo $articleMeta['publisher'] ?>" 
+				<?php if($articleMeta['article_type'] == 'news') echo 'disabled=""' ?>
+				required />
+
+				<label for="release-date">Release Date:</label>
+				<input id="release-date" class="form-input-tip one-liner" type="text" name="release_date" pattern="" 
+				value="<?php if (isset($articleMeta['release_date'])) echo $articleMeta['release_date'] ?>" 
+				<?php if($articleMeta['article_type'] == 'news') echo 'disabled=""' ?>
+				/>
+
+				<fieldset id="platforms">
+					<legend>Platforms:</legend>
+					<?php
+					$platforms = [
+						"PS4" => "Playstation 4", 
+						"XBONE" => "Xbox One", 
+						"WIIU" => "Nintendo Wii U",
+						"3DS" => "Nintendo 3DS",
+						"PSVITA" => "Playstation Vita",
+						"WIN" => "Windows", 
+						"OSX" => "Apple OS X",
+						"LINUX" => "Linux",
+						"ANDR" => "Android",
+						"IOS" => "iOS"
+					];
+
+					foreach ($platforms as $key => $value) {
+						?><div><input class="" type="checkbox" name="platforms[<?php echo $key ?>]" value="<?php echo $value ?>" 
+						<?php 
+
+						if( isset($articleMeta['platforms'][$key]) ) {
+							echo 'checked'; 
+						}
+						
+						if( $articleMeta['article_type'] == 'news' ) {
+							echo 'disabled'; 
+						}
+						
+						echo ' />' . $key . '</div>';
+					} ?>
+
+				</fieldset>
+
+			</fieldset>
+
+			<section id="gb-review-bottomline">
+
+				<label for="score">Score:</label>
+				<input id="score" class="form-input-tip" type="text" name="score" pattern="[0-5]" placeholder="Number from 1 to 5"
+				value="<?php if(isset($articleMeta['score'])) echo $articleMeta['score']; ?>" 
+				<?php if($articleMeta['article_type'] == 'news') echo ' disabled=""' ?>
+				required />
+
+				<span>Pros:</span>
+				<span>Cons:</span>
+
+				<div id="pros-wrap">					
+					<button type="button" class="button add" onclick="addTraitBox(this, 'pros');"><b>+</b></button>
+
+					<?php
+					if (isset($articleMeta['pros'])) {
+						foreach ($articleMeta['pros'] as $value) {
+							gb_pros_cons_input('pros', $value);
+						} 
+					} else {
+						gb_pros_cons_input('pros');
+					} ?>
+
+				</div>
+
+				<div id="cons-wrap">
+					<button type="button" class="button add" onclick="addTraitBox(this, 'cons');"><b>+</b></button>
+
+					<?php
+					if (isset($articleMeta['cons'])) {
+						foreach ($articleMeta['cons'] as $value) {
+							gb_pros_cons_input('cons', $value);
+						} 
+					} else {
+						gb_pros_cons_input('cons');
+					} ?>
+					
+				</div>
+
+			</section>
+
+		</div>
+	
+	</section>
+
+<?php	
+} 
+endif;
+ 
+/**
+ * 
+ * Gameboyz Save Meta Info
+ * 
+ * Save meta data on post publish/save draft action
+ * 
+ * @param int $postID Post's id number,
+ * @param object $post The Post object
+ * @param datatype $update I don't know what this was used for
+ */
+if( !function_exists('save_gb_review_meta') ) :
+function save_gb_review_meta($postID, $post) 
+{
+	if ( !isset($_POST["gb-review-meta"]) || !wp_verify_nonce($_POST["gb-review-meta"], basename(__FILE__)) ) {
+		return $postID;
+	}
+
+	if ( !current_user_can("edit_post", $postID) ) {
+		return $postID;
+	}
+
+	if ( defined("DOING_AUTOSAVE") && DOING_AUTOSAVE ) {
+		return $postID;
+	}
+
+	$slug = "post";
+
+	if ( $slug != $post->post_type ) {
+		return $postID;
+	}
+
+	$inputTypes = ['article_type', 'developer', 'publisher', 'platforms', 'release_date', 'score', 'pros', 'cons'];
+
+	$reviewMeta = [];
+
+	foreach ( $inputTypes as $value ) {
+
+		if ( !isset($_POST[$value]) ) {
+			break;
+		}
+
+		if ( is_array($_POST[$value]) ) {
+
+			foreach ( $_POST[$value] as $key => $innerValue ) {
+				$reviewMeta[$value][$key] = sanitize_text_field($_POST[$value][$key]); 
+			} 
+
+		} else {
+			$reviewMeta[$value] = sanitize_text_field($_POST[$value]);
+		}	
+			
+	}
+
+	$jsonReviewMeta = json_encode($reviewMeta);
+
+	update_post_meta($postID, 'article_meta', $jsonReviewMeta);
+	
+}
+endif;
+
+add_action("save_post", "save_gb_review_meta", 10, 3);
+
+/**
+ * Gameboyz Delete Meta Info
+ * 
+ * Delete meta data when original post is deleted
+ * 
+ * @param int $postID The Post's id nubmer
+ */
+if (!function_exists('delete_article_meta')) :
+function delete_article_meta($postID) 
+{
+	delete_post_meta($postID, 'article_meta');
+}
+endif;
+
+add_action("delete_post", "delete_article_meta");
+
 
 
 /*==================================== INCLUDE FILES ====================================*/

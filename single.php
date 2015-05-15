@@ -1,22 +1,28 @@
 <?php get_header(); ?>
 
-	<div id="wrap" class="container clearfix">
-		
-		<section id="content" class="primary" role="main">
-		
-		<?php if (have_posts()) : while (have_posts()) : the_post();
-		
-			get_template_part( 'content', 'single' );
+<?php
 
-			endwhile;
-		
-		endif; ?>
-			
-		<?php comments_template(); ?>
-		
-		</section>
-		
+	if( have_posts() ) :
 
-	</div>
-	
-<?php get_footer(); ?>	
+		while( have_posts() ) :
+
+			the_post(); 
+
+			if ( !$post->meta ) {
+				get_template_part('503');
+				continue;
+			}
+
+			if ( $post->meta->article_type == 'news') {
+				get_template_part('articles/news');
+			}
+
+			if ( $post->meta->article_type == 'review' ) {
+				get_template_part('articles/review');
+			}
+
+		endwhile;
+
+	endif; ?>
+
+<?php get_footer(); ?>

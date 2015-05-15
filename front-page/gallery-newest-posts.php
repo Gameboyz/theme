@@ -13,7 +13,7 @@
 
 	<div id="<?php echo "gb-new-$newest_post" ?>" class="gb-new-post gb-newest clearfix">
 
-		<?php get_template_part( 'gallery', 'tile' ); ?>
+		<?php get_template_part( 'front-page/gallery', 'tile' ); ?>
 
 	</div>
 

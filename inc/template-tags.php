@@ -268,5 +268,32 @@ function momentous_display_social_icons() {
 
 }
 
+/**
+ * Get post header image. 
+ * Can be called for use in News, Review, or Tile template
+ * 
+ * @param int $postID post's id number, used to get attachment for image source url
+ * 					  if an image can't be found, url will be 'no image found' in the style attribute.
+ * 
+ * @param string $divClass Optional. Type of structure to use for image, pass in 'tile' for front page use.
+ * 	
+ */
+function gb_get_article_image($postID, $divClass = '') 
+{
+	if ( $post_image_id = get_post_thumbnail_id($postID) ) {
+		$image = wp_get_attachment_image_src($post_image_id, null, false);
+		(string)$image = $image[0];
+	} else {
+		$image = 'no image found';
+	}
+
+	if ($divClass == 'tile') {
+		$divClass = $divClass . '-';
+	}
+
+	?>
+	<div class="gb-<?php echo $divClass ?>img" style="background-image: url('<?php echo $image; ?>');" ></div>
+	<?php
+}
 
 ?>
