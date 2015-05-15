@@ -329,6 +329,13 @@ if ( !function_exists('gb_article_info_box') ) :
 function gb_article_info_box($currentPost)
 { 
 	wp_nonce_field(basename(__FILE__), "gb-review-meta");
+	
+	//// any strings with a quote marked that's escaped will break the json_decode
+	//// need to consult with someone on if stripcslashes will cause any problems down the road
+	$articleMeta = stripcslashes(get_post_meta($currentPost->ID, "article_meta", true));
+	echo var_dump($articleMeta);
+	$articleMeta = json_decode($articleMeta);
+	echo var_dump($articleMeta);
 	?>
 
 	<style>
@@ -406,7 +413,6 @@ function gb_article_info_box($currentPost)
 	}
 	</script>
 
-	<?php $articleMeta = json_decode(get_post_meta($currentPost->ID, "article_meta", true)); ?>
 
 	<section id="article-chooser" >
 
@@ -425,7 +431,7 @@ function gb_article_info_box($currentPost)
 			<fieldset id="game-info">
 			<legend>Game Info:</legend>
 				<label for="developer">Developer:</label>
-				<input id="developer" class="form-input-tip one-liner" type="text" name="developer" size="16" required />
+				<input id="developer" class="form-input-tip one-liner" type="text" name="developer" size="16" value="<?php if (isset($articleMeta->developer)) echo $articleMeta->developer ?>" required />
 
 				<label for="publisher">Publisher:</label>
 				<input id="publisher" class="form-input-tip one-liner" type="text" name="publisher" size="16" required />
