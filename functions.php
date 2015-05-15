@@ -333,7 +333,9 @@ function gb_article_info_box($currentPost)
 	//// any strings with a quote marked that's escaped will break the json_decode
 	//// need to consult with someone on if stripcslashes will cause any problems down the road
 	$articleMeta = stripcslashes(get_post_meta($currentPost->ID, "article_meta", true));
-	$articleMeta = json_decode($articleMeta);
+	$articleMeta = json_decode($articleMeta, true);
+
+	echo var_dump($articleMeta);
 	?>
 
 	<style>
@@ -377,10 +379,22 @@ function gb_article_info_box($currentPost)
 		display: inline-block;
 		float: left;
 		margin-top: 4px;
-		width: 50%;
+		margin: 4px 4px 0 4px;
+		width: 48%;
 	}
-	#pros-wrap input, #cons-wrap input {
-		width: 85%;
+	#pros-wrap div, #cons-wrap div {
+		display: inline-block;
+		padding-top: 0.5em;
+		width: 100%;
+	}
+	#pros-wrap > div input, #cons-wrap > div input {
+		float: left;
+		width: 88%;
+	}
+	#pros-wrap > div button, #cons-wrap > div button {
+		float: right;
+		margin-top: 2px;
+		width: 9%;
 	}
 	#score {
 		display: block;
@@ -417,37 +431,39 @@ function gb_article_info_box($currentPost)
 		<fieldset id="article-type">
 		<legend>Article Type</legend>
 
+
 			<input id="review" type="radio" name="article_type" value="review" onclick="articleChooser(true);" 
-			<?php if ($articleMeta->article_type == 'review') echo 'checked=""' ?> required />
+			<?php if ($articleMeta['article_type'] == 'review') echo 'checked=""' ?> required />
 			<label for="review">Review</label>
 		
 			<input id="news" type="radio" name="article_type" value="news" onclick="articleChooser(false);" 
-			<?php if ($articleMeta->article_type == 'news') echo 'checked=""' ?> required />
+			<?php if ($articleMeta['article_type'] == 'news') echo 'checked=""' ?> required />
 			<label for="news">News</label>
 
 		</fieldset>
 	
 		<div id="article-meta-wrap"
-		style="<?php if($articleMeta->article_type == 'news') echo 'visibility:hidden; height:0;' ?>">
+		style="<?php if($articleMeta['article_type'] == 'news') echo 'visibility:hidden; height:0;' ?>">
 
 			<fieldset id="game-info">
 			<legend>Game Info:</legend>
+
 				<label for="developer">Developer:</label>
 				<input id="developer" class="form-input-tip one-liner" type="text" name="developer" size="16" 
-				value="<?php if (isset($articleMeta->developer)) echo $articleMeta->developer ?>" 
-				<?php if($articleMeta->article_type == 'news') echo 'disabled=""' ?>
+				value="<?php if (isset($articleMeta['developer'])) echo $articleMeta['developer'] ?>" 
+				<?php if($articleMeta['article_type'] == 'news') echo 'disabled=""' ?>
 				required />
 
 				<label for="publisher">Publisher:</label>
 				<input id="publisher" class="form-input-tip one-liner" type="text" name="publisher" size="16" 
-				value="<?php if (isset($articleMeta->publisher)) echo $articleMeta->publisher ?>" 
-				<?php if($articleMeta->article_type == 'news') echo 'disabled=""' ?>
+				value="<?php if (isset($articleMeta['publisher'])) echo $articleMeta['publisher'] ?>" 
+				<?php if($articleMeta['article_type'] == 'news') echo 'disabled=""' ?>
 				required />
 
 				<label for="release-date">Release Date:</label>
 				<input id="release-date" class="form-input-tip one-liner" type="text" name="release_date" pattern="" 
-				value="<?php if (isset($articleMeta->release_date)) echo $articleMeta->release_date ?>" 
-				<?php if($articleMeta->article_type == 'news') echo 'disabled=""' ?>
+				value="<?php if (isset($articleMeta['release_date'])) echo $articleMeta['release_date'] ?>" 
+				<?php if($articleMeta['article_type'] == 'news') echo 'disabled=""' ?>
 				/>
 
 				<fieldset id="platforms">
@@ -467,15 +483,22 @@ function gb_article_info_box($currentPost)
 					];
 
 					foreach ($platforms as $key => $value) {
-						?>	
-						<div><input class="" type="checkbox" name="platforms[]" 
-						value="<?php echo $value ?>" 
-						<?php if($articleMeta->article_type == 'news') echo 'disabled=""' ?>
-						/><?php echo $key ?></div>
-						<?php
+						?><div><input class="" type="checkbox" name="platforms[<?php echo $key ?>]" value="<?php echo $value ?>" 
+						<?php 
+
+						if( isset($articleMeta['platforms'][$key]) ) {
+							echo 'checked'; 
+						}
+						
+						if( $articleMeta['article_type'] == 'news' ) {
+							echo 'disabled'; 
+						}
+						
+						echo ' />' . $key . '</div>';
 					}
 
 					?>
+
 				</fieldset>
 
 			</fieldset>
@@ -483,8 +506,8 @@ function gb_article_info_box($currentPost)
 			<section id="gb-review-bottomline">
 
 				<label for="score">Score:</label>
-				<input id="score" class="form-input-tip" type="text" name="score" pattern="[0-5]" 
-				<?php if($articleMeta->article_type == 'news') echo 'disabled=""' ?>
+				<input id="score" class="form-input-tip" type="text" name="score" pattern="[0-5]" placeholder="Number from 1 to 5"
+				<?php if($articleMeta['article_type'] == 'news') echo 'disabled=""' ?>
 				required />
 
 				<span>Pros:</span>
@@ -492,8 +515,9 @@ function gb_article_info_box($currentPost)
 
 				<div id="pros-wrap">					
 					<button type="button" class="button add" onclick="addTraitBox(this, 'pros');">+</button>
+
 					<div>
-						<input class="form-input-tip" type="text" name="pros[]" required />
+						<input class="form-input-tip" type="text" name="pros[]" />
 						<button type="button" class="button" onclick="removeTraitBox(this);">-</button>
 					</div>
 				</div>
@@ -501,7 +525,7 @@ function gb_article_info_box($currentPost)
 				<div id="cons-wrap">
 					<button type="button" class="button add" onclick="addTraitBox(this, 'cons');">+</button>
 					<div>
-						<input class="form-input-tip" type="text" name="cons[]" required />
+						<input class="form-input-tip" type="text" name="cons[]" />
 						<button type="button" class="button" onclick="removeTraitBox(this);">-</button>
 					</div>
 				</div>
@@ -526,7 +550,7 @@ endif;
  * @param object $post The Post object
  * @param datatype $update I don't know what this was used for
  */
-if( !function_exists('save_gb_review_meta')) :
+if( !function_exists('save_gb_review_meta') ) :
 function save_gb_review_meta($postID, $post) 
 {
 	if ( !isset($_POST["gb-review-meta"]) || !wp_verify_nonce($_POST["gb-review-meta"], basename(__FILE__)) ) {
@@ -552,17 +576,21 @@ function save_gb_review_meta($postID, $post)
 	$reviewMeta = [];
 
 	foreach ( $inputTypes as $value ) {
+
 		if ( !isset($_POST[$value]) ) {
 			break;
 		}
 
 		if ( is_array($_POST[$value]) ) {
-			for ( $i = 0; $i < sizeof($_POST[$value]); $i++ ) {
-				$reviewMeta[$value][$i] = sanitize_text_field($_POST[$value][$i]); 
+
+			foreach ( $_POST[$value] as $key => $innerValue ) {
+				$reviewMeta[$value][$key] = sanitize_text_field($_POST[$value][$key]); 
 			} 
+
 		} else {
 			$reviewMeta[$value] = sanitize_text_field($_POST[$value]);
-		}		
+		}	
+			
 	}
 
 	$jsonReviewMeta = json_encode($reviewMeta);
