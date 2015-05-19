@@ -428,6 +428,16 @@ input, textarea, select {
     padding-right: 0.8em;
     text-align: right;
 }
+/* Site-wide classes
+-------------------------------------------------------------- */
+.title {
+    font-family: 'Fjalla One', Tahoma, Verdana, Arial;
+    color: #fff;
+    line-height: 1.4em;
+    -ms-word-wrap: break-word;
+    word-wrap: break-word;
+    text-shadow: 2px 2px 2px #000;    
+}
 /* Front Page style
 -------------------------------------------------------------- */
 #gb-new-wrapper {
@@ -481,26 +491,33 @@ input, textarea, select {
     box-sizing: border-box;
 }
 .gb-post-info {
-    position: absolute;
+    display: inline-block;
     width: 100%;
     height: 100%;
-}
-.gb-post-info > * {
-    position: absolute;
 }
 .gb-post-info .gb-post-text {
     z-index: 10;
     max-height: 50%;
 }
-.gb-post-info .post-title {
-    top: 0;
-    padding: 1em;
+#gb-post-title-wrap {
+    float: left;
+    width: 100%;
+    background: rgba(40,40,40,0.9);
+}
+.gb-post-title {
+    margin: 0.5em 0.5em 0;
+    font-size: 2em;    
+    z-index: 10;
+}
+.gb-post-title a {
+    color: #fff;
+    text-decoration: none;
 }
 .gb-post-info .entry {
-    bottom: 0;
+    float: left;
     width: 100%;
-    min-height: 6em;
-    background-color: rgba(51, 51, 51, 0.5);
+    height: 10em;
+    background: linear-gradient(to bottom, rgba(40,40,40,0.9), rgba(40,40,40,0.8) 30%, rgba(40,40,40,0.4) 80%, rgba(40,40,40,0.2) 87%, rgba(255,255,255,0) );
 }
 .gb-post-info .entry p {
     padding: 1em;
@@ -513,14 +530,12 @@ input, textarea, select {
     z-index: 1;
 }
 .gb-tile-img {
-    background-size: 100% auto;
+    background-size: auto 100%;
     background-position: center;
     background-repeat: no-repeat;
 }
 /* Posts and Pages
 -------------------------------------------------------------- */
-#post-wrapper {
-}
 #post-wrapper .post-wrap {
     float: left;
     margin-left: -0.001%;
@@ -557,7 +572,7 @@ input, textarea, select {
 .single .post-title, .page-title {
     font-size: 2.0em;
 }
-.post-title a:link, .post-title a:visited, .gb-img-link {
+.post-title a:link, .post-title a:visited {
     color: #fff;
     text-decoration: none;
 }
