@@ -334,15 +334,59 @@ function gb_article_info_box($currentPost)
 	$articleMeta = stripcslashes(get_post_meta($currentPost->ID, "article_meta", true));
 	$articleMeta = json_decode($articleMeta, true);
 
-	function gb_pros_cons_input($type, $value = '') 
+	/** 
+	 * Creates a block with textbox input and button to remove the block.
+	 * 
+	 * Intended use to be for pros and cons in a game review
+	 * 
+	 * @param string $articleType If $articleType is 'news', when the input box is created, 
+	 * 	 							it needs to be disable so no values are passed when the article is published or saved.
+	 * @param string $type Determinds if it's for pro or con input.
+	 * @param string $value Optional. Include only if there's data avaliable to place in the textbox.
+	 */
+	function gb_pros_cons_input($articleType, $type, $value = '') 
 	{
 		?>
 		<div>
-			<input class="form-input-tip" type="text" name="<?php echo $type . '[]' ?>" value="<?php echo $value ?>" />
+			<input class="form-input-tip" type="text" name="<?php echo $type . '[]' ?>" value="<?php echo $value ?>" <?php if ($articleType == 'news') echo 'disabled' ?> />
 			<button type="button" class="button" onclick="removeTraitBox(this);"><b>-</b></button>
 		</div>
 		<?php
 	}
+
+	/**
+	 * Creates the wrapper for pros or cons in a game reviews bottomline
+	 * 
+	 * @see gb_pros_cons_input()
+	 * 
+	 * @param string $articleType Excepts either 'review' or 'news'. Needed to pass to gb_pros_cons_input()
+	 * @param string $type Excepts either 'pros' or 'cons'.
+	 * @param array $typeList Optional. If there's a an array, the items in the array get passed to gb_pros_cons_input()
+	 */
+	function gb_wrap_pros_cons($articleType, $type, $typeList = '')
+	{ 
+		?>	
+		<div id="<?php echo $type ?>-wrap">					
+			<button type="button" class="button add" onclick="addTraitBox(this, <?php echo '\'' . $type . '\'' ?>);"><b>+</b></button>
+		<?php
+
+		if ( !is_array($typeList) ) {
+			gb_pros_cons_input($articleType, $type);
+			?></div><?php
+			return;
+		}
+
+		foreach ( $typeList as $value ) {
+			gb_pros_cons_input($articleType, $type, $value);
+		}
+				
+		?>
+
+		</div>
+
+		<?php
+	}
+
 	?>
 
 	<style>
@@ -410,7 +454,7 @@ function gb_article_info_box($currentPost)
 		width: 100%;
 	}
 	</style>
-	
+
 	<script>
 	function articleChooser(state) {
 		jQuery("#article-meta-wrap :input").prop( { disabled: !state } );
@@ -432,18 +476,17 @@ function gb_article_info_box($currentPost)
 	}
 	</script>
 
-
 	<section id="article-chooser" >
 
 		<fieldset id="article-type">
 		<legend>Article Type</legend>
 
 			<input id="review" type="radio" name="article_type" value="review" onclick="articleChooser(true);" 
-			<?php if ($articleMeta['article_type'] == 'review') echo 'checked=""' ?> required />
+			<?php if ($articleMeta['article_type'] == 'review') echo 'checked' ?> required />
 			<label for="review">Review</label>
 		
 			<input id="news" type="radio" name="article_type" value="news" onclick="articleChooser(false);" 
-			<?php if ($articleMeta['article_type'] == 'news') echo 'checked=""' ?> required />
+			<?php if ($articleMeta['article_type'] == 'news') echo 'checked' ?> required />
 			<label for="news">News</label>
 
 		</fieldset>
@@ -454,7 +497,7 @@ function gb_article_info_box($currentPost)
 			<fieldset id="game-info">
 			<legend>Game Info:</legend>
 
-				<label for="developer">Developer:</label>
+				<label for="developer">Publisher:</label>
 				<input id="developer" class="form-input-tip one-liner" type="text" name="developer" size="16" 
 				value="<?php if (isset($articleMeta['developer'])) echo $articleMeta['developer'] ?>" 
 				<?php if($articleMeta['article_type'] == 'news') echo 'disabled=""' ?>
@@ -518,33 +561,14 @@ function gb_article_info_box($currentPost)
 				<span>Pros:</span>
 				<span>Cons:</span>
 
-				<div id="pros-wrap">					
-					<button type="button" class="button add" onclick="addTraitBox(this, 'pros');"><b>+</b></button>
-
-					<?php
-					if (isset($articleMeta['pros'])) {
-						foreach ($articleMeta['pros'] as $value) {
-							gb_pros_cons_input('pros', $value);
-						} 
-					} else {
-						gb_pros_cons_input('pros');
-					} ?>
-
-				</div>
-
-				<div id="cons-wrap">
-					<button type="button" class="button add" onclick="addTraitBox(this, 'cons');"><b>+</b></button>
-
-					<?php
-					if (isset($articleMeta['cons'])) {
-						foreach ($articleMeta['cons'] as $value) {
-							gb_pros_cons_input('cons', $value);
-						} 
-					} else {
-						gb_pros_cons_input('cons');
-					} ?>
-					
-				</div>
+				<?php
+				foreach ( ['pros', 'cons'] as $type ) {
+					if ( isset($articleMeta[$type]) )
+						gb_wrap_pros_cons($articleMeta['article_type'], $type, $articleMeta[$type]);
+					else
+						gb_wrap_pros_cons($articleMeta['article_type'], $type);
+				}
+				?>
 
 			</section>
 
@@ -594,7 +618,7 @@ function save_gb_review_meta($postID, $post)
 	foreach ( $inputTypes as $value ) {
 
 		if ( !isset($_POST[$value]) ) {
-			break;
+			continue;
 		}
 
 		if ( is_array($_POST[$value]) ) {
