@@ -13,18 +13,24 @@
 				continue;
 			}
 
-			if ( $post->meta->article_type == 'news') {
+			if ( $post->meta['article_type'] == 'news') {
 				get_template_part('articles/news');
 			}
 
-			if ( $post->meta->article_type == 'review' ) {
+			if ( $post->meta['article_type'] == 'review' ) {
 				get_template_part('articles/review');
 			}
 
 		endwhile;
 
 	endif; ?>
+
+<?php if(function_exists('the_ad')) the_ad(116); ?>
+
+<div id="comments-wrap" class="container">
+
+	<?php comments_template(); ?>
 	
-	<?php the_ad(116); ?>
+</div>
 
 <?php get_footer(); ?>

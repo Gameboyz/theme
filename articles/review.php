@@ -8,10 +8,22 @@
 
 			<div class="gb-game-info-wrap">
 
-				<div id="dev" class="gb-game-info"><span>Developed by:</span><p>Team Sanic</p></div>
-				<div id="pub" class="gb-game-info"><span>Published by:</span><p>Sega</p></div>
-				<div id="plat" class="gb-game-info"><span>Avaliable on:</span><p>Mega Drive</p></div>
-				<div id="rel" class="gb-game-info"><span>Release Date:</span><p>the 90\'s</p></div>
+				<div id="dev" class="gb-game-info"><span>Developed by:</span><p><?php if(isset($post->meta['developer'])) echo $post->meta['developer']; ?></p></div>
+				<div id="pub" class="gb-game-info"><span>Published by:</span><p><?php if(isset($post->meta['publisher'])) echo $post->meta['publisher']; ?></p></div>
+				<div id="plat" class="gb-game-info"><span>Avaliable on:</span><p>
+
+					<?php
+					if ( isset($post->meta['platforms']) ) {
+						foreach ( $post->meta['platforms'] as $key => $value ) {
+							?>
+							<span> <?php echo $post->meta['platforms'][$key]; ?> </span>
+						<?php
+						}
+					}
+					?>
+
+				</p></div>
+				<div id="rel" class="gb-game-info"><span>Release Date:</span><p><?php if(isset($post->meta['release_date'])) echo $post->meta['release_date']; ?></p></div>
 
 			</div>
 
@@ -26,25 +38,41 @@
 		<section id="gb-bottomline">
 
 			<div id="score-wrap">
-				<div class="score-widget">Some fancy score widget here. 10/10</div>
+				<div class="score-widget"><?php if(isset($post->meta['score'])) echo $post->meta['score']; ?></div>
 			</div>
 
 			<div id="pros-wrap" class="gb-bottomline-list">
 				<span>Pros:</span>
 				<ul id="pros-list" class="clearfix">
-					<li>List of</li>
-					<li>Pros here, (dont mind this part, making aaa some over extending text)</li>
-					<li>about the game</li>
+
+					<?php
+					if ( isset($post->meta['pros']) ) {
+						foreach ( $post->meta['pros'] as $value ) {
+						?>
+							<li> <?php echo $value ?> </li>
+						<?php
+						}
+					}
+					?>
 				</ul>
 			</div>
 
 			<div id="cons-wrap" class="gb-bottomline-list">
 				<span>Cons:</span>
 				<ul id="cons-list" class="clearfix">
-					<li>List of</li>
-					<li>Pros here,</li>
-					<li>about the game</li>
+
+					<?php
+					if ( isset($post->meta['cons']) ) {
+						foreach ( $post->meta['cons'] as $value ) {
+						?>
+							<li> <?php echo $value ?> </li>
+						<?php
+						}
+					}
+					?>
+
 				</ul>
+
 			</div>
 
 		</section>

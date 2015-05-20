@@ -293,9 +293,9 @@ endif;
  * 
  */
 if ( !function_exists('gb_article_meta') ) :
-function gb_article_meta($post) 
+function gb_article_meta($post)
 {
-	$post->meta = json_decode(get_post_meta($post->ID, 'article_meta', true));
+	$post->meta = json_decode(stripcslashes(get_post_meta($post->ID, 'article_meta', true)),true);
 }
 endif;
 
@@ -595,7 +595,7 @@ function save_gb_review_meta($postID, $post)
 	foreach ( $inputTypes as $value ) {
 
 		if ( !isset($_POST[$value]) ) {
-			break;
+			continue;
 		}
 
 		if ( is_array($_POST[$value]) ) {
