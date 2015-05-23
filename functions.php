@@ -330,8 +330,7 @@ function gb_article_info_box($currentPost)
 { 
 	wp_nonce_field(basename(__FILE__), "gb-review-meta");
 	
-	//// any strings with a quote marked that's escaped will break the json_decode
-	//// need to consult with someone on if stripcslashes will cause any problems down the road
+	// Need to remove the slashes of the escaped characters for the json to be decoded
 	$articleMeta = stripcslashes(get_post_meta($currentPost->ID, "article_meta", true));
 	$articleMeta = json_decode($articleMeta, true);
 
