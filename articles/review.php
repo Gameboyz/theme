@@ -30,7 +30,7 @@
 		<div class="entry clearfix">
 
 			<?php the_content(); ?>
-      <h4></h4>
+
 			<div class="page-links"><?php wp_link_pages(); ?></div>
 
 		</div>
@@ -38,42 +38,40 @@
 		<section id="gb-bottomline">
 
 			<div id="score-wrap">
+
 				<div class="score-widget"><?php if(isset($post->meta['score'])) echo $post->meta['score']; ?></div>
+
 			</div>
+			<?php
 
-			<div id="pros-wrap" class="gb-bottomline-list">
-				<span>Pros:</span>
-				<ul id="pros-list" class="clearfix">
+			foreach (['pros','cons'] as $type) {
+				?>
 
-					<?php
-					if ( isset($post->meta['pros']) ) {
-						foreach ( $post->meta['pros'] as $value ) {
-						?>
-							<li> <?php echo $value ?> </li>
+				<div id="<?php echo $type ?>-wrap" class="gb-bottomline-list">
+					
+					<span><?php echo ucfirst($type) ?>:</span>
+					
+					<ul id="<?php echo $type?>-list" class="clearfix">
+
 						<?php
+						if ( isset($post->meta[$type]) ) {
+							foreach ( $post->meta[$type] as $value ) {
+							?>
+
+								<li> <?php echo $value ?> </li>
+							<?php
+							}
 						}
-					}
-					?>
-				</ul>
-			</div>
-
-			<div id="cons-wrap" class="gb-bottomline-list">
-				<span>Cons:</span>
-				<ul id="cons-list" class="clearfix">
-
-					<?php
-					if ( isset($post->meta['cons']) ) {
-						foreach ( $post->meta['cons'] as $value ) {
 						?>
-							<li> <?php echo $value ?> </li>
-						<?php
-						}
-					}
-					?>
+					
+					</ul>
 
-				</ul>
+				</div>
+				<?php
 
-			</div>
+			}
+
+			?>
 
 		</section>
 
