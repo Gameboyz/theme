@@ -520,7 +520,8 @@ input, textarea, select {
 .gb-review-info {
 	top: 8%;
 	padding: 1em 1em 1em 6%;
-	background-color: rgba(40,40,40,0.8);
+	background-color: rgba(40,40,40,0.98);
+	box-shadow: 0.5em 1em 30px black;
 }
 .gb-game-info-wrap {
 	width: 100%;
@@ -541,6 +542,10 @@ input, textarea, select {
 .gb-game-info > span {
 	margin-bottom: 0.5em;
 	font-size: 0.86em;
+}
+.gb-game-info > div > div {
+	display: inline-block;
+	margin: 0 0.5em;
 }
 .temp-ad-div {
 	border: 1px solid;

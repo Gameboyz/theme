@@ -10,11 +10,7 @@
 
 				<?php the_content(); ?>
 
-				<div class="page-links"><?php wp_link_pages(); ?></div>
-
 			</div>
-
-			<div class="postinfo clearfix"><?php momentous_display_postinfo_single(); ?></div>
 
 		</article>
 

@@ -10,72 +10,73 @@
 
 				<div id="dev" class="gb-game-info"><span>Developed by:</span><p><?php if(isset($post->meta['developer'])) echo $post->meta['developer']; ?></p></div>
 				<div id="pub" class="gb-game-info"><span>Published by:</span><p><?php if(isset($post->meta['publisher'])) echo $post->meta['publisher']; ?></p></div>
-				<div id="plat" class="gb-game-info"><span>Avaliable on:</span><p>
+				<div id="plat" class="gb-game-info"><span>Avaliable on:</span>
+
+					<div>
 
 					<?php
 					if ( isset($post->meta['platforms']) ) {
 						foreach ( $post->meta['platforms'] as $key => $value ) {
 							?>
-							<span> <?php echo $post->meta['platforms'][$key]; ?> </span>
+							<div> <?php echo $post->meta['platforms'][$key]; ?> </div>
 						<?php
 						}
 					}
 					?>
 
-				</p></div>
+					</div>
+
+				</div>
+				
 				<div id="rel" class="gb-game-info"><span>Release Date:</span><p><?php if(isset($post->meta['release_date'])) echo $post->meta['release_date']; ?></p></div>
 
 			</div>
 
-		<div class="entry clearfix">
+			<div class="entry clearfix">
 
-			<?php the_content(); ?>
-
-			<div class="page-links"><?php wp_link_pages(); ?></div>
-
-		</div>
-
-		<section id="gb-bottomline">
-
-			<div id="score-wrap">
-
-				<div class="score-widget"><?php if(isset($post->meta['score'])) echo $post->meta['score']; ?></div>
+				<?php the_content(); ?>
 
 			</div>
-			<?php
 
-			foreach (['pros','cons'] as $type) {
-				?>
+			<section id="gb-bottomline">
 
-				<div id="<?php echo $type ?>-wrap" class="gb-bottomline-list">
-					
-					<span><?php echo ucfirst($type) ?>:</span>
-					
-					<ul id="<?php echo $type?>-list" class="clearfix">
+				<div id="score-wrap">
 
-						<?php
-						if ( isset($post->meta[$type]) ) {
-							foreach ( $post->meta[$type] as $value ) {
-							?>
-
-								<li> <?php echo $value ?> </li>
-							<?php
-							}
-						}
-						?>
-					
-					</ul>
+					<div class="score-widget"><?php if(isset($post->meta['score'])) echo $post->meta['score']; ?></div>
 
 				</div>
 				<?php
 
-			}
+				foreach (['pros','cons'] as $type) {
+					?>
 
-			?>
+					<div id="<?php echo $type ?>-wrap" class="gb-bottomline-list">
+						
+						<span><?php echo ucfirst($type) ?>:</span>
+						
+						<ul id="<?php echo $type?>-list" class="clearfix">
 
-		</section>
+							<?php
+							if ( isset($post->meta[$type]) ) {
+								foreach ( $post->meta[$type] as $value ) {
+								?>
 
-		<div class="postinfo clearfix"><?php momentous_display_postinfo_single(); ?></div>
+									<li> <?php echo $value ?> </li>
+								<?php
+								}
+							}
+							?>
+						
+						</ul>
+
+					</div>
+					<?php
+
+				}
+
+				?>
+
+			</section>
 
 		</article>
 
