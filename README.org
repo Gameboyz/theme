@@ -9,14 +9,29 @@ Copyright 2014 ThemeZee.com
 Momentous Lite is distributed under the terms of the GNU GPL
 
 * Schedule Outline
+** Sprint 3: <2015-05-11 Mon> to <2015-05-24 Sun>
+- Front Page
+  - Navbar
+    - on the backburner
+- Comments
+  - Plugin in place +login with external sites like facebook, twitter, steam, etc.+
+  - Styling
+- Ads
+  - Front-end
+    - placement
+      - might have to call in the main loop with tiles
+  - Back-end
+    - Plugin
+    - delivery
+
 ** Sprint 2: <2015-04-27 Mon> to <2015-05-10 Sun>
 - Front Page
   - Newest Posts
-    - Update: skeleton structure is mostly there, along with css rules
-    - Feature?: have layout change randomly
+    - On-going +Update: skeleton structure is mostly there, along with css rules+
+    - Nah +Feature?: have layout change randomly+
   - mobile/touch screen
-    - summary text won't work the same as it will on machine with a mouse
-    - need to come up with a way to display text without mouse hover
+    - No +summary text won't work the same as it will on machine with a mouse+
+    - No +need to come up with a way to display text without mouse hover+
   - Category Pages
     - Need to find the best way, wp has several ways this can be done
     - Note: in testing implimentation, the way newest posts and regular posts, if newest posts template runs out of posts, The Loop (wp term) restarts from the beginning once it gets to the regular post template, causing duplication on the displayed page
@@ -24,7 +39,7 @@ Momentous Lite is distributed under the terms of the GNU GPL
   - Navbar
     - Needs to be more fancy, layout is not optimal
 - Posts
-  - Need to be able to set a page layout (review, news)
+  - Done +Need to be able to set a page layout (review, news)+
 
 ** Sprint 1: <2015-04-13 Mon> to <2015-04-27 Mon>
 1. +Purge features not need+ -> Features are still there in code, but out of the way
@@ -40,7 +55,6 @@ Internet Explorer and Safari. Your browser should have JavaScript enabled to mak
 
 The theme works on the latest Wordpress version without any problems. Previous versions have not been tested and are not supported. I suggest to update your wordpress installation, especially due to security flaws.
 
-
 * Installation
 
 Upload the theme files to your wordpress theme folder wp-content/themes and activate the theme in
@@ -55,7 +69,6 @@ To find out more about installing WordPress themes please also see http://themez
 
 +Momentous Lite supports the awesome Theme Customizer for all theme settings.+
 +Go to WP-Admin > Appearance > Customize to open the Customizer.+
-
 
 * License
 
