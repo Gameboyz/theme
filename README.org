@@ -9,14 +9,30 @@ Copyright 2014 ThemeZee.com
 Momentous Lite is distributed under the terms of the GNU GPL
 
 * Schedule Outline
-** Sprint 3: <2015-05-11 Mon> to <2015-05-24 Sun>
+** Sprint 4: <2015-05-25 Mon> to <2015-06-07 Sun>
 - Front Page
   - Navbar
     - on the backburner
-- Comments
-  - Plugin in place +login with external sites like facebook, twitter, steam, etc.+
-  - Styling
+  - Categories
+    - on the backburner
 - Ads
+  - Front-end
+    - placement
+      - might have to call in the main loop with tiles
+  - Back-end
+    - Plugin
+    - delivery
+- Comments
+  - styling
+
+** Sprint 3: <2015-05-11 Mon> to <2015-05-24 Sun>
+- Front Page
+  - Navbar
+    - Moved to next sprint +on the backburner+
+- Will continue into next sprint +Comments+
+  - Plugin in place +login with external sites like facebook, twitter, steam, etc.+
+  - Moved +Styling+
+- Moved to the next sprint +Ads+
   - Front-end
     - placement
       - might have to call in the main loop with tiles
@@ -32,7 +48,7 @@ Momentous Lite is distributed under the terms of the GNU GPL
   - mobile/touch screen
     - No +summary text won't work the same as it will on machine with a mouse+
     - No +need to come up with a way to display text without mouse hover+
-  - Category Pages
+  - On the backburner +Category Pages+
     - Need to find the best way, wp has several ways this can be done
     - Note: in testing implimentation, the way newest posts and regular posts, if newest posts template runs out of posts, The Loop (wp term) restarts from the beginning once it gets to the regular post template, causing duplication on the displayed page
       - Shouldn't really be a problem in production, but it's a side note for the future
