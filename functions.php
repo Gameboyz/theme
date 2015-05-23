@@ -288,6 +288,7 @@ endif;
  * 
  * Meta info is attatched to the post object
  * This happens for every post in the database after it's queried
+ * json_decode call needs a string with all escaped characters un-escaped.
  * 
  * @param object $post The post object, it's needed to create a new member for the meta object
  * 
@@ -363,14 +364,14 @@ function gb_article_info_box($currentPost)
 	 * @param string $type Excepts either 'pros' or 'cons'.
 	 * @param array $typeList Optional. If there's a an array, the items in the array get passed to gb_pros_cons_input()
 	 */
-	function gb_wrap_pros_cons($articleType, $type, $typeList = '')
+	function gb_wrap_pros_cons($articleType, $type, $typeList = [])
 	{ 
 		?>	
 		<div id="<?php echo $type ?>-wrap">					
 			<button type="button" class="button add" onclick="addTraitBox(this, <?php echo '\'' . $type . '\'' ?>);"><b>+</b></button>
 		<?php
 
-		if ( !is_array($typeList) ) {
+		if ( empty($typeList) ) {
 			gb_pros_cons_input($articleType, $type);
 			?></div><?php
 			return;
@@ -588,7 +589,6 @@ endif;
  * 
  * @param int $postID Post's id number,
  * @param object $post The Post object
- * @param datatype $update I don't know what this was used for
  */
 if( !function_exists('save_gb_review_meta') ) :
 function save_gb_review_meta($postID, $post) 
