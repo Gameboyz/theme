@@ -487,7 +487,7 @@ input, textarea, select {
 	text-shadow: 2px 2px 4px #000;
 }
 #gb-header-info {
-	position:absolute;
+	position: absolute;
 }
 .gb-img {
 	width:100%;
@@ -499,6 +499,9 @@ input, textarea, select {
 .gb-article {
 	padding: 1em;
 	background-color: #fff;
+}
+.gb-article p {
+	min-height: 100px;
 }
 /* News
 -------------------------------------------------------------- */
@@ -515,8 +518,9 @@ input, textarea, select {
 	height: 38em;
 }
 .gb-review-info {
-	top: 4em;
-	left: 4em;
+	top: 8%;
+	padding: 1em 1em 1em 6%;
+	background-color: rgba(40,40,40,0.8);
 }
 .gb-game-info-wrap {
 	width: 100%;
@@ -1356,7 +1360,7 @@ embed, iframe, object, video {
 	.gb-post .gb-tile-img {
 		background-size: auto 100%;
 	}
-	.gb-new-post .gb-post-text {
+	.gb-new-post #gb-post-text {
 		visibility: hidden;
 	}
 }
