@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-	<?php get_gb_category_title(); ?>
+	<?php gb_get_category_title(); ?>
 
 	<?php get_template_part( 'front-page/category', 'newest-posts' ); ?>
 

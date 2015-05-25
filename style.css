@@ -484,10 +484,15 @@ input, textarea, select {
 }
 .gb-img {
 	width:100%;
-	height:100%;
 	background-size: 100% auto;
 	background-repeat: no-repeat;
 	background-position: center;
+}
+#gb-review-img {
+	height: 40em;
+}
+#gb-news-img {
+	height: 28em;
 }
 .gb-article {
 	padding: 1em;
@@ -499,11 +504,12 @@ input, textarea, select {
 /* News
 -------------------------------------------------------------- */
 .gb-news-header {
-	height: 18em;
+	height: 20em;
 }
 .gb-news-info {
-	left: 3em;
-	bottom: 1em;
+	padding: 1em 2em;
+	bottom: 0px;
+	background-color: rgba(40,40,40,0.95);
 }
 /* Reviews
 -------------------------------------------------------------- */

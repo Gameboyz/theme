@@ -276,24 +276,32 @@ function momentous_display_social_icons() {
  * 					  if an image can't be found, url will be 'no image found' in the style attribute.
  * 
  * @param string $divClass Optional. Type of structure to use for image, pass in 'tile' for front page use.
+ * 
+ * @param string $divID Optional. Type of id for the image, expects 'review' or 'news'.
  * 	
  */
-function gb_get_article_image($postID, $divClass = '') 
+function gb_get_article_image($postID, $divClass = '', $divID = '') 
 {
 	if ( $post_image_id = get_post_thumbnail_id($postID) ) {
 		$image = wp_get_attachment_image_src($post_image_id, null, false);
 		(string)$image = $image[0];
 	}
 
-	if ($divClass == 'tile') {
+	 if ( $divClass == 'tile' ) {
 		$divClass = 'class="gb-' . $divClass . '-img gb-tile"';
 	} else {
 		$divClass = 'class="gb-img"';
 	}
 
+	if ( $divID == 'review' ){
+		$divID = 'id="gb-' . $divID . '-img"';
+	} elseif ( $divID == 'news' ){
+		$divID = 'id="gb-' . $divID . '-img"';
+	}
+
 	if ( isset($image) ) {
 		?>
-		<div <?php echo $divClass ?> style="background-image: url('<?php echo $image; ?>');" ></div>
+		<div <?php echo $divID ?> <?php echo $divClass ?> style="background-image: url('<?php echo $image; ?>');" ></div>
 		<?php
 	} else {
 		?>
@@ -303,19 +311,38 @@ function gb_get_article_image($postID, $divClass = '')
 }
 
 /**
- * 
- * 
- * 
+ * Get category title
+ * Creates the structure for the category title when clicking on a category in the navbar.
+ * Also can colour coordinate the category
  * 
  */
-function get_gb_category_title()
+function gb_get_category_title()
 {
 	$cat_title = single_cat_title('', false);
 
 	$color = '';
 
-	if (strtolower($cat_title) == 'whammy' || strtolower($cat_title) == 'uncategorized')
-		$color = '#2F74DD';
+	switch ( trim(strtolower($cat_title)) ) {
+		case 'microsoft':
+		case 'xboxone':
+			$color = '';
+			break;
+
+		case 'sony':
+		case 'playstation4':
+		case 'psvita':
+			$color = '';
+			break;
+
+		case 'nintendo':
+		case 'wiiu':
+			$color = '';
+			break;
+		default:
+			$color = '$282828';
+			break;
+
+	}
 	
 	?>
 
