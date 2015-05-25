@@ -368,6 +368,13 @@ input, textarea, select {
 }
 /* Front Page style
 -------------------------------------------------------------- */
+#gb-category-wrap {
+	background-color: #282828;
+}
+.gb-cat-title {
+	padding: 0.5em 0;
+	font-size: 2em;
+}
 #gb-new-wrapper {
 	display: inline;
 	width: 100%;
@@ -487,7 +494,7 @@ input, textarea, select {
 	background-color: #fff;
 }
 .gb-article p {
-	min-height: 100px;
+	min-height: 50px;
 }
 /* News
 -------------------------------------------------------------- */

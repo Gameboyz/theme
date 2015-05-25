@@ -302,4 +302,33 @@ function gb_get_article_image($postID, $divClass = '')
 	}
 }
 
+/**
+ * 
+ * 
+ * 
+ * 
+ */
+function get_gb_category_title()
+{
+	$cat_title = single_cat_title('', false);
+
+	$color = '';
+
+	if (strtolower($cat_title) == 'whammy' || strtolower($cat_title) == 'uncategorized')
+		$color = '#2F74DD';
+	
+	?>
+
+	<div id="gb-category-wrap" style="background-color:<?php echo $color ?>;" >
+
+		<div class="container clearfix">
+
+			<h2 class="gb-cat-title title"><?php echo $cat_title ?></h2>
+
+		</div>
+
+	</div>
+
+	<?php
+}
 ?>
