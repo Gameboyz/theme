@@ -128,7 +128,7 @@ input, textarea, select {
 	box-sizing: border-box;
 }
 #content {
-	display: inline-block;
+	display: inline;
 	width: 100%;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
@@ -369,42 +369,29 @@ input, textarea, select {
 /* Front Page style
 -------------------------------------------------------------- */
 #gb-new-wrapper {
-	position: relative;
+	display: inline;
 	width: 100%;
-	height: 28em;
-	float: left;
 }
 /* Newest Post Style */
 #gb-wrapper {
 	position: relative;
 	width: 100%;
-	float: left;
 	background-color: #fff;
 }
-.gb-new-post {
-	position: absolute;
-}
 .gb-newest {
-	height: 14em;
+	float: left;
+	height: 16em;
 }
 #gb-new-1 {
-	top: 0;
-	left: 0;
 	width: 60%;
 }
 #gb-new-2 {
-	top: 0;
-	right: 0;
 	width: 40%;
 }
 #gb-new-3 {
-	top: 14em;
-	left: 0;
 	width: 40%;
 }
 #gb-new-4 {
-	top: 14em;
-	right: 0;
 	width: 60%;
 }
 /** Regular Post Style **/
@@ -444,7 +431,6 @@ input, textarea, select {
 	text-decoration: none;
 }
 #gb-post-meta {
-	width: 100%;
 	padding: 0 1em;
 	color: #fff;
 	font-size: 0.875em;
@@ -1334,16 +1320,13 @@ embed, iframe, object, video {
 	.container {
 		width: 94%;
 	}
-	#gb-wrapper .gb-post {
-		width: 50%;
-	}
 	#featured-content .featured-content-left .post-title, .single .post-title, .page-title {
 		font-size: 1.9em;
 	}
 	/* Front-page
 	------------------------------------------ */
 	#gb-new-wrapper {
-		height: auto;
+
 	}
 	#gb-new-1 {
 
@@ -1357,7 +1340,7 @@ embed, iframe, object, video {
 	#gb-new-4 {
 
 	}
-	.gb-new-post {
+	.gb-newest {
 		position: static;
 		width: 100% !important;
 		height: 10em;
@@ -1365,8 +1348,11 @@ embed, iframe, object, video {
 	.gb-post .gb-tile-img {
 		background-size: auto 100%;
 	}
-	.gb-new-post #gb-post-text {
+	.gb-newest #gb-post-text {
 		visibility: hidden;
+	}
+	#gb-wrapper .gb-post {
+		width: 50%;
 	}
 }
 /* Smaller screens | <1120px */
@@ -1790,6 +1776,11 @@ embed, iframe, object, video {
 	}
 	#navi-social-icons #social-icons-menu li a {
 		padding: 0.9em;
+	}
+	
+	/* Post tiles */
+	.gb-newest {
+		height: 12em;
 	}
 }
 
