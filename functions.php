@@ -498,7 +498,7 @@ function gb_article_info_box($currentPost)
 			<fieldset id="game-info">
 			<legend>Game Info:</legend>
 
-				<label for="developer">Publisher:</label>
+				<label for="developer">Developer:</label>
 				<input id="developer" class="form-input-tip one-liner" type="text" name="developer" size="16" 
 				value="<?php if (isset($articleMeta['developer'])) echo $articleMeta['developer'] ?>" 
 				<?php if($articleMeta['article_type'] == 'news') echo 'disabled=""' ?>
