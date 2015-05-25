@@ -8,48 +8,75 @@
 
 			<div class="gb-game-info-wrap">
 
-				<div id="dev" class="gb-game-info"><span>Developed by:</span><p>Team Sanic</p></div>
-				<div id="pub" class="gb-game-info"><span>Published by:</span><p>Sega</p></div>
-				<div id="plat" class="gb-game-info"><span>Avaliable on:</span><p>Mega Drive</p></div>
-				<div id="rel" class="gb-game-info"><span>Release Date:</span><p>the 90\'s</p></div>
+				<div id="dev" class="gb-game-info"><span>Developed by:</span><p><?php if(isset($post->meta['developer'])) echo $post->meta['developer']; ?></p></div>
+				<div id="pub" class="gb-game-info"><span>Published by:</span><p><?php if(isset($post->meta['publisher'])) echo $post->meta['publisher']; ?></p></div>
+				<div id="plat" class="gb-game-info"><span>Avaliable on:</span>
+
+					<div>
+
+					<?php
+					if ( isset($post->meta['platforms']) ) {
+						foreach ( $post->meta['platforms'] as $key => $value ) {
+							?>
+							<div> <?php echo $post->meta['platforms'][$key]; ?> </div>
+						<?php
+						}
+					}
+					?>
+
+					</div>
+
+				</div>
+				
+				<div id="rel" class="gb-game-info"><span>Release Date:</span><p><?php if(isset($post->meta['release_date'])) echo $post->meta['release_date']; ?></p></div>
 
 			</div>
 
-		<div class="entry clearfix">
+			<div class="entry clearfix">
 
-			<?php the_content(); ?>
+				<?php the_content(); ?>
 
-			<div class="page-links"><?php wp_link_pages(); ?></div>
-
-		</div>
-
-		<section id="gb-bottomline">
-
-			<div id="score-wrap">
-				<div class="score-widget">Some fancy score widget here. 10/10</div>
 			</div>
 
-			<div id="pros-wrap" class="gb-bottomline-list">
-				<span>Pros:</span>
-				<ul id="pros-list" class="clearfix">
-					<li>List of</li>
-					<li>Pros here, (dont mind this part, making aaa some over extending text)</li>
-					<li>about the game</li>
-				</ul>
-			</div>
+			<section id="gb-bottomline">
 
-			<div id="cons-wrap" class="gb-bottomline-list">
-				<span>Cons:</span>
-				<ul id="cons-list" class="clearfix">
-					<li>List of</li>
-					<li>Pros here,</li>
-					<li>about the game</li>
-				</ul>
-			</div>
+				<div id="score-wrap">
 
-		</section>
+					<div class="score-widget"><?php if(isset($post->meta['score'])) echo $post->meta['score']; ?></div>
 
-		<div class="postinfo clearfix"><?php momentous_display_postinfo_single(); ?></div>
+				</div>
+				<?php
+
+				foreach (['pros','cons'] as $type) {
+					?>
+
+					<div id="<?php echo $type ?>-wrap" class="gb-bottomline-list">
+						
+						<span><?php echo ucfirst($type) ?>:</span>
+						
+						<ul id="<?php echo $type?>-list" class="clearfix">
+
+							<?php
+							if ( isset($post->meta[$type]) ) {
+								foreach ( $post->meta[$type] as $value ) {
+								?>
+
+									<li> <?php echo $value ?> </li>
+								<?php
+								}
+							}
+							?>
+						
+						</ul>
+
+					</div>
+					<?php
+
+				}
+
+				?>
+
+			</section>
 
 		</article>
 

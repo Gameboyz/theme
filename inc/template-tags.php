@@ -283,17 +283,23 @@ function gb_get_article_image($postID, $divClass = '')
 	if ( $post_image_id = get_post_thumbnail_id($postID) ) {
 		$image = wp_get_attachment_image_src($post_image_id, null, false);
 		(string)$image = $image[0];
-	} else {
-		$image = 'no image found';
 	}
 
 	if ($divClass == 'tile') {
-		$divClass = $divClass . '-';
+		$divClass = 'class="gb-' . $divClass . '-img gb-tile"';
+	} else {
+		$divClass = 'class="gb-img"';
 	}
 
-	?>
-	<div class="gb-<?php echo $divClass ?>img" style="background-image: url('<?php echo $image; ?>');" ></div>
-	<?php
+	if ( isset($image) ) {
+		?>
+		<div <?php echo $divClass ?> style="background-image: url('<?php echo $image; ?>');" ></div>
+		<?php
+	} else {
+		?>
+		<div <?php echo $divClass ?> ></div>
+		<?php
+	}
 }
 
 ?>
