@@ -372,7 +372,7 @@ input, textarea, select {
 	background-color: #282828;
 }
 .gb-cat-title {
-	padding: 0.5em 0;
+	padding: 0.5em 5px;
 	font-size: 2em;
 }
 #gb-new-wrapper {
@@ -438,7 +438,7 @@ input, textarea, select {
 	text-decoration: none;
 }
 #gb-post-meta {
-	padding: 0 1em;
+	padding: 0 3em;
 	color: #fff;
 	font-size: 0.875em;
 }
@@ -499,7 +499,7 @@ input, textarea, select {
 	background-color: #fff;
 }
 .gb-article p {
-	min-height: 50px;
+	min-height: 25px;
 }
 /* News
 -------------------------------------------------------------- */

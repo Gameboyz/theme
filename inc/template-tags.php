@@ -320,33 +320,40 @@ function gb_get_category_title()
 {
 	$cat_title = single_cat_title('', false);
 
-	$color = '';
+	$bg_style = 'style="%s"';
+
+	$style = '';
 
 	switch ( trim(strtolower($cat_title)) ) {
 		case 'microsoft':
-		case 'xboxone':
-			$color = '';
+		case 'xbox one':
+			$style = sprintf($bg_style, 'background-color: #107C10;');
+			break;
+
+		case 'pc':
+			$style = sprintf($bg_style, 'background-color: #EECA28;');
 			break;
 
 		case 'sony':
-		case 'playstation4':
-		case 'psvita':
-			$color = '';
+		case 'playstation 4':
+		case 'ps vita':
+			$style = sprintf($bg_style, ';');
 			break;
 
 		case 'nintendo':
-		case 'wiiu':
-			$color = '';
+		case 'wii u':
+		case '3ds':
+			$style = sprintf($bg_style, 'background-color: #2576BC;');
 			break;
 		default:
-			$color = '$282828';
+			$style = sprintf($bg_style, 'background-color: #282828;');
 			break;
 
 	}
-	
+
 	?>
 
-	<div id="gb-category-wrap" style="background-color:<?php echo $color ?>;" >
+	<div id="gb-category-wrap" <?php echo $style ?>" >
 
 		<div class="container clearfix">
 
