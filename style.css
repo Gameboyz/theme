@@ -175,7 +175,7 @@ input, textarea, select {
 #gb-issues-wrap {
     z-index: 1000;
     position: fixed;
-    top: 0;
+    top: 32px;
     left: 50%;
     margin: 0 0 0 -162px;
     display: inline-block;
