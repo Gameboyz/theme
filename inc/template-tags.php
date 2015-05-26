@@ -288,7 +288,7 @@ function gb_get_article_image($postID, $divClass = '', $divID = '')
 	}
 
 	 if ( $divClass == 'tile' ) {
-		$divClass = 'class="gb-' . $divClass . '-img gb-tile"';
+		$divClass = 'class="gb-' . $divClass . '-img gb-tile gb-img"';
 	} else {
 		$divClass = 'class="gb-img"';
 	}
@@ -301,11 +301,15 @@ function gb_get_article_image($postID, $divClass = '', $divID = '')
 
 	if ( isset($image) ) {
 		?>
+
 		<div <?php echo $divID ?> <?php echo $divClass ?> style="background-image: url('<?php echo $image; ?>');" ></div>
+		
 		<?php
 	} else {
 		?>
-		<div <?php echo $divClass ?> ></div>
+
+		<div <?php echo $divClass ?> style="height: 24em"></div>
+
 		<?php
 	}
 }
