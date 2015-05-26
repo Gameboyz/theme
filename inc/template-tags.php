@@ -302,4 +302,16 @@ function gb_get_article_image($postID, $divClass = '')
 	}
 }
 
+function gb_get_recommended()
+{
+?>
+	<div style="float:right;background-color:#fff;width:250px;height:400px;">
+
+		<h1>Recommended Articles</h1>
+
+	</div>
+<?php
+
+}
+
 ?>

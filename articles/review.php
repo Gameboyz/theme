@@ -31,7 +31,9 @@
 				<div id="rel" class="gb-game-info"><span>Release Date:</span><p><?php if(isset($post->meta['release_date'])) echo $post->meta['release_date']; ?></p></div>
 
 			</div>
-
+			<div id="gb-ad-wrap">
+			<?php if(function_exists('the_ad')) the_ad(115); ?>
+			</div>
 			<div class="entry clearfix">
 
 				<?php the_content(); ?>

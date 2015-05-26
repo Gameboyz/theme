@@ -1114,6 +1114,7 @@ embed, iframe, object, video {
 -------------------------------------------------------------- */
 #comments {
 	margin-bottom: 1.5em;
+	width:70%;
 }
 #comments .comments-title, #respond #reply-title {
 	padding: 1.3em 1em;

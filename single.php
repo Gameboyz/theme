@@ -29,8 +29,10 @@
 
 <div id="comments-wrap" class="container">
 
+	<?php gb_get_recommended(); ?>
+
 	<?php comments_template(); ?>
-	
+
 </div>
 
 <?php get_footer(); ?>
