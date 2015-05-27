@@ -498,6 +498,10 @@ input, textarea, select {
 	z-index: 2;
 	background: linear-gradient(to bottom, rgba(40,40,40,0.9), rgba(40,40,40,0.9) 15%, rgba(40,40,40,0.7) 40%, rgba(40,40,40,0.2) 75%, rgba(255,255,255,0.1) 100%);	
 }
+.gb-newest:hover .gb-tile-filter, .gb-post:hover .gb-tile-filter {
+    z-index: 2;
+    background: linear-gradient(to bottom, rgba(40,40,40,0.9), rgba(40,40,40,0.9) 15%, rgba(40,40,40,0.7) 40%, rgba(40,40,40,0.4) 75%, rgba(40,40,40,0.2) 100%); 
+}
 .gb-img {
 	width: 100%;
 	background-repeat: no-repeat;
