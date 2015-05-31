@@ -16,4 +16,10 @@
 
 	</section>
 
+	<div id="youneeq-wrap">
+
+		<?php Youneeq_Panel\recommend(-1); ?>
+
+	</div>
+
 </div>
