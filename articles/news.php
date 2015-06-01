@@ -27,11 +27,11 @@
 	</section>
 
 
-	<?php if ( function_exists('\Youneeq_Panel\recommend') ) : ?>
+	<?php // if ( function_exists('\Youneeq_Panel\recommend') ) : ?>
 
 	<div id="youneeq-wrap-end">
 
-		<?php \Youneeq_Panel\recommend(-2, ['count' => 4]); ?>
+		<?php // \Youneeq_Panel\recommend(-2, ['title' => 'Also checkout:', 'count' => 4]); ?>
 
 	</div>
 
