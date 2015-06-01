@@ -171,6 +171,44 @@ input, textarea, select {
 	color: #ddd;
 }
 
+/* Github Issues */
+#gb-issues-wrap {
+    z-index: 1000;
+    position: fixed;
+    top: 32px;
+    left: 50%;
+    margin: 0 0 0 -162px;
+    display: inline-block;
+}
+#gb-issues {
+    width: 275px;
+    height: 24px;
+    padding: 0.875em 1.5em;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    background-color: rgba(40,40,40,0.9);
+}
+#gb-issues:hover span {
+    text-decoration: underline;
+}
+#gb-issues > * {
+    display: inline-block;
+    float: left;
+}
+#gb-issues > span {
+    margin-top: 2px;
+    margin-left: 48px;
+}
+#github-issues {
+    margin-left: 6px;
+    width: 24px;
+    height: 24px;
+    background-image: url('http://dev.bowdenweb.com/a/fonts/symbols/pictonic/svgs/github-01.svg');
+    background-size: 24px 24px;
+    filter: invert(100%);
+}
+
 /* Custom Header Image */
 .header-image {
 	padding: 2em 0 0;
@@ -368,6 +406,13 @@ input, textarea, select {
 }
 /* Front Page style
 -------------------------------------------------------------- */
+#gb-category-wrap {
+	background-color: #282828;
+}
+.gb-cat-title {
+	padding: 0.5em 5px;
+	font-size: 2em;
+}
 #gb-new-wrapper {
 	display: inline;
 	width: 100%;
@@ -394,6 +439,7 @@ input, textarea, select {
 #gb-new-4 {
 	width: 60%;
 }
+
 /** Regular Post Style **/
 .gb-post {
 	position: relative;
@@ -406,10 +452,17 @@ input, textarea, select {
 	box-sizing: border-box;
 }
 .gb-tile {
-	position:absolute;
+	position: absolute;
 	top: 0;
 	width: 100%;
 	height: 100%;
+}
+.gb-tile-link {
+	text-decoration: none !important;
+}
+.gb-tile-link:hover {
+	color: #ddd !important;
+	text-decoration: underline !important;
 }
 .gb-post-inner {
 	position: relative;
@@ -428,10 +481,9 @@ input, textarea, select {
 }
 .gb-post-title a {
 	color: #fff;
-	text-decoration: none;
 }
 #gb-post-meta {
-	padding: 0 1em;
+	padding: 0 3em;
 	color: #fff;
 	font-size: 0.875em;
 }
@@ -442,20 +494,29 @@ input, textarea, select {
 	padding: 0.5em 1em 1em;
 	color: #fff;
 }
-.gb-tile-filter {
+.gb-newest .gb-tile-filter, .gb-post .gb-tile-filter {
 	z-index: 2;
-	background: linear-gradient(to bottom, rgba(40,40,40,0.9), rgba(40,40,40,0.9) 15%, rgba(40,40,40,0.7) 40%, rgba(40,40,40,0.2) 75%, rgba(255,255,255,0.1) 100%);
+	background: linear-gradient(to bottom, rgba(40,40,40,0.9), rgba(40,40,40,0.9) 15%, rgba(40,40,40,0.7) 40%, rgba(40,40,40,0.2) 75%, rgba(255,255,255,0.1) 100%);	
+}
+.gb-newest:hover .gb-tile-filter, .gb-post:hover .gb-tile-filter {
+    z-index: 2;
+    background: linear-gradient(to bottom, rgba(40,40,40,0.9), rgba(40,40,40,0.9) 15%, rgba(40,40,40,0.7) 40%, rgba(40,40,40,0.4) 75%, rgba(40,40,40,0.2) 100%); 
+}
+.gb-img {
+	width: 100%;
+	background-repeat: no-repeat;
+	background-position: center;
 }
 .gb-tile-img {
 	z-index: 1;
 	background-position: center;
 	background-repeat: no-repeat;
 }
-.gb-new-post .gb-tile-img {
-	background-size: 100% auto;
+.gb-newest .gb-tile-img {
+	background-size: 120% auto;
 }
 .gb-post .gb-tile-img {
-	background-size: auto 100%;
+	background-size: auto 120%;
 }
 /* Articles
 -------------------------------------------------------------- */
@@ -475,28 +536,30 @@ input, textarea, select {
 #gb-header-info {
 	position: absolute;
 }
-.gb-img {
-	width:100%;
-	height:100%;
-	background-size: 100% auto;
-	background-repeat: no-repeat;
-	background-position: center;
+#gb-review-img {
+	background-size: 120% auto;
+	height: 40em;
+}
+#gb-news-img {
+	background-size: 100% auto;	
+	height: 28em;
 }
 .gb-article {
 	padding: 1em;
 	background-color: #fff;
 }
 .gb-article p {
-	min-height: 100px;
+	min-height: 25px;
 }
 /* News
 -------------------------------------------------------------- */
 .gb-news-header {
-	height: 18em;
+	height: 20em;
 }
 .gb-news-info {
-	left: 3em;
-	bottom: 1em;
+	padding: 1em 2em;
+	bottom: 0px;
+	background-color: rgba(40,40,40,0.95);
 }
 /* Reviews
 -------------------------------------------------------------- */
@@ -1346,7 +1409,7 @@ embed, iframe, object, video {
 		height: 10em;
 	}
 	.gb-post .gb-tile-img {
-		background-size: auto 100%;
+		background-size: auto 120%;
 	}
 	.gb-newest #gb-post-text {
 		visibility: hidden;

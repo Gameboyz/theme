@@ -1,23 +1,26 @@
-<?php
+<div id="gb-header-wrap">
 
-	if ( $post->meta['article_type'] == 'news') : ?>
-		<div id="gb-header-wrap" class="gb-news-header container clearfix">
 	<?php
-	elseif ( $post->meta['article_type'] == 'review') : ?>
-		<div id="gb-header-wrap" class="gb-review-header clearfix">
-	<?php
-	endif;
+	$container = '';
 
-?>
+	if ( $post->meta['article_type'] == 'news' ) {
+		$container = 'container ';
+	}
 
-	<?php gb_get_article_image($post->ID); ?>
+	?>
 
-	<section id="gb-header-info" class="<?php echo 'gb-' . $post->meta['article_type'] . '-info' ?>">
+	<div class="<?php echo $container ?>clearfix">
 
-		<h2 class="gb-title title"><?php the_title(); ?></h2>
+		<?php gb_get_article_image($post->ID, '' , $post->meta['article_type']); ?>
 
-		<div class="postmeta"><?php momentous_display_postmeta(); ?></div>
+		<section id="gb-header-info" class="<?php echo 'gb-' . $post->meta['article_type'] . '-info' ?>">
 
-	</section>
+			<h2 class="gb-title title"><?php the_title(); ?></h2>
+
+			<div class="postmeta"><?php momentous_display_postmeta(); ?></div>
+
+		</section>
+
+	</div>
 
 </div>

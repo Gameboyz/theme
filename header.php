@@ -16,6 +16,16 @@
 	$theme_options = momentous_theme_options();
 ?>
 
+<a href="https://github.com/Gameboyz/theme/issues">
+
+	<div id="gb-issues-wrap">
+
+		<div id="gb-issues"><span>Pre-Alpha | Bug Tracker -></span><div id="github-issues"></div></div>
+
+	</div>
+
+</a>
+
 <div id="wrapper" class="hfeed">
 
 	<div id="header-wrap">
