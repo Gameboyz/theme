@@ -14,14 +14,24 @@
 
 		</article>
 
+		<?php if ( function_exists('\Youneeq_Panel\recommend') ) : ?>
+
+		<div id="youneeq-wrap-content">
+
+			<?php \Youneeq_Panel\recommend(-1, ['count' => 1]); ?>
+
+		</div>
+
+		<?php endif; ?>
+
 	</section>
 
 
 	<?php if ( function_exists('\Youneeq_Panel\recommend') ) : ?>
 
-	<div id="youneeq-wrap">
+	<div id="youneeq-wrap-end">
 
-		<?php \Youneeq_Panel\recommend(-1); ?>
+		<?php \Youneeq_Panel\recommend(-2, ['count' => 4]); ?>
 
 	</div>
 
