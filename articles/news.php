@@ -16,10 +16,15 @@
 
 	</section>
 
+
+	<?php if ( function_exists('\Youneeq_Panel\recommend') ) : ?>
+
 	<div id="youneeq-wrap">
 
-		<?php Youneeq_Panel\recommend(-1); ?>
+		<?php \Youneeq_Panel\recommend(-1); ?>
 
 	</div>
+
+	<?php endif; ?>
 
 </div>
