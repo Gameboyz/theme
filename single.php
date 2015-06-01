@@ -25,7 +25,17 @@
 
 	endif; ?>
 
-<?php if(function_exists('the_ad')) the_ad(116); ?>
+<?php if ( function_exists('the_ad') ) the_ad(116); ?>
+
+<?php if ( function_exists('\Youneeq_Panel\recommend') ) : ?>
+
+<div id="youneeq-wrap-end" class="container">
+
+	<?php \Youneeq_Panel\recommend(-2, ['title' => 'Also checkout:', 'count' => 4]); ?>
+
+</div>
+
+<?php endif; ?>
 
 <div id="comments-wrap" class="container">
 
