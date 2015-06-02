@@ -27,7 +27,7 @@
 
 <?php if ( function_exists('the_ad') ) the_ad(116); ?>
 
-<?php gb_get_youneeq(-2, 1, 'end', 'container') ?>
+<?php gb_get_youneeq(-2, 4, 'end', 'container') ?>
 
 <div id="comments-wrap" class="container">
 

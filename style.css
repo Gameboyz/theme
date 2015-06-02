@@ -420,7 +420,7 @@ input, textarea, select {
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 	width: 25%;
-	height: 400px;
+	min-height: 300px;
 	border: 0.25em solid #fff;
 }
 .yq-article {
@@ -428,21 +428,19 @@ input, textarea, select {
 }
 .yq-article > p {
 	min-height: 50px;
-	max-height: 178px;
 }
 .yq-article .yq-img {
-	
+
 }
 .yq-title {
 	padding: 0.25em;
-	font-size: 1.5em !important;
+	font-size: 1.25em !important;
 	font-family: 'Fjalla One', Tahoma, Verdana, Arial;
 	color: #fff;
-	line-height: 1.4em;
+	line-height: 1.2em;
 	-ms-word-wrap: break-word;
 	word-wrap: break-word;
 	background-color: #282828;
-	text-shadow: 2px 2px 2px #000;
 }
 .yq-title > a {
 	color: #fff;

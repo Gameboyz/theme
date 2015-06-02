@@ -372,12 +372,12 @@ function gb_get_category_title()
 
 /**
  * Simplify youneeq_panel recommend function call
- * If the youneeq plugin is not activated, the function will exit without printing anything
+ * If the youneeq plugin is not activated, the function will exit without printing anything.
  * 
- * @param int $id Unique id, must be a negative number to conform to the plugin standard when calling the function from a template
- * @param int $amount Number of articles to recommend
- * @param string $type Determinds the id name for the node
- * @param string $class Optional. Add a class to the node
+ * @param int $id Unique id, must be a negative number to conform to the plugin standard when calling the function from a template.
+ * @param int $amount Number of articles to recommend.
+ * @param string $type Determinds the id name for the node.
+ * @param string $class Optional. Add a class to the node.
  *
  */
 function gb_get_youneeq($id, $amount, $type, $class = '')
