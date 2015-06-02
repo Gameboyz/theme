@@ -16,14 +16,6 @@
 
 	</section>
 
-	<?php if ( function_exists('\Youneeq_Panel\recommend') ) : ?>
-
-	<div id="youneeq-wrap-content">
-
-		<?php \Youneeq_Panel\recommend(-1, ['count' => 1]); ?>
-
-	</div>
-
-	<?php endif; ?>
+	<?php gb_get_youneeq(-1, 4, 'content'); ?>
 
 </div>

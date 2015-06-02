@@ -32,6 +32,12 @@
 
 			</div>
 
+			<div id="gb-ad-wrap">
+
+				<?php if(function_exists('the_ad')) the_ad(115); ?>
+
+			</div>
+
 			<div class="entry clearfix">
 
 				<?php the_content(); ?>
@@ -45,6 +51,7 @@
 					<div class="score-widget"><?php if(isset($post->meta['score'])) echo $post->meta['score']; ?></div>
 
 				</div>
+				
 				<?php
 
 				foreach (['pros','cons'] as $type) {
