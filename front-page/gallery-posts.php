@@ -9,13 +9,13 @@
 
 			the_post(); ?>
 
-	<div class="gb-post clearfix">
+			<div class="gb-post clearfix">
 
-		<?php get_template_part( 'front-page/gallery', 'tile' ); ?>
+			<?php get_template_part( 'front-page/gallery', 'tile' ); ?>
 
-	</div>
+			</div>
 
-	<?php 
+			<?php 
 
 		endwhile;
 

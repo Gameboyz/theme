@@ -6,7 +6,7 @@
 
 	if ( have_posts() ) : 
 
-		while ( have_posts() && ($newest_post <= 4) ) : 
+		while ( have_posts() && ($newest_post <= 2) ) : 
 
 			the_post(); ?>
 
