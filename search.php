@@ -1,49 +1,43 @@
 <?php get_header(); ?>
 
-<?php // Get Theme Options from Database
-	$theme_options = momentous_theme_options();
-?>
+<div id="gb-search-wrap" >
 
-	<div id="wrap" class="container clearfix">
-		
-		<section id="content" class="primary" role="main">
-		
-		<?php if (have_posts()) : ?>
-			<h2 id="search-title" class="archive-title">
-				<?php printf( __( 'Search Results for: %s', 'momentous-lite'), '<span>' . get_search_query() . '</span>' ); ?>
-			</h2>
-		
-			<div id="post-wrapper" class="clearfix">
-		 
-			<?php while (have_posts()) : the_post();
-		
-				get_template_part( 'content', $theme_options['post_layout'] );
-		
-			endwhile; ?>
-			
-			</div>
-			
-			<?php // Display Pagination	
-			momentous_display_pagination();
+	<div class="container clearfix">
 
-		else : ?>
-
-			<h2 id="search-title" class="archive-title">
-				<?php printf( __( 'Search Results for: %s', 'momentous-lite'), '<span>' . get_search_query() . '</span>' ); ?>
-			</h2>
-			
-			<div class="post">
-				
-				<div class="entry">
-					<p><?php _e('No matches. Please try again, or use the navigation menus to find what you search for.', 'momentous-lite'); ?></p>
-				</div>
-				
-			</div>
-
-			<?php endif; ?>
-			
-		</section>
+		<h2 class="gb-cat-title title">Seaching for: <span><?php print(get_search_query()) ?></span></h2>
 
 	</div>
+
+</div>
+
+<div id="wrap" class="container clearfix">
+		
+	<section id="content" class="primary" role="main">
+
+<?php 
+
+	if ( have_posts() ) :
+	 
+		get_template_part( 'front-page/gallery', 'posts' );
+		
+		momentous_display_pagination(); // Display Pagination	
+
+	else : ?>
+
+		<div class="post">
+			
+			<div class="entry">
+
+				<p><?php _e('No matches. Please try again, or use the navigation menus to find what you search for.', 'momentous-lite'); ?></p>
+
+			</div>
+			
+		</div>
+
+<?php endif; ?>		
+
+	</section>
+
+</div>
 	
 <?php get_footer(); ?>	

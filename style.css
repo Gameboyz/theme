@@ -449,6 +449,12 @@ input, textarea, select {
 #gb-category-wrap {
 	background-color: #282828;
 }
+#gb-search-wrap {
+    background-color: #282828;
+}
+#gb-search-wrap > div > h2 > span {
+    color: #A6E9FF;
+}
 .gb-cat-title {
 	padding: 0.5em 5px;
 	font-size: 2em;
