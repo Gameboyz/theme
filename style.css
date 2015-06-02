@@ -436,14 +436,13 @@ input, textarea, select {
 	padding: 0.25em;
 	font-size: 1.25em !important;
 	font-family: 'Fjalla One', Tahoma, Verdana, Arial;
-	color: #fff;
 	line-height: 1.2em;
 	-ms-word-wrap: break-word;
 	word-wrap: break-word;
-	background-color: #282828;
+	text-shadow: 2px 2px 4px #aaa; 
 }
 .yq-title > a {
-	color: #fff;
+	color: #000;
 }
 /* Front Page style
 -------------------------------------------------------------- */
