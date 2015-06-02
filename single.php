@@ -25,12 +25,14 @@
 
 	endif; ?>
 
-<?php if(function_exists('the_ad')) the_ad(116); ?>
+<?php if ( function_exists('the_ad') ) the_ad(116); ?>
+
+<?php gb_get_youneeq(-2, 4, 'end', 'container') ?>
 
 <div id="comments-wrap" class="container">
 
 	<?php comments_template(); ?>
-	
+
 </div>
 
 <?php get_footer(); ?>
