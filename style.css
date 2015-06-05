@@ -1516,7 +1516,7 @@ embed, iframe, object, video {
 		height: 24em;
 		background-size: 110% auto;
 	}
-	#gb-review-img + #gb-header-info {
+	.gb-img + #gb-header-info {
 		position: static;
 	}
 	#gb-news-img {
