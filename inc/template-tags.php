@@ -308,7 +308,7 @@ function gb_get_article_image($postID, $divClass = '', $divID = '')
 	} else {
 		?>
 
-		<div <?php echo $divClass ?> style="height: 24em"></div>
+		<div <?php echo $divClass ?>></div>
 
 		<?php
 	}
@@ -357,7 +357,7 @@ function gb_get_category_title()
 
 	?>
 
-	<div id="gb-category-wrap" <?php echo $style ?>" >
+	<div id="gb-category-wrap" <?php echo $style ?>>
 
 		<div class="container clearfix">
 
@@ -369,4 +369,110 @@ function gb_get_category_title()
 
 	<?php
 }
+
+/**
+ * Review Game Info
+ * This contains the template for the review game's meta data.
+ * The meta data is needed for this function to work properly.
+ * The info includes developer, publisher, avaliable platforms and release date 
+ * 
+ * @param array $postMeta A multi-dimential array of the review game's meta. 
+ * 						  Includes arrays for developer, publisher, avaliable platforms, release date, score, pros and cons.
+ * 						  All inner arrays in $postMeta are strings.
+ * 
+ */
+function gb_get_review_game_info($postMeta) 
+{
+	?>
+
+	<div class="gb-game-info-wrap">
+
+		<div id="dev" class="gb-game-info"><span>Developed by:</span><p><?php if(isset($postMeta['developer'])) echo $postMeta['developer']; ?></p></div>
+		<div id="pub" class="gb-game-info"><span>Published by:</span><p><?php if(isset($postMeta['publisher'])) echo $postMeta['publisher']; ?></p></div>
+		<div id="plat" class="gb-game-info"><span>Avaliable on:</span>
+
+			<div>
+
+				<?php
+				if ( isset($postMeta['platforms']) ) {
+					foreach ( $postMeta['platforms'] as $key => $value ) {
+						?>
+						<div> <?php echo $postMeta['platforms'][$key]; ?> </div>
+					<?php
+					}
+				}
+				?>
+
+				</div>
+
+			</div>
+			
+		<div id="rel" class="gb-game-info"><span>Release Date:</span><p><?php if(isset($postMeta['release_date'])) echo $postMeta['release_date']; ?></p></div>
+
+	</div>
+
+	<?php
+}
+
+/**
+ * Review Bottomline
+ * This is the template for the score, pros and cons of a review article.
+ *  
+ * 
+ * @param array $postMeta A multi-dimential array of the review game's meta. 
+ * 						  Includes arrays for developer, publisher, avaliable platforms, release date, score, pros and cons.
+ * 						  All inner arrays in $postMeta are strings.
+ * 
+ */
+function gb_get_review_bottomline($postMeta)
+{
+	?>
+
+	<section id="gb-bottomline">
+
+		<div id="score-wrap">
+
+			<div class="score-widget"><?php if(isset($postMeta['score'])) echo $postMeta['score']; ?>/5</div>
+
+		</div>
+
+		<?php
+
+		foreach (['pros','cons'] as $type) {
+		?>
+
+			<div id="<?php echo $type ?>-wrap" class="gb-bottomline-list">
+						
+				<span><?php echo ucfirst($type) ?>:</span>
+						
+				<ul id="<?php echo $type?>-list" class="clearfix">
+
+					<?php
+
+					if ( isset($postMeta[$type]) ) {
+						foreach ( $postMeta[$type] as $value ) {
+						?>
+							<li> <?php echo $value ?> </li>
+						<?php
+
+						}
+					}
+
+					?>
+						
+				</ul>
+
+			</div>
+
+		<?php
+
+		}
+
+	?>
+
+	</section>
+
+	<?php
+}
+
 ?>

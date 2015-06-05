@@ -541,6 +541,17 @@ input, textarea, select {
 .gb-article p {
 	min-height: 25px;
 }
+/* Social Share Buttons */
+.apss-social-share {
+	margin: 1em 0;
+}
+.apss-share-text {
+	margin: 0;
+}
+.apss-theme-4 .apss-single-icon a {
+	margin: 8px 8px 0 0;
+}
+
 /* News
 -------------------------------------------------------------- */
 .gb-news-header {
@@ -606,6 +617,10 @@ input, textarea, select {
 }
 #score-wrap {
 	width: 40%;
+}
+.score-widget {
+	text-align: center;
+	font-size: 8em;
 }
 #pros-wrap {
 	width: 30%;
@@ -1314,36 +1329,6 @@ embed, iframe, object, video {
 	background: #333;
 	cursor: pointer;
 	text-decoration: none;
-}
-
-
-/* Featured Content
--------------------------------------------------------------- */
-#featured-content .featured-content-left {
-	float: left;
-	padding-right: 0.75em;
-	width: 59.2%;
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
-}
-#featured-content .featured-content-right {
-	float: right;
-	padding-left: 0.75em;
-	width: 40.8%;
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
-}
-
-#featured-content .featured-content-left .post-title {
-	font-size: 2.0em;
-}
-#featured-content .featured-content-right .post-title {
-	font-size: 1.3em;
-}
-#featured-content .featured-content-right .wp-post-image {
-	margin: 0 0 1.05em 0;
 }
 
 /* Footer
