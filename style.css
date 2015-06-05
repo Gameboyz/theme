@@ -514,11 +514,11 @@ input, textarea, select {
 	position: relative;
 }
 .gb-title {
-	font-size:3em;
+	font-size: 2.6em;
 	font-family: 'Fjalla One', Tahoma, Verdana, Arial;
 	color: #fff;
 	line-height: 1.4em;
-	max-width: 18em;
+	max-width: 16em;
 	-ms-word-wrap: break-word;
 	word-wrap: break-word;
 	text-shadow: 2px 2px 4px #000;
@@ -1370,6 +1370,16 @@ embed, iframe, object, video {
 
 /* Small screens | <1120px */
 @media only screen and (max-width: 70em) {
+	#gb-issues-wrap {
+		margin: 0 0 0 -121px;
+	}
+	#gb-issues {
+		width: 220px;
+		padding: 0.7em;
+	}
+	#gb-issues > span {
+		margin-left: 12px;
+	}
 	.container {
 		width: 94%;
 	}
@@ -1450,6 +1460,19 @@ embed, iframe, object, video {
 	.single .post-title, .page-title {
 		font-size: 1.8em;
 	}
+	.gb-review-info {
+		top: none;
+		bottom: 0;
+		padding: 1.5em 2em;
+		box-shadow: none;
+	}
+	#gb-review-img {
+		height: 24em;
+		background-size: 110% auto;
+	}
+	#gb-review-img + #gb-header-info {
+		position: static;
+	}
 	#gb-news-img {
 		height: 20em;
 		background-size: 110% auto;
@@ -1458,6 +1481,7 @@ embed, iframe, object, video {
 		padding: 1em 2em;		
 	}
 	.gb-title {
+		max-width: 48em;
 		font-size: 2em;
 	}
 	.postmeta {
@@ -1675,6 +1699,9 @@ embed, iframe, object, video {
 
 /* Tablets (portrait) | <800px */
 @media only screen and (max-width: 50em) {
+	#gb-review-img {
+		height: 18em;
+	}
 	#gb-news-img {
 		height: 14em;
 	}
@@ -1727,6 +1754,9 @@ embed, iframe, object, video {
 }
 /* Phablets (portrait) | <640px */
 @media only screen and (max-width: 40em) {
+	.gb-game-info {
+		width: 50%;
+	}
 	.gb-news-info {
 		padding: 0.6em 1.2em;
 	}
@@ -1752,8 +1782,14 @@ embed, iframe, object, video {
 	.container {
 		padding: 0 0.5em;
 	}
+	#gb-review-img {
+		background-size: auto 110%;		
+	}
 	#gb-news-img {
 		background-size: auto 110%;
+	}
+	#gb-header-info {
+		padding: 1em;
 	}
 	.gb-news-info {
 		padding: 0.8em;
