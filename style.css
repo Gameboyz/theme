@@ -1186,8 +1186,10 @@ embed, iframe, object, video {
  *
 .comments-area{ width:auto; }
 #wpcomm { margin: 0; border: 0 none; padding: 0; }
+#wpcomm .avatar { width: 60px; }
 #wpcomm .wc-thread-wrapper { margin: 0; padding: 0; }
 #wpcomm .wc-comment { margin-bottom: 0; }
+#wpcomm .wc-field-comment .wc-field-textarea { margin-left: 70px; }
 #wc-comment-header { padding: 0 0.6em; font-size: 1.6em; }
 #wc_show_hide_loggedin_username { margin: 1em 1.2em; border-bottom: 1px solid #C8C8C8; padding: 0 0 1em 0; }
 #wpcomm .wc-comment-title { margin: 0; border: 0 none; padding: 0 1.2em 0.5em; }
