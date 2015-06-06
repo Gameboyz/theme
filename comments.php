@@ -1,4 +1,4 @@
-<?php 
+<?php
 /***
  * Comments Template
  *
@@ -13,11 +13,10 @@ if ( post_password_required()) : ?>
 	<p><?php _e('Enter password to view comments.', 'momentous-lite'); ?></p>
 <?php return; endif; ?>
 
-
 <?php if ( have_comments() or comments_open() ) : ?>
 
 	<div id="comments">
-	
+
 		<?php if ( have_comments() ) : ?>
 
 			<h3 class="comments-title"><span><?php comments_number( '', __('One comment','momentous-lite'), __('% comments','momentous-lite') );?></span></h3>

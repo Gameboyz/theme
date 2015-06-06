@@ -8,6 +8,12 @@
 
 			<?php gb_get_review_game_info($post->meta); ?>
 
+			<div id="gb-ad-wrap">
+
+				<?php if(function_exists('the_ad')) the_ad(115); ?>
+
+			</div>
+
 			<div class="entry clearfix">
 
 				<?php the_content(); ?>

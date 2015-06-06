@@ -16,4 +16,6 @@
 
 	</section>
 
+	<?php gb_get_youneeq(-1, 1, 'content'); ?>
+
 </div>

@@ -394,10 +394,56 @@ input, textarea, select {
 	word-wrap: break-word;
 	text-shadow: 2px 2px 2px #000;    
 }
+/* Youneeq Styling
+-------------------------------------------------------------- */
+#youneeq-wrap-end {
+
+}
+#youneeq-wrap-end > ul {
+	padding: 1em;	
+	background: #fff;
+}
+#youneeq-wrap-end .yq-post {
+	vertical-align: top;
+	display: inline-block;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	width: 25%;
+	min-height: 300px;
+	border: 0.25em solid #fff;
+}
+.yq-article {
+	height: 100%;
+}
+.yq-article > p {
+	min-height: 50px;
+}
+.yq-article .yq-img {
+
+}
+.yq-title {
+	padding: 0.25em;
+	font-size: 1.25em !important;
+	font-family: 'Fjalla One', Tahoma, Verdana, Arial;
+	line-height: 1.2em;
+	-ms-word-wrap: break-word;
+	word-wrap: break-word;
+	text-shadow: 2px 2px 4px #aaa; 
+}
+.yq-title > a {
+	color: #000;
+}
 /* Front Page style
 -------------------------------------------------------------- */
 #gb-category-wrap {
 	background-color: #282828;
+}
+#gb-search-wrap {
+    background-color: #282828;
+}
+#gb-search-wrap > div > h2 > span {
+    color: #A6E9FF;
 }
 .gb-cat-title {
 	padding: 0.5em 5px;

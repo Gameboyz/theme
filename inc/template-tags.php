@@ -371,6 +371,33 @@ function gb_get_category_title()
 }
 
 /**
+ * Simplify youneeq_panel recommend function call
+ * If the youneeq plugin is not activated, the function will exit without printing anything.
+ * 
+ * @param int $id Unique id, must be a negative number to conform to the plugin standard when calling the function from a template.
+ * @param int $amount Number of articles to recommend.
+ * @param string $type Determinds the id name for the node.
+ * @param string $class Optional. Add a class to the node.
+ *
+ */
+function gb_get_youneeq($id, $amount, $type, $class = '')
+{
+	if ( !function_exists('\Youneeq_Panel\recommend') ) {
+		return;
+	}
+
+	?>
+
+	<div id="youneeq-wrap-<?php echo $type ?>" <?php if($class != '') echo 'class="' . $class . '"'; ?>>
+
+		<?php \Youneeq_Panel\recommend($id, ['count' => $amount]); ?>
+
+	</div>
+
+	<?php
+}
+
+/**
  * Review Game Info
  * This contains the template for the review game's meta data.
  * The meta data is needed for this function to work properly.
@@ -412,6 +439,7 @@ function gb_get_review_game_info($postMeta)
 	</div>
 
 	<?php
+
 }
 
 /**
