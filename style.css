@@ -438,12 +438,12 @@ input, textarea, select {
 	height: 100%;
 }
 .yq-article > * {
-	padding: 0.25em 0;
+	padding: 0.25em 0 !important;
 }
-.yq-article > h4 {
-	margin: 0;
-	font-weight: normal;
-	line-height: 1.2em;
+.yq-article > .yq-article {
+	margin: 0 !important;
+	font-weight: normal !important;
+	line-height: 1.2em !important;
 }
 .yq-article > p {
 	min-height: 50px;
