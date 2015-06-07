@@ -400,15 +400,18 @@ input, textarea, select {
 	box-sizing: padding-box;
 	display: inline-block;
 	float: right;
-	padding: 0.5em;
+	padding: 0.25em;
 	width: 300px;
 }
 #youneeq-wrap-content > .yq-wrapper  {
 	width: 99%;
 	margin: 0px auto;
 }
+#youneeq-container {
+	margin: 1em auto;
+}
 #youneeq-wrap-end {
-	padding: 1em;
+	padding: 1em 0.25em;
 	background-color: #fff;
 }
 #youneeq-wrap-end > ul {
@@ -437,7 +440,7 @@ input, textarea, select {
 .yq-article > * {
 	padding: 0.25em 0;
 }
-.yq-article > h3 {
+.yq-article > h4 {
 	margin: 0;
 	font-weight: normal;
 	line-height: 1.2em;
