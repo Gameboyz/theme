@@ -440,7 +440,7 @@ input, textarea, select {
 .yq-article > * {
 	padding: 0.25em 0 !important;
 }
-.yq-article > .yq-article {
+.yq-article > .yq-title {
 	margin: 0 !important;
 	font-weight: normal !important;
 	line-height: 1.2em !important;
