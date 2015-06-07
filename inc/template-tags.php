@@ -388,7 +388,7 @@ function gb_get_youneeq($id, $amount, $type, $class = '')
 
 	?>
 
-	<div id="youneeq-wrap-<?php echo $type ?>" <?php if($class != '') echo 'class="' . $class . '"'; ?>>
+	<div id="youneeq-wrap-<?php echo $type ?>">
 
 		<?php \Youneeq_Panel\recommend($id, ['count' => $amount]); ?>
 
