@@ -1502,7 +1502,7 @@ embed, iframe, object, video {
 	}
 	/* Youneeq
 	------------------------------------------ */
-	#youneeq-wrap-end li {
+	#youneeq-wrap-end .yq-post {
 		width: 50%;
 	}
 
@@ -1873,6 +1873,7 @@ embed, iframe, object, video {
 	}
 	#youneeq-wrap-end .yq-post {
 		display: block;
+		width: auto;
 		max-width: 400px;
 		min-height: 300px;
 		margin: 0px auto;
