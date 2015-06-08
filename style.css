@@ -401,7 +401,7 @@ input, textarea, select {
 	display: inline-block;
 	float: right;
 	padding: 0.25em 0 0.25em 1em;
-	width: 300px;
+	max-width: 300px;
 }
 #youneeq-wrap-content > .yq-wrapper  {
 	width: 99%;
@@ -423,7 +423,7 @@ input, textarea, select {
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
-	max-width: 25%;
+	width: 25%;
 	min-height: 300px;
 	border: 0.25em solid transparent;
 }
@@ -1881,9 +1881,6 @@ embed, iframe, object, video {
 		max-width: 400px;
 		min-height: 300px;
 		margin: 0px auto;
-	}
-	#youneeq-wrap-end li {
-		width: 100%;
 	}
 	#gb-review-img {
 		background-size: auto 110%;		
