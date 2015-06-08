@@ -400,7 +400,7 @@ input, textarea, select {
 	box-sizing: padding-box;
 	display: inline-block;
 	float: right;
-	padding: 0.25em;
+	padding: 0.25em 0 0.25em 0.25em;
 	width: 300px;
 }
 #youneeq-wrap-content > .yq-wrapper  {
@@ -415,7 +415,7 @@ input, textarea, select {
 	background-color: #fff;
 }
 #youneeq-wrap-end > ul {
-	padding: 1em;	
+	padding: 0.5em;	
 }
 #youneeq-wrap-end .yq-post {
 	vertical-align: top;
@@ -1500,6 +1500,12 @@ embed, iframe, object, video {
 	#gb-wrapper .gb-post {
 		width: 50%;
 	}
+	/* Youneeq
+	------------------------------------------ */
+	#youneeq-wrap-end li {
+		width: 50%;
+	}
+
 }
 /* Smaller screens | <1120px */
 @media only screen and (max-width: 55em) {
@@ -1864,6 +1870,15 @@ embed, iframe, object, video {
 	}
 	.container {
 		padding: 0 0.5em;
+	}
+	#youneeq-wrap-end .yq-post {
+		display: block;
+		max-width: 400px;
+		min-height: 300px;
+		margin: 0px auto;
+	}
+	#youneeq-wrap-end li {
+		width: 100%;
 	}
 	#gb-review-img {
 		background-size: auto 110%;		
