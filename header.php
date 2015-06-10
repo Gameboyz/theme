@@ -79,43 +79,73 @@
 						);
 						?>
 					</nav>
-			
+
 				<?php endif; ?>
 			
 			</div>
 
 		</header>
-		
+
 		<div id="navigation-wrap">
-			
+
+
 			<div id="navigation" class="container clearfix">
 				<p id="mainnav-icon-tablet" class="mainnav-icon"></p><p id="mainnav-icon-phone" class="mainnav-icon"></p><p id="social-menu-icon"></p>
-			
-			<div style="float:right;margin-left:2em;">
+				<script>
+					function test(account) {
+						var allItems = $(account).children().first();
+						if(allItems.css('display') == 'none')
+							allItems.css('display') == 'inline');
+						else
+							allItems.css('display') == 'none');
+					}
+				</script>
+  			<div style="float:right;margin-left:2em;">
+            <?php
+		            if (is_user_logged_in()) {
+		            		global $current_user;
+										global $wc_core;
 
-			 <?php
-            if (!is_user_logged_in()) {
+		                $user_url = get_author_posts_url($current_user->ID);
+										//$avatar = um_user_profile_url() . um_profile('profile_photo');
+										$avatar = um_get_avatar_uri(get_avatar(um_user('ID')), 'original');
+		                ?>
+										<div id="account-menu-wrap" style="background-image:url(<?php echo $avatar ?>)" onclick="test(this);">
 
-			 				do_action( 'wordpress_social_login' );
+											<ul>
 
-			 			}
+												 <li><a id="username" href="http://localhost/user/<?php echo $current_user->user_login ?>"><?php echo $current_user->user_login ?></a></li>
 
-            if (is_user_logged_in()) {
-                global $current_user;
-                get_currentuserinfo();
-                $user_url = get_author_posts_url($current_user->ID);
-                ?>
-                <div id="wc_show_hide_loggedin_username">
-                    <span class="wc_show_hide_loggedin_username">
-                        <?php echo $wc_core->wc_options_serialized->wc_phrases['wc_logged_in_as'] . ' <a href="' . $user_url . '">' . $current_user->display_name . '</a> | <a href="' . wp_logout_url() . '">' . $wc_core->wc_options_serialized->wc_phrases['wc_log_out'] . 'Logout</a>'; ?>
-                    </span>
-                </div>
-                <?php
-            }
-        ?>
+												 <li><a id="account-link" href="http://localhost/account/<?php echo $current_user->user_login ?>">My Account</a></li>
+
+												 <li><?php
+												  	 	$logout = wp_loginout(add_query_arg( $wp->query_string, '', home_url( $wp->request ) ),false) ;
+	         										$logout = preg_replace('!>([^<]+)!is','>'.$wc_core->wc_options_serialized->wc_phrases['wc_log_out'], $logout);
+	              							echo '<a href="' . $user_url . '"></a>'. $logout;
+												 ?></li>
+
+											</ul> 
+										</div>
+
+
+										<?php
+
+									} else {
+		          	?>
+	                <div id="account-menu-wrap" style="background-image:url(http://www.dagameboyz.com/wp-content/uploads/2015/05/1cc.png)" onclick="test(this);">
+                  	<ul>
+
+			            		<li><a href="<?php echo esc_url( wp_login_url() ); ?>"><?php _e('Log in') ?></a></li>
+			            		<li><?php do_action( 'wordpress_social_login' ); ?></li>
+
+										</ul> 
+									</div>
+			            <?php
+
+								}
+	       		 			?>
+
       </div>
-
-
 				<?php // Display Social Icons in Navigation
 					if ( isset($theme_options['header_icons']) and $theme_options['header_icons'] == true ) : ?>
 
@@ -128,21 +158,21 @@
 				<nav id="mainnav" class="clearfix" role="navigation">
 					<?php // Display Main Navigation
 						wp_nav_menu( array(
-							'theme_location' => 'primary', 
+							'theme_location' => 'primary',
 							'container' => false, 
 							'menu_id' => 'mainnav-menu', 
-							'echo' => true, 
+							'echo' => true,
 							'fallback_cb' => 'momentous_default_menu')
-						);
+						);       
 					?>
 				</nav>
-				
+
 			</div>
-			
+
 		</div>
-	
+
 	</div>
 
-	<?php // Display Custom Header Image
+	<?php // Display Custom Header Image      
 		momentous_display_custom_header(); ?>
 		
