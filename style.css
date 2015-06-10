@@ -391,7 +391,11 @@ input, textarea, select {
 	display: none;
 	position: absolute;
 	bottom: -100px;
+	right: 0px;
 	text-decoration: none;
+	z-index: 2000;
+	background-color:#282828;
+	width:200px;
 }
 
 
