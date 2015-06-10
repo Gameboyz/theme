@@ -378,6 +378,27 @@ input, textarea, select {
 	text-decoration: none;
 }
 
+#account-menu-wrap {
+	float: right;
+	position: relative;
+	width: 60px;
+	height: 80px;
+	background-size: 100% auto;
+	border: 1px solid #ccc;
+}
+
+#account-menu-wrap > ul  {
+	display: none;
+	position: absolute;
+	bottom: -100px;
+	text-decoration: none;
+}
+
+
+
+/* User Menu
+-------------------------------------------------------------- */
+
 /* Widget Styling
 -------------------------------------------------------------- */
 

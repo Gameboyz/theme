@@ -64,7 +64,7 @@
 						<span class="genericon-search"></span>
 					</div>
 				<?php endif; ?>
-				
+
 				<?php // Display Top Navigation
 				if ( has_nav_menu( 'secondary' ) ) : ?>
 			
@@ -91,26 +91,17 @@
 
 			<div id="navigation" class="container clearfix">
 				<p id="mainnav-icon-tablet" class="mainnav-icon"></p><p id="mainnav-icon-phone" class="mainnav-icon"></p><p id="social-menu-icon"></p>
-				<script>
-					function test(account) {
-						var allItems = $(account).children().first();
-						if(allItems.css('display') == 'none')
-							allItems.css('display') == 'inline');
-						else
-							allItems.css('display') == 'none');
-					}
-				</script>
-  			<div style="float:right;margin-left:2em;">
+
             <?php
 		            if (is_user_logged_in()) {
 		            		global $current_user;
 										global $wc_core;
 
 		                $user_url = get_author_posts_url($current_user->ID);
-										//$avatar = um_user_profile_url() . um_profile('profile_photo');
 										$avatar = um_get_avatar_uri(get_avatar(um_user('ID')), 'original');
+
 		                ?>
-										<div id="account-menu-wrap" style="background-image:url(<?php echo $avatar ?>)" onclick="test(this);">
+										<div id="account-menu-wrap" style="background-image:url(<?php echo $avatar ?>)" onclick="gb_dropdown(this);">
 
 											<ul>
 
@@ -119,10 +110,11 @@
 												 <li><a id="account-link" href="http://localhost/account/<?php echo $current_user->user_login ?>">My Account</a></li>
 
 												 <li><?php
-												  	 	$logout = wp_loginout(add_query_arg( $wp->query_string, '', home_url( $wp->request ) ),false) ;
-	         										$logout = preg_replace('!>([^<]+)!is','>'.$wc_core->wc_options_serialized->wc_phrases['wc_log_out'], $logout);
-	              							echo '<a href="' . $user_url . '"></a>'. $logout;
-												 ?></li>
+													  	 	$logout = wp_loginout(add_query_arg( $wp->query_string, '', home_url( $wp->request ) ),false) ;
+		         										$logout = preg_replace('!>([^<]+)!is','>'.$wc_core->wc_options_serialized->wc_phrases['wc_log_out'], $logout);
+		              							echo '<a href="' . $user_url . '"></a>'. $logout;
+												 		 ?>
+												 </li>
 
 											</ul> 
 										</div>
@@ -132,10 +124,10 @@
 
 									} else {
 		          	?>
-	                <div id="account-menu-wrap" style="background-image:url(http://www.dagameboyz.com/wp-content/uploads/2015/05/1cc.png)" onclick="test(this);">
+	                <div id="account-menu-wrap" style="background-image:url(http://www.dagameboyz.com/wp-content/uploads/2015/05/1cc.png)" onclick="gb_dropdown(this);">
                   	<ul>
-
-			            		<li><a href="<?php echo esc_url( wp_login_url() ); ?>"><?php _e('Log in') ?></a></li>
+											<li><a href="<?php echo site_url('/wp-login.php?action=register'); ?>">Register</a></li>
+			            		<li><a href="<?php echo esc_url( wp_login_url() ); ?>">Log in</a></li>
 			            		<li><?php do_action( 'wordpress_social_login' ); ?></li>
 
 										</ul> 
@@ -145,7 +137,6 @@
 								}
 	       		 			?>
 
-      </div>
 				<?php // Display Social Icons in Navigation
 					if ( isset($theme_options['header_icons']) and $theme_options['header_icons'] == true ) : ?>
 
