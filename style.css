@@ -396,12 +396,26 @@ input, textarea, select {
 }
 /* Youneeq Styling
 -------------------------------------------------------------- */
+#youneeq-wrap-content {
+	box-sizing: padding-box;
+	display: inline-block;
+	float: right;
+	padding: 0.25em 0 0.25em 1em;
+	max-width: 300px;
+}
+#youneeq-wrap-content > .yq-wrapper  {
+	width: 99%;
+	margin: 0px auto;
+}
+#youneeq-container {
+	margin: 1em auto;
+}
 #youneeq-wrap-end {
-
+	padding: 1em 0.25em;
+	background-color: #fff;
 }
 #youneeq-wrap-end > ul {
-	padding: 1em;	
-	background: #fff;
+	padding: 0.5em;	
 }
 #youneeq-wrap-end .yq-post {
 	vertical-align: top;
@@ -411,10 +425,25 @@ input, textarea, select {
 	box-sizing: border-box;
 	width: 25%;
 	min-height: 300px;
-	border: 0.25em solid #fff;
+	border: 0.25em solid transparent;
+}
+.recommended-modal {
+	background-repeat: no-repeat;
+	border-bottom: 1px solid #282828 !important;
+	margin: 0 auto !important;
+	padding: 0px !important;
+	width: 98% !important;
 }
 .yq-article {
 	height: 100%;
+}
+.yq-article > * {
+	padding: 0.25em 0 !important;
+}
+.yq-article > .yq-title {
+	margin: 0 !important;
+	font-weight: normal !important;
+	line-height: 1.2em !important;
 }
 .yq-article > p {
 	min-height: 50px;
@@ -589,13 +618,14 @@ input, textarea, select {
 }
 /* Social Share Buttons */
 .apss-social-share {
-	margin: 1em 0;
+	margin-top: 1em;
 }
 .apss-share-text {
 	margin: 0;
 }
 .apss-theme-4 .apss-single-icon a {
 	margin: 8px 8px 0 0;
+	min-height: auto;
 }
 
 /* News
@@ -1753,6 +1783,11 @@ embed, iframe, object, video {
 
 /* Tablets (portrait) | <800px */
 @media only screen and (max-width: 50em) {
+	/* Youneeq */
+	#youneeq-wrap-end .yq-post {
+		width: 50%;
+	}
+	/* articles */
 	#gb-review-img {
 		height: 18em;
 	}
@@ -1765,6 +1800,7 @@ embed, iframe, object, video {
 	.gb-title {
 		font-size: 1.875em;
 	}
+	/* content */
 	.single .post-title, .page-title {
 		font-size: 1.7em;
 	}
@@ -1805,6 +1841,9 @@ embed, iframe, object, video {
 	#gb-wrapper .one-column-post {
 		margin-right: 0;
 	}
+	#youneeq-wrap-end .yq-post {
+		width: 50%;
+	}
 }
 /* Phablets (portrait) | <640px */
 @media only screen and (max-width: 40em) {
@@ -1835,6 +1874,13 @@ embed, iframe, object, video {
 	}
 	.container {
 		padding: 0 0.5em;
+	}
+	#youneeq-wrap-end .yq-post {
+		display: block;
+		width: auto;
+		max-width: 400px;
+		min-height: 300px;
+		margin: 0px auto;
 	}
 	#gb-review-img {
 		background-size: auto 110%;		

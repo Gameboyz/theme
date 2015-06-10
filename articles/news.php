@@ -8,6 +8,8 @@
 
 			<div class="entry clearfix">
 
+				<?php gb_get_youneeq(-1, 1, 'content'); ?>
+
 				<?php the_content(); ?>
 
 			</div>
@@ -15,7 +17,5 @@
 		</article>
 
 	</section>
-
-	<?php gb_get_youneeq(-1, 1, 'content'); ?>
 
 </div>
