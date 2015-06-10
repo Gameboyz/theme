@@ -385,7 +385,7 @@ input, textarea, select {
 	margin-left: 0.5em;
 	width: 45px;
 	height: 61px;
-	border: 1px solid #ccc;
+	border: 1px solid transparent;
 	box-sizing: border-box;
 	background-position: center;
 	background-size: 100% auto;

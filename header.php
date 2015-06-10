@@ -101,27 +101,24 @@
 					global $current_user;
 					global $wc_core;
 
-					$user_url = get_author_posts_url($current_user->ID);
-					$avatar = um_get_avatar_uri(get_avatar(um_user('ID')), 'original');
+					$avatarImgNode = simplexml_load_string(um_user('profile_photo'));
 
 					?>
-					<div id="account-menu-wrap" style="background-image:url(<?php echo $avatar ?>)" onclick="gb_dropdown(this);">
+					<div id="account-menu-wrap" style="background-image:url(<?php echo $avatarImgNode['src']; ?>)" onclick="gb_dropdown(this);">
 
 						<ul>
-
-							<?php $user_for_uri = $current_user->user_login ?>
 
 							<li id="username" >
 								
 								<div>You are logged in as: </div>
 
-								<a href="http://localhost/user/<?php echo $user_for_uri ?>"><?php echo $user_for_uri ?></a>
+								<a href="<?php echo site_url('/user/' . $current_user->user_login) ?>"><?php echo $current_user->user_login ?></a>
 
 							</li>
 
 							<li id="account">
 
-								<a id="account-link" href="http://localhost/account/<?php echo $user_for_uri ?>">My Account Settings</a>
+								<a href="<?php echo site_url('/account/' . $current_user->user_login) ?>">My Account Settings</a>
 
 							</li>
 
@@ -152,9 +149,9 @@
 							
 							<li id="register"><a href="<?php echo site_url('/wp-login.php?action=register'); ?>">Register</a></li>
 
-							<li id="login"><a href="<?php echo esc_url( wp_login_url() ); ?>">Login</a></li>
+							<li id="login"><a href="<?php echo esc_url(wp_login_url()); ?>">Login</a></li>
 
-							<li id="social-login-wrap"><?php do_action( 'wordpress_social_login' ); ?></li>
+							<li id="social-login-wrap"><?php do_action('wordpress_social_login'); ?></li>
 
 						</ul>
 
