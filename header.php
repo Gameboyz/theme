@@ -124,7 +124,7 @@
 
 							<li id="logout">
 
-								<a href="<?php echo wp_logout_url(get_permalink()); ?>">Logout</a>
+								<a href="<?php echo wp_logout_url('http://'.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI']); ?>">Logout</a>
 
 							</li>
 
