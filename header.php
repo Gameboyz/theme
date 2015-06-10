@@ -123,15 +123,9 @@
 							</li>
 
 							<li id="logout">
-							<?php
-								
-								$logout = wp_loginout(add_query_arg( $wp->query_string, '', home_url( $wp->request ) ),false) ;
-								
-								$logout = preg_replace('!>([^<]+)!is','>'.$wc_core->wc_options_serialized->wc_phrases['wc_log_out'], $logout);
-								
-								echo $logout;
-								
-								?>
+
+								<a href="<?php echo wp_logout_url(get_permalink()); ?>">Logout</a>
+
 							</li>
 
 						</ul> 
