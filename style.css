@@ -377,32 +377,58 @@ input, textarea, select {
 #mainnav-menu ul li.current_page_item ul li a, #mainnav-menu ul li.current-menu-item ul li a{
 	text-decoration: none;
 }
-
-#account-menu-wrap {
-	float: right;
-	position: relative;
-	width: 60px;
-	height: 80px;
-	background-size: 100% auto;
-	border: 1px solid #ccc;
-}
-
-#account-menu-wrap > ul  {
-	display: none;
-	position: absolute;
-	bottom: -100px;
-	right: 0px;
-	text-decoration: none;
-	z-index: 2000;
-	background-color:#282828;
-	width:200px;
-}
-
-
-
 /* User Menu
 -------------------------------------------------------------- */
-
+#account-menu-wrap {
+	position: relative;
+	float: right;
+	margin-left: 0.5em;
+	width: 45px;
+	height: 61px;
+	border: 1px solid #ccc;
+	box-sizing: border-box;
+	background-position: center;
+	background-size: 100% auto;
+	background-repeat: no-repeat;
+}
+#account-menu-wrap ul  {
+	display: none;
+	/* #account-menu-wrap as relative messes with the auto width of li nodes */
+	position: absolute;
+	top: 60px;
+	right: 0;
+	z-index: 2000;
+	background-color:#282828;
+	text-align: right;
+	font-size: 1em;
+	color: #fff;
+}
+#account-menu-wrap li {
+	padding: 1.5em 2em 0;
+	min-width: 200px;
+}
+#account-menu-wrap #username {
+	padding: 1em 2em 0;
+}
+#username > div {
+	display: inline;
+}
+#username > a {
+	margin-left: 0.3em;
+}
+#account-menu-wrap #account {
+	padding: 1.5em 2em;
+}
+#account-menu-wrap #logout {
+	padding: 1em 2em;
+	background-color: #444;
+}
+#logout a {
+	color: #fff;
+}
+#social-login-wrap .wp-social-login-connect-with {
+	text-align: left;
+}
 /* Widget Styling
 -------------------------------------------------------------- */
 

@@ -17,6 +17,7 @@ function momentous_enqueue_scripts() {
 	// Register and enqueue navigation.js
 	wp_enqueue_script('momentous-lite-jquery-navigation', get_template_directory_uri() .'/js/navigation.js', array('jquery'));
 	
+	// User Menu UI
 	wp_enqueue_script('gb-user-menu', get_template_directory_uri() .'/js/usermenu.js', array('jquery'));
 	
 	// Get Theme Options from Database
