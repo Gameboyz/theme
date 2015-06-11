@@ -413,7 +413,7 @@ input, textarea, select {
 #username > div {
 	display: inline;
 }
-#username > a {
+#username > a, #register > a {
 	margin-left: 0.3em;
 }
 #account-menu-wrap #account {
