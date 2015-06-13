@@ -448,7 +448,7 @@ function gb_article_info_box($currentPost)
 				required />
 				
 				<label for="release-date">Release Date:</label>
-				<input id="release-date" class="form-input-tip one-liner" type="text" name="release_date" 
+				<input id="release-date" class="form-input-tip one-liner" type="text" name="release_date" autocomplete="off" 
 				value="<?php if(isset($articleMeta['release_date'])) echo $articleMeta['release_date'] ?>"
 				<?php if($articleMeta['article_type'] == 'news') echo 'disabled=""' ?>
 				required />
@@ -490,8 +490,26 @@ function gb_article_info_box($currentPost)
 
 			<section id="gb-review-bottomline">
 
+				<?php
+				/**
+				 * This comment is for the score system regex
+				 * 
+				 * (5{1})
+				 * I found this to be the easy way of not allowing 5.5 with the second part of the regex
+				 * 
+				 * ([0-4](\.{1}(5){1})?)
+				 * This allows for a half step for the score. Eg 4.5, 3.5, 0.5, etc.
+				 * 
+				 * (\.{1}(5){1})?
+				 * This allows for none or one occurrence if there's a .5 after a digit between 0-4
+				 * 
+				 */
+				?>
+
 				<label for="score">Score:</label>
-				<input id="score" class="form-input-tip" type="text" name="score" pattern="[0-5]" placeholder="Number from 1 to 5"
+				<input id="score" title="A number from 0 to 5, half step ex: 3.5" class="form-input-tip" type="text" name="score" 
+				pattern="^(?:(5{1})|^([0-4](\.{1}(5){1})?))" 
+				placeholder="A number from 0 to 5, half step ex: 3.5" maxlength="3" 
 				value="<?php if(isset($articleMeta['score'])) echo $articleMeta['score']; ?>" 
 				<?php if($articleMeta['article_type'] == 'news') echo ' disabled=""' ?>
 				required />
