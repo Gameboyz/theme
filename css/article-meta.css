@@ -1,0 +1,90 @@
+#gb-review-bottomline {
+	display: inline-block;
+	width: 98%;
+}
+fieldset {
+	padding: 1em 0.5em;
+}
+fieldset * {
+	margin-left: 1em;
+}
+legend {
+	margin-top: 1em;
+	margin-left: -0.5em;
+}
+#game-info .one-liner {
+	width: 95%;
+}
+#article-type label {
+	margin-left: -0.25em;
+}
+#platforms {
+	display: inline-block;
+}
+#platforms div {
+	width: 80px;
+	float: left;
+}
+#review, #news {
+	margin-left: 1em;
+}
+#ui-datepicker-div {
+	border: 1px solid #ccc;
+	padding: 8px;
+	width: 200px;
+	background-color: #fff;
+	box-shadow: 4px 6px 12px #444;
+}
+.ui-datepicker-header {
+	font-size: 14px;
+}
+.ui-datepicker-prev, .ui-datepicker-next {
+	margin: 0 8px 0 0; 
+}
+.ui-datepicker-title {
+	margin-top: 4px;
+	padding: 4px 10px;
+	color: #fff;
+	background-color: #3BA1DA;
+	font-weight: bold;
+}
+.ui-datepicker-calendar{
+	border: 1px solid #ccc;
+	width: 100%;
+}
+.ui-datepicker-calendar tr:nth-child(even) {
+	background-color: #eef;
+}
+#gb-review-bottomline span{
+	display: inline-block;
+	float: left;
+	margin-top: 12px;
+	width: 50%;
+}
+#pros-wrap, #cons-wrap {
+	display: inline-block;
+	float: left;
+	margin-top: 4px;
+	margin: 4px 4px 0 4px;
+	width: 48%;
+}
+#pros-wrap div, #cons-wrap div {
+	display: inline-block;
+	padding-top: 0.5em;
+	width: 100%;
+}
+#pros-wrap > div input, #cons-wrap > div input {
+	float: left;
+	width: 88%;
+}
+#pros-wrap > div button, #cons-wrap > div button {
+	float: right;
+	margin-top: 2px;
+	width: 9%;
+}
+#score {
+	display: block;
+}
+.add {
+	width: 100%;
+}

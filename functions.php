@@ -286,6 +286,9 @@ function momentous_list_comments($comment, $args, $depth) {
 }
 endif;
 
+/* Posting Articles Meta Box | Wordpress Post Interface
+*******************************************************************************************/
+
 /**
  * Get post meta info
  * 
@@ -305,9 +308,27 @@ endif;
 
 add_action("the_post", "gb_article_meta");
 
+/**
+ * 
+ * 
+ * 
+ */
+if ( !function_exists('article_meta_style_scripts') ) :
+function article_meta_style_scripts($hook)
+{
+	if ( !(in_array($hook, ['post-new.php','post.php'])) ) {
+	    return;
+	}
 
-/* Posting Articles Meta Box | Wordpress Post Interface
-*******************************************************************************************/
+	wp_enqueue_style( 'article-meta-ui-style', get_template_directory_uri() . '/css/article-meta.css');
+
+	wp_enqueue_script('article-meta-ui', get_template_directory_uri() . '/js/article-meta.js');
+
+	wp_enqueue_script('jquery-ui', 'http://code.jquery.com/ui/1.11.4/jquery-ui.min.js');
+}
+endif;
+
+add_action('admin_enqueue_scripts', 'article_meta_style_scripts');
 
 /**
  * Gameboyz Article Meta Info
@@ -393,93 +414,6 @@ function gb_article_info_box($currentPost)
 
 	?>
 
-	<style>
-	#gb-review-bottomline {
-		display: inline-block;
-		width: 98%;
-	}
-	fieldset {
-		padding: 1em 0.5em;
-	}
-	fieldset * {
-		margin-left: 1em;
-	}
-	legend {
-		margin-top: 1em;
-		margin-left: -0.5em;
-	}
-	#game-info .one-liner {
-		width: 95%;
-	}
-	#article-type label {
-		margin-left: -0.25em;
-	}
-	#platforms {
-		display: inline-block;
-	}
-	#platforms div {
-		width: 80px;
-		float: left;
-	}
-	#review, #news {
-		margin-left: 1em;
-	}
-	#gb-review-bottomline span{
-		display: inline-block;
-		float: left;
-		margin-top: 12px;
-		width: 50%;
-	}
-	#pros-wrap, #cons-wrap {
-		display: inline-block;
-		float: left;
-		margin-top: 4px;
-		margin: 4px 4px 0 4px;
-		width: 48%;
-	}
-	#pros-wrap div, #cons-wrap div {
-		display: inline-block;
-		padding-top: 0.5em;
-		width: 100%;
-	}
-	#pros-wrap > div input, #cons-wrap > div input {
-		float: left;
-		width: 88%;
-	}
-	#pros-wrap > div button, #cons-wrap > div button {
-		float: right;
-		margin-top: 2px;
-		width: 9%;
-	}
-	#score {
-		display: block;
-	}
-	.add {
-		width: 100%;
-	}
-	</style>
-
-	<script>
-	function articleChooser(state) {
-		jQuery("#article-meta-wrap :input").prop( { disabled: !state } );
-		var articleWrap = jQuery("#article-meta-wrap");
-		if (state) 
-			articleWrap.css( { "visibility": "visible", "height": "" } );
-		else
-			articleWrap.css( { "visibility": "hidden", "height": "0" } );
-	}
-
-	function addTraitBox(button, type) {
-		if (button.parentNode.childElementCount <= 5) {
-			var inputDiv = '<div><input class="form-input-tip" type="text" /><button type="button" class="button" onclick="removeTraitBox(this);"><b>-</b></button></div>';
-			jQuery(button).parent().append(inputDiv).children().last().children().first().attr("name", type + "[]");
-		}
-	}
-	function removeTraitBox(button) {
-		jQuery(button).parent().remove();
-	}
-	</script>
-
 	<section id="article-chooser" >
 
 		<fieldset id="article-type">
@@ -512,12 +446,12 @@ function gb_article_info_box($currentPost)
 				value="<?php if (isset($articleMeta['publisher'])) echo $articleMeta['publisher'] ?>" 
 				<?php if($articleMeta['article_type'] == 'news') echo 'disabled=""' ?>
 				required />
-
+				
 				<label for="release-date">Release Date:</label>
-				<input id="release-date" class="form-input-tip one-liner" type="text" name="release_date" pattern="" 
-				value="<?php if (isset($articleMeta['release_date'])) echo $articleMeta['release_date'] ?>" 
+				<input id="release-date" class="form-input-tip one-liner" type="text" name="release_date" autocomplete="off" 
+				value="<?php if(isset($articleMeta['release_date'])) echo $articleMeta['release_date'] ?>"
 				<?php if($articleMeta['article_type'] == 'news') echo 'disabled=""' ?>
-				/>
+				required />
 
 				<fieldset id="platforms">
 					<legend>Platforms:</legend>
@@ -556,8 +490,26 @@ function gb_article_info_box($currentPost)
 
 			<section id="gb-review-bottomline">
 
+				<?php
+				/**
+				 * This comment is for the score system regex
+				 * 
+				 * (5{1})
+				 * I found this to be the easy way of not allowing 5.5 with the second part of the regex
+				 * 
+				 * ([0-4](\.{1}(5){1})?)
+				 * This allows for a half step for the score. Eg 4.5, 3.5, 0.5, etc.
+				 * 
+				 * (\.{1}(5){1})?
+				 * This allows for none or one occurrence if there's a .5 after a digit between 0-4
+				 * 
+				 */
+				?>
+
 				<label for="score">Score:</label>
-				<input id="score" class="form-input-tip" type="text" name="score" pattern="[0-5]" placeholder="Number from 1 to 5"
+				<input id="score" title="A number from 0 to 5, half step ex: 3.5" class="form-input-tip" type="text" name="score" 
+				pattern="^(?:(5{1})|^([0-4](\.{1}(5){1})?))" 
+				placeholder="A number from 0 to 5, half step ex: 3.5" maxlength="3" 
 				value="<?php if(isset($articleMeta['score'])) echo $articleMeta['score']; ?>" 
 				<?php if($articleMeta['article_type'] == 'news') echo ' disabled=""' ?>
 				required />
