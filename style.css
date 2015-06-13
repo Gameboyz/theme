@@ -1318,13 +1318,18 @@ embed, iframe, object, video {
 #wpcomm .wc-comment { margin-bottom: 0; }
 #wpcomm .wc-field-comment .wc-field-textarea { margin-left: 70px; }
 #wc-comment-header { padding: 0 0.6em; font-size: 1.6em; }
-#wc_show_hide_loggedin_username { margin: 1em 1.2em; border-bottom: 1px solid #C8C8C8; padding: 0 0 1em 0; }
-#wpcomm .wc-comment-title { margin: 0; border: 0 none; padding: 0 1.2em 0.5em; }
+#wc_show_hide_loggedin_username { margin: 1em 1.2em 0; border-bottom: 1px solid #C8C8C8; padding: 0 0 1em 0; }
+#wpcomm .wc-comment-title { margin: 0; border: 0 none; padding: 1.2em; }
 #wpcomm .wc-field-submit { padding: 0 }
 #wpcomm .wc-form-wrapper { margin: 0.5em 1em; padding: 1em; }
 #wpcomm .wc-comment .wc-comment-left { width: auto; }
 .wc_comment_level-1 { padding: 1em; }
 #wpcomm hr { display: none; }
+@media only screen and (max-width: 30em) {
+#wpcomm .wc-comment-author { float:none; }
+#wpcomm .wc-comment-date { float:left;}
+}
+#wpcomm .wp-social-login-widget { padding: 0 1em 1em; }
 *
 ------------------------------ */
 
