@@ -29,6 +29,7 @@ legend {
 	margin-left: 1em;
 }
 #ui-datepicker-div {
+	display: none;
 	border: 1px solid #ccc;
 	padding: 8px;
 	width: 200px;
