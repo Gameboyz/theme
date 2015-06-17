@@ -1128,11 +1128,14 @@ embed, iframe, object, video {
 	margin: 1em 0 2em;
 	color: #333;
 }
+
 #image-nav .nav-previous {
-	float: left;
+	position:absolute;
+	left:30%;
 }
 #image-nav .nav-next {
-	float: right;
+	position:absolute;
+	right: 30%;
 }
 #image-nav .nav-previous a, #image-nav .nav-next a {
 	font-size: 0.9em;
@@ -1140,11 +1143,11 @@ embed, iframe, object, video {
 	text-decoration: none;
 	padding: 0.6em 1em;
 	text-decoration: none;
-	color: #222;
-	background: #eee;
+	color: #fff;
+	background: #282828;
 }
 #image-nav .nav-previous a:hover, #image-nav .nav-next a:hover {
-	background: #ddd;
+	text-decoration:underline;
 }
 
 
