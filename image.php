@@ -1,21 +1,15 @@
 <?php get_header(); ?>
 
-	<div id="wrap" class="container clearfix">
+	<div id="gb-wrapper" class="container clearfix">
 		
 		<section id="content" class="primary" role="main">
-		
-		<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-		
-			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-			
-				<h2 class="post-title"><?php the_title(); ?></h2>
-				
-				<div class="postmeta"><?php momentous_display_postmeta(); ?></div>
 
-				<div class="entry clearfix"><br/>
+		<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+
+				<div class="entry clearfix" style="text-align:center;"><br/>
 					<a href="<?php echo wp_get_attachment_url($post->ID); ?>"><?php echo wp_get_attachment_image( $post->ID, 'full' ); ?></a>
 					
-					<div id="image-nav" class="clearfix">
+					<div id="image-nav" class="clearfix" >
 						<span class="nav-previous"><?php previous_image_link( false, __( 'Previous' , 'momentous-lite') ); ?></span>
 						<span class="nav-next"><?php next_image_link( false, __( 'Next' , 'momentous-lite') ); ?></span>
 					</div>
@@ -29,19 +23,15 @@
 				</div>
 				
 			</article>
-			
+
 		<?php
 
 			endwhile;
 		
 		endif; ?>
-		
-		
-			
-		<?php comments_template(); ?>
-		
+
 		</section>
-		
+
 
 	</div>
 	
