@@ -509,7 +509,7 @@ function gb_article_info_box($currentPost)
 				<label for="score">Score:</label>
 				<input id="score" title="A number from 0 to 5, half step ex: 3.5" class="form-input-tip" type="text" name="score" 
 				pattern="^(?:(5{1})|^([0-4](\.{1}(5){1})?))" 
-				placeholder="A number from 0 to 5, half step ex: 3.5" maxlength="3" 
+				placeholder="Hover for description" maxlength="3" 
 				value="<?php if(isset($articleMeta['score'])) echo $articleMeta['score']; ?>" 
 				<?php if($articleMeta['article_type'] == 'news') echo ' disabled=""' ?>
 				required />
