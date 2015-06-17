@@ -309,8 +309,9 @@ endif;
 add_action("the_post", "gb_article_meta");
 
 /**
+ * Add the need style and scripts for article_info_box
  * 
- * 
+ * adds article-meta stylesheet, article-meta ui control script and minified jquery v1.11.4 into the admin panel for posts
  * 
  */
 if ( !function_exists('article_meta_style_scripts') ) :

@@ -100,64 +100,66 @@
 				 * UM and WP don't share the same avatars for users
 				 *
 				---------------------------------------------------------------------------------- */
+				if ( is_plugin_active('ultimate-member/index.php') ) {
+				
+					if ( is_user_logged_in() ) {
 
-				if ( is_user_logged_in() && is_plugin_active('ultimate-member/index.php') ) {
+						global $current_user;
+						global $wc_core;
 
-					global $current_user;
-					global $wc_core;
+						// not the most ideal way of getting the url for a user's avatar pic, but it's quick n' dirty
+						$avatarImgNode = simplexml_load_string(um_user('profile_photo'));
 
-					// not the most ideal way of getting the url for a user's avatar pic, but it quick an dirty
-					$avatarImgNode = simplexml_load_string(um_user('profile_photo'));
+						?>
+						<div id="account-menu-wrap" style="background-image:url(<?php echo $avatarImgNode->attributes()->src; ?>)" onclick="gb_dropdown(this);">
 
-					?>
-					<div id="account-menu-wrap" style="background-image:url(<?php echo $avatarImgNode->attributes()->src; ?>)" onclick="gb_dropdown(this);">
+							<ul>
 
-						<ul>
+								<li id="username" >
+									
+									<div>You are logged in as: </div>
 
-							<li id="username" >
+									<a href="<?php echo site_url('/user/' . $current_user->user_login) ?>"><?php echo $current_user->user_login ?></a>
+
+								</li>
+
+								<li id="account">
+
+									<a href="<?php echo site_url('/account/' . $current_user->user_login) ?>">My Account Settings</a>
+
+								</li>
+
+								<li id="logout">
+
+									<a href="<?php echo wp_logout_url('http://'.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI']); ?>">Logout</a>
+
+								</li>
+
+							</ul> 
+
+						</div>
+
+						<?php
+
+					} else {					
+						?>
+
+						<div id="account-menu-wrap" style="background-image:url(<?php echo um_get_default_avatar_uri() ?>)" onclick="gb_dropdown(this);">
+
+							<ul>
 								
-								<div>You are logged in as: </div>
+								<li id="register">Not a member yet?<a href="<?php echo site_url('/wp-login.php?action=register'); ?>">Register</a></li>
 
-								<a href="<?php echo site_url('/user/' . $current_user->user_login) ?>"><?php echo $current_user->user_login ?></a>
+								<li id="login"><a href="<?php echo esc_url(wp_login_url()); ?>">Login</a></li>
 
-							</li>
+								<li id="social-login-wrap"><?php do_action('wordpress_social_login'); ?></li>
 
-							<li id="account">
+							</ul>
 
-								<a href="<?php echo site_url('/account/' . $current_user->user_login) ?>">My Account Settings</a>
+						</div>
 
-							</li>
-
-							<li id="logout">
-
-								<a href="<?php echo wp_logout_url('http://'.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI']); ?>">Logout</a>
-
-							</li>
-
-						</ul> 
-
-					</div>
-
-					<?php
-
-				} else {					
-					?>
-
-					<div id="account-menu-wrap" style="background-image:url(<?php echo um_get_default_avatar_uri() ?>)" onclick="gb_dropdown(this);">
-
-						<ul>
-							
-							<li id="register">Not a member yet?<a href="<?php echo site_url('/wp-login.php?action=register'); ?>">Register</a></li>
-
-							<li id="login"><a href="<?php echo esc_url(wp_login_url()); ?>">Login</a></li>
-
-							<li id="social-login-wrap"><?php do_action('wordpress_social_login'); ?></li>
-
-						</ul>
-
-					</div>
-
-					<?php
+						<?php
+					}
 				}
 
 				?>
