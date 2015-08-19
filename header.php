@@ -16,6 +16,7 @@
 	$theme_options = momentous_theme_options();
 ?>
 
+<!--
 <a href="https://github.com/Gameboyz/theme/issues">
 
 	<div id="gb-issues-wrap">
@@ -25,6 +26,7 @@
 	</div>
 
 </a>
+-->
 
 <div id="wrapper" class="hfeed">
 
